@@ -5,7 +5,7 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-public class CitizenCall : MonoBehaviour
+public class CitizenCall_ : MonoBehaviour
 {
     public string asset_id;
     public ImageLoader nft_img;
