@@ -18,7 +18,7 @@ public class ImageAnimation : MonoBehaviour {
     }
 
 	void Awake() {
-        // Application.targetFrameRate = 30;
+        Application.targetFrameRate = 60;
 		image = GetComponent<Image> ();
 	}
 

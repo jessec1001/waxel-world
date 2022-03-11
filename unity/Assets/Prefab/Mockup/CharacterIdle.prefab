@@ -95,6 +95,6 @@ MonoBehaviour:
   - {fileID: -2958071358113130210, guid: 020c26acbd58e3a45a77e2fd41053722, type: 3}
   - {fileID: -7645696821730255608, guid: 020c26acbd58e3a45a77e2fd41053722, type: 3}
   - {fileID: -8600166722714223304, guid: 020c26acbd58e3a45a77e2fd41053722, type: 3}
-  spritePerFrame: 40
+  spritePerFrame: 6
   loop: 1
   destroyOnEnd: 0

@@ -143,11 +143,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
-      propertyPath: spritePerFrame
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: -5292736173321030901, guid: 0a4f5936602457343b839cce8b796986,
@@ -1882,11 +1877,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
-      propertyPath: spritePerFrame
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
@@ -6144,11 +6134,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
-      propertyPath: spritePerFrame
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: -2883009675855030730, guid: f2802489c2478e3468e87e0cca204102,
@@ -7605,11 +7590,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
-      propertyPath: spritePerFrame
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
@@ -13569,11 +13549,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
-      propertyPath: spritePerFrame
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: -1264210178421489394, guid: 4a98de81ce044ab429b0ccace17cfecd,
@@ -13974,11 +13949,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
-      propertyPath: spritePerFrame
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
@@ -15523,11 +15493,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
-      propertyPath: spritePerFrame
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: -4642860593627340822, guid: 8a800b42ee057e5478ce07e6f51d9d08,
@@ -15857,11 +15822,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
-      propertyPath: spritePerFrame
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
@@ -19984,11 +19944,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
-      propertyPath: spritePerFrame
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: -3492035384408227270, guid: 4a98de81ce044ab429b0ccace17cfecd,
@@ -20370,11 +20325,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
-      propertyPath: spritePerFrame
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: -2725937531940855447, guid: 020c26acbd58e3a45a77e2fd41053722,
@@ -20753,11 +20703,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
-      propertyPath: spritePerFrame
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
@@ -22508,11 +22453,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
-      propertyPath: spritePerFrame
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: -441378617782989526, guid: dcd0fefe11887474f8e2585e3c810d25,
@@ -23938,7 +23878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2002827320
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25988,11 +25928,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
-        type: 3}
-      propertyPath: spritePerFrame
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5716434808598260163, guid: 2aa498cc8070b9848b2edbc7b4ce4796,
         type: 3}
