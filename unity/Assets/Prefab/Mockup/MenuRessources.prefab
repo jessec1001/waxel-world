@@ -156,14 +156,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6461384012636689673}
         m_TargetAssemblyTypeName: GameObjectHandler, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 2
+        m_MethodName: OpenScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: TownHallScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &6461384012636689673
@@ -445,14 +445,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4643052544882729837}
         m_TargetAssemblyTypeName: GameObjectHandler, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 2
+        m_MethodName: OpenScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SchoolScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6461384012882441748
@@ -587,14 +587,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6359309800731085680}
         m_TargetAssemblyTypeName: GameObjectHandler, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 2
+        m_MethodName: OpenScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: WarehouseScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6461384013631083298
@@ -864,14 +864,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 221241045985117140}
         m_TargetAssemblyTypeName: GameObjectHandler, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 2
+        m_MethodName: OpenScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: CampScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6461384013664954868
