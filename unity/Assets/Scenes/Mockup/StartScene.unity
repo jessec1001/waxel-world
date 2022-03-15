@@ -717,7 +717,7 @@ PrefabInstance:
     - target: {fileID: 2800835395384543160, guid: 082fc3782ecc9be4c8e6628cecad1fae,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 2800835395384543160, guid: 082fc3782ecc9be4c8e6628cecad1fae,
         type: 3}

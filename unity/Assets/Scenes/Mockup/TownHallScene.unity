@@ -483,7 +483,7 @@ PrefabInstance:
     - target: {fileID: 4398997777976870032, guid: 0b1bd8ea092d6a441a7bbf674f4cdcf4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 4398997777976870032, guid: 0b1bd8ea092d6a441a7bbf674f4cdcf4,
         type: 3}
@@ -1537,7 +1537,7 @@ PrefabInstance:
     - target: {fileID: 4398997777976870032, guid: 0b1bd8ea092d6a441a7bbf674f4cdcf4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 4398997777976870032, guid: 0b1bd8ea092d6a441a7bbf674f4cdcf4,
         type: 3}
@@ -2246,7 +2246,7 @@ PrefabInstance:
     - target: {fileID: 2534313594517539515, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 2534313594517539515, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
@@ -2551,7 +2551,7 @@ PrefabInstance:
     - target: {fileID: 4398997777976870032, guid: 0b1bd8ea092d6a441a7bbf674f4cdcf4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 4398997777976870032, guid: 0b1bd8ea092d6a441a7bbf674f4cdcf4,
         type: 3}
@@ -4130,7 +4130,7 @@ PrefabInstance:
     - target: {fileID: 3362744091486278494, guid: 06133d4c19f35c64dad070d2f87c4109,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 3362744091486278494, guid: 06133d4c19f35c64dad070d2f87c4109,
         type: 3}
@@ -5265,7 +5265,7 @@ PrefabInstance:
     - target: {fileID: 4398997777976870032, guid: 0b1bd8ea092d6a441a7bbf674f4cdcf4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 4398997777976870032, guid: 0b1bd8ea092d6a441a7bbf674f4cdcf4,
         type: 3}
@@ -6233,7 +6233,7 @@ PrefabInstance:
     - target: {fileID: 1287609808421980653, guid: 89de7f71ec2ee6f4199303f14747de27,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 1287609808421980653, guid: 89de7f71ec2ee6f4199303f14747de27,
         type: 3}
@@ -6613,7 +6613,7 @@ PrefabInstance:
     - target: {fileID: 3122482142777279793, guid: 89de7f71ec2ee6f4199303f14747de27,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 3122482142777279793, guid: 89de7f71ec2ee6f4199303f14747de27,
         type: 3}
@@ -7648,7 +7648,7 @@ PrefabInstance:
     - target: {fileID: 8698728333217510958, guid: 89de7f71ec2ee6f4199303f14747de27,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 8698728333217510958, guid: 89de7f71ec2ee6f4199303f14747de27,
         type: 3}
@@ -8433,7 +8433,7 @@ PrefabInstance:
     - target: {fileID: 3561005333417641723, guid: 7c929245a61b6674c88d169b593f8326,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 3561005333417641723, guid: 7c929245a61b6674c88d169b593f8326,
         type: 3}
@@ -9942,7 +9942,7 @@ PrefabInstance:
     - target: {fileID: 4398997777976870032, guid: 0b1bd8ea092d6a441a7bbf674f4cdcf4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenePanel
+      value: OpenPanel
       objectReference: {fileID: 0}
     - target: {fileID: 4398997777976870032, guid: 0b1bd8ea092d6a441a7bbf674f4cdcf4,
         type: 3}

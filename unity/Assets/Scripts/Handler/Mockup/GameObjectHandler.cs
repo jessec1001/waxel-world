@@ -34,7 +34,7 @@ public class GameObjectHandler : MonoBehaviour
         }
     }
 
-    public static void OpenePanel(GameObject panel)
+    public static void OpenPanel(GameObject panel)
     {
         if(panel != null)
         {
