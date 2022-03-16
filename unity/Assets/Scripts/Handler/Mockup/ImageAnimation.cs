@@ -13,10 +13,6 @@ public class ImageAnimation : MonoBehaviour {
 	private Image image;
 	private int frame = 0;
 
-    void Start() {
-        
-    }
-
 	void Awake() {
         Application.targetFrameRate = 60;
 		image = GetComponent<Image> ();

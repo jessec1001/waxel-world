@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 19
+  m_text: 13
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0598c62c7d2d71479607a9c8bc1a045, type: 2}
   m_sharedMaterial: {fileID: -2561713138271951689, guid: b0598c62c7d2d71479607a9c8bc1a045,
@@ -429,7 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7544442023951896580}
   m_Layer: 5
-  m_Name: MenuRessources
+  m_Name: MenuResources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1021,7 +1021,7 @@ GameObject:
   - component: {fileID: 7611389453832544762}
   - component: {fileID: 2073970247784709712}
   m_Layer: 5
-  m_Name: Ressources
+  m_Name: Resources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
