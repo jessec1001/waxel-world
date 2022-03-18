@@ -828,7 +828,6 @@ MonoBehaviour:
   - SchoolScene
   - WorkshopScene
   - WarehouseScene
-  - WarehouseScene
   instanceName: 
 --- !u!1001 &1886254862322700676
 PrefabInstance:

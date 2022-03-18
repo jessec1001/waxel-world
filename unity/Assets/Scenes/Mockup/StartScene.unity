@@ -2310,6 +2310,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioStartScene
       objectReference: {fileID: 0}
+    - target: {fileID: 5427363755965776620, guid: cffd952fa7914b54baa195dd4066bd1d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5427363756125785830, guid: cffd952fa7914b54baa195dd4066bd1d,
         type: 3}
       propertyPath: m_audioClip
