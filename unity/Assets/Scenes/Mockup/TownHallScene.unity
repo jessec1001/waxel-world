@@ -6669,6 +6669,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 949857483603643098, guid: 89de7f71ec2ee6f4199303f14747de27,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 974701957298368541, guid: 89de7f71ec2ee6f4199303f14747de27,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -7369,6 +7374,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3136320055582916961, guid: 89de7f71ec2ee6f4199303f14747de27,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3337441802052945983, guid: 89de7f71ec2ee6f4199303f14747de27,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -7599,6 +7609,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3800743130658561227, guid: 89de7f71ec2ee6f4199303f14747de27,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3845772397425985495, guid: 89de7f71ec2ee6f4199303f14747de27,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -7683,6 +7698,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120725286031649778, guid: 89de7f71ec2ee6f4199303f14747de27,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4143923777924287354, guid: 89de7f71ec2ee6f4199303f14747de27,
         type: 3}
@@ -8773,6 +8793,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936416601598679106, guid: 89de7f71ec2ee6f4199303f14747de27,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8071530459943237535, guid: 89de7f71ec2ee6f4199303f14747de27,
         type: 3}
