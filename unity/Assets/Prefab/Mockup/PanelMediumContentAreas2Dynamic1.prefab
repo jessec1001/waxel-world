@@ -155,6 +155,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4515406333565179342, guid: e787b1c876bf0b442803d120877bb73a,
+        type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515406333565179342, guid: e787b1c876bf0b442803d120877bb73a,
+        type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4693849228057685249, guid: e787b1c876bf0b442803d120877bb73a,
         type: 3}
       propertyPath: m_Pivot.x
