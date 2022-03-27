@@ -2445,6 +2445,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Blend Citizens to a Profession
       objectReference: {fileID: 0}
+    - target: {fileID: 3434272936262815465, guid: 6cfe7a42342616e45b2b2d8ea640430d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -102.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434272936262815465, guid: 6cfe7a42342616e45b2b2d8ea640430d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3434272936262815471, guid: 6cfe7a42342616e45b2b2d8ea640430d,
         type: 3}
       propertyPath: m_text
