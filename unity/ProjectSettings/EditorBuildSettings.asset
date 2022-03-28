@@ -47,9 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mockup/CampScene.unity
     guid: 64e78835e1cbe6a4b83cd0cc44263f3d
-  - enabled: 1
-    path: Assets/Scenes/Mockup/SchoolScene.unity
-    guid: 2afc2fa02bdcbcc4a8c22fdb31e8c498
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Mockup/WorkshopScene.unity
     guid: 2a0d2c151892b584a813c439fe25a069
@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mockup/_TestScene.unity
     guid: 42195ca9749e0404185a27d27f553547
+  - enabled: 1
+    path: Assets/Scenes/Mockup/SchoolScene.unity
+    guid: 084d50c340cf6be47a4a7899c8522e27
   m_configObjects: {}
