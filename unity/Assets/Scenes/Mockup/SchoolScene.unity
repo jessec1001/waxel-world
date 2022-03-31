@@ -913,7 +913,7 @@ PrefabInstance:
     - target: {fileID: 3159034185876772992, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
       propertyPath: m_text
-      value: 'Birch wood
+      value: 'Birch Wood
 
         1x'
       objectReference: {fileID: 0}
@@ -951,7 +951,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e7a987c0fd38511489752d63bd64d9bb,
+      objectReference: {fileID: 21300000, guid: 4011c7323b977854e8281c39f2e257d7,
         type: 3}
     - target: {fileID: 6439522830744655031, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
@@ -1149,7 +1149,7 @@ PrefabInstance:
     - target: {fileID: 3159034185876772992, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
       propertyPath: m_text
-      value: 'Copper bar
+      value: 'Tin Bar
 
         1x'
       objectReference: {fileID: 0}
@@ -1814,7 +1814,7 @@ PrefabInstance:
     - target: {fileID: 6887329398702292399, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6887329398702292399, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
@@ -1960,7 +1960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The refinment process will take 4 hours
+  m_text: The refinment process will take 1 hour
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0598c62c7d2d71479607a9c8bc1a045, type: 2}
   m_sharedMaterial: {fileID: -2561713138271951689, guid: b0598c62c7d2d71479607a9c8bc1a045,
@@ -3000,7 +3000,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The refinment process will take 2 hours
+  m_text: The refinment process will take 1 hour
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0598c62c7d2d71479607a9c8bc1a045, type: 2}
   m_sharedMaterial: {fileID: -2561713138271951689, guid: b0598c62c7d2d71479607a9c8bc1a045,
@@ -3745,9 +3745,9 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: 'You successfully refined 3x copper ore into
+      value: 'You successfully refined 3x "Copper Ore" into
 
-        1x copper bar.'
+        1x "Copper Bar".'
       objectReference: {fileID: 0}
     - target: {fileID: 7404491398828757803, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -4127,7 +4127,7 @@ PrefabInstance:
     - target: {fileID: 6887329398702292399, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6887329398702292399, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
@@ -4781,7 +4781,7 @@ PrefabInstance:
     - target: {fileID: 3159034185876772992, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
       propertyPath: m_text
-      value: 'Copper bar
+      value: 'Copper Bar
 
         1x'
       objectReference: {fileID: 0}
@@ -5868,7 +5868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The refinment process will take 6 hours
+  m_text: The refinment process will take 1 hour
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0598c62c7d2d71479607a9c8bc1a045, type: 2}
   m_sharedMaterial: {fileID: -2561713138271951689, guid: b0598c62c7d2d71479607a9c8bc1a045,
@@ -8513,12 +8513,12 @@ PrefabInstance:
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
@@ -9707,7 +9707,7 @@ PrefabInstance:
     - target: {fileID: 7850276875609967678, guid: 7c929245a61b6674c88d169b593f8326,
         type: 3}
       propertyPath: m_text
-      value: 'Unfortunately you don''t have any farmers.
+      value: 'Unfortunately you don''t have any "Farmers".
 
 
         You could create
@@ -9857,7 +9857,7 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: You successfully blended Max the Miner!
+      value: You successfully blended "Max the Miner"!
       objectReference: {fileID: 0}
     - target: {fileID: 7404491398828757803, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -13247,7 +13247,7 @@ PrefabInstance:
     - target: {fileID: 1131704080632993212, guid: 4addb34e10237c8469a083de4e7593b6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1131704080632993212, guid: 4addb34e10237c8469a083de4e7593b6,
         type: 3}
@@ -14804,8 +14804,8 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: 1 citizen survived while burning the profession NFT and was added to
-        your account!
+      value: 1 "Citizen" survived while burning the profession NFT and was added
+        to your account!
       objectReference: {fileID: 0}
     - target: {fileID: 7404491398828757803, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -14909,12 +14909,12 @@ PrefabInstance:
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
@@ -16385,7 +16385,7 @@ PrefabInstance:
     - target: {fileID: 6887329398702292399, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6887329398702292399, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
@@ -17618,7 +17618,7 @@ PrefabInstance:
     - target: {fileID: 3159034185876772992, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
       propertyPath: m_text
-      value: 'Copper ore
+      value: 'Copper Ore
 
         3x'
       objectReference: {fileID: 0}
@@ -18543,7 +18543,7 @@ PrefabInstance:
     - target: {fileID: 3159034185876772992, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
       propertyPath: m_text
-      value: 'Copper bar
+      value: 'Copper Bar
 
         1x'
       objectReference: {fileID: 0}
@@ -19877,7 +19877,7 @@ PrefabInstance:
     - target: {fileID: 3159034185876772992, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
       propertyPath: m_text
-      value: 'Iron ore
+      value: 'Iron Ore
 
         3x'
       objectReference: {fileID: 0}
@@ -22072,7 +22072,7 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: You successfully found 1.05 copper ore!
+      value: You successfully found 1.05 "Copper Ore"!
       objectReference: {fileID: 0}
     - target: {fileID: 7404491398828757803, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -22788,12 +22788,12 @@ PrefabInstance:
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
@@ -23278,12 +23278,12 @@ PrefabInstance:
     - target: {fileID: 7850276875609967678, guid: 7c929245a61b6674c88d169b593f8326,
         type: 3}
       propertyPath: m_text
-      value: 'Unfortunately you don''t have any carpenters.
+      value: 'Unfortunately you don''t have any "Carpenters".
 
 
-        You could create
-        one by using the "Blend" button or obtain one by using the "Buy" button at
-        the top right of this menu.'
+        You could
+        create one by using the "Blend" button or obtain one by using the "Buy" button
+        at the top right of this menu.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c929245a61b6674c88d169b593f8326, type: 3}
@@ -23549,7 +23549,7 @@ PrefabInstance:
     - target: {fileID: 9196668233930203563, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: By burning this NFT you will have a 10% chance of getting 1 citizen
+      value: By burning this NFT you will have a 10% chance of getting 1 "Citizen"
         back.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -25485,7 +25485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The crafting process will take 2 hours
+  m_text: The crafting process will take 4 hours
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0598c62c7d2d71479607a9c8bc1a045, type: 2}
   m_sharedMaterial: {fileID: -2561713138271951689, guid: b0598c62c7d2d71479607a9c8bc1a045,
@@ -26270,7 +26270,7 @@ PrefabInstance:
     - target: {fileID: 7284160077942180699, guid: 1203e1fc4dcaa834db5e684c928bdad9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7284160078017581562, guid: 1203e1fc4dcaa834db5e684c928bdad9,
         type: 3}
@@ -26584,7 +26584,7 @@ PrefabInstance:
     - target: {fileID: 3159034185876772992, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
       propertyPath: m_text
-      value: 'Tin ore
+      value: 'Tin Ore
 
         3x'
       objectReference: {fileID: 0}
@@ -27559,7 +27559,7 @@ PrefabInstance:
     - target: {fileID: 7850276875609967678, guid: 7c929245a61b6674c88d169b593f8326,
         type: 3}
       propertyPath: m_text
-      value: 'Unfortunately you don''t have any tailors.
+      value: 'Unfortunately you don''t have any "Tailors".
 
 
         You could create
@@ -28707,7 +28707,7 @@ PrefabInstance:
     - target: {fileID: 3159034185876772992, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
       propertyPath: m_text
-      value: 'Birch wood
+      value: 'Oak Wood
 
         1x'
       objectReference: {fileID: 0}
@@ -28745,7 +28745,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: cff7ae1c0212b2547b516fdeabd38546,
+      objectReference: {fileID: 21300000, guid: 502711399900ea943b28479c57a39c54,
         type: 3}
     - target: {fileID: 6439522830744655031, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
@@ -29234,7 +29234,7 @@ PrefabInstance:
     - target: {fileID: 3159034185876772992, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
       propertyPath: m_text
-      value: 'Copper H.&C.
+      value: 'Tin H.&C.
 
         1x'
       objectReference: {fileID: 0}
@@ -29906,12 +29906,12 @@ PrefabInstance:
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
@@ -31242,9 +31242,9 @@ PrefabInstance:
     - target: {fileID: 7850276875609967678, guid: 7c929245a61b6674c88d169b593f8326,
         type: 3}
       propertyPath: m_text
-      value: With Max the Miner you will be able to gather able to gather copper
-        ore (common), tin ore (uncommon) and iron ore (rare) every couple hours.
-        These raw materials can then be either traded, sold or refined.
+      value: With "Max the Miner" you will be able to gather "Copper Ore" (common),
+        "Tin Ore" (uncommon) and "Iron Ore" (rare) every couple hours. These raw
+        materials can then be either traded, sold or refined.
       objectReference: {fileID: 0}
     - target: {fileID: 7850276875609967678, guid: 7c929245a61b6674c88d169b593f8326,
         type: 3}
@@ -31338,12 +31338,12 @@ PrefabInstance:
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
@@ -32003,7 +32003,7 @@ PrefabInstance:
     - target: {fileID: 7850276875609967678, guid: 7c929245a61b6674c88d169b593f8326,
         type: 3}
       propertyPath: m_text
-      value: 'Unfortunately you don''t have any lumberjacks.
+      value: 'Unfortunately you don''t have any "Lumberjacks".
 
 
         You could
@@ -32804,12 +32804,12 @@ PrefabInstance:
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
@@ -39219,7 +39219,7 @@ PrefabInstance:
     - target: {fileID: 3159034185876772992, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
       propertyPath: m_text
-      value: 'Tin bar
+      value: 'Tin Bar
 
         1x'
       objectReference: {fileID: 0}
@@ -40859,12 +40859,12 @@ PrefabInstance:
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
@@ -41935,7 +41935,7 @@ PrefabInstance:
     - target: {fileID: 3159034185876772992, guid: ba6ea44d698d6d348a4e044436ad4378,
         type: 3}
       propertyPath: m_text
-      value: 'Iron bar
+      value: 'Iron Bar
 
         1x'
       objectReference: {fileID: 0}
@@ -42045,7 +42045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The citizens and book will get burned after the blend
+  m_text: The "Citizens" and "Book" will get burned after the blend
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0598c62c7d2d71479607a9c8bc1a045, type: 2}
   m_sharedMaterial: {fileID: -2561713138271951689, guid: b0598c62c7d2d71479607a9c8bc1a045,
@@ -42109,7 +42109,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 10, y: 0, z: 10, w: 0}
+  m_margin: {x: 3, y: 0, z: 3, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -42427,7 +42427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The citizens and book will get burned after the blend
+  m_text: The "Citizens" and "Book" will get burned after the blend
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0598c62c7d2d71479607a9c8bc1a045, type: 2}
   m_sharedMaterial: {fileID: -2561713138271951689, guid: b0598c62c7d2d71479607a9c8bc1a045,
@@ -42491,7 +42491,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 10, y: 0, z: 10, w: 0}
+  m_margin: {x: 3, y: 0, z: 3, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -45341,7 +45341,7 @@ PrefabInstance:
     - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: Do you really want to unequip your "Copper hammer & chisel"?
+      value: Do you really want to unequip your "Copper Hammer & Chisel"?
       objectReference: {fileID: 0}
     - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -46833,12 +46833,12 @@ PrefabInstance:
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
@@ -47842,7 +47842,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'You successfully crafted a
 
-        copper hammers & chisel!'
+        "Copper Hammer & Chisel"!'
       objectReference: {fileID: 0}
     - target: {fileID: 7404491398828757803, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -47947,12 +47947,12 @@ PrefabInstance:
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}

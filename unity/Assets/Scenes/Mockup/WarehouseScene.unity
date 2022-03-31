@@ -929,8 +929,8 @@ PrefabInstance:
     - target: {fileID: 5094213997980379781, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
       propertyPath: m_text
-      value: 'By using the "Mint" button, you will be able to mint 10 copper bar
-        into a "Copper bar - 10x" NFT pack and 10 copper bar will be deducted from
+      value: 'By using the "Mint" button, you will be able to mint 10 "Copper Bar"
+        into a "Copper Bar - 10x" NFT pack and 10 "Copper Bar" will be deducted from
         your account.
 
         Afterwards you will be able to sell that NFT on the
@@ -1291,8 +1291,8 @@ PrefabInstance:
     - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: Do you really want to mint 10 copper bar into a "Copper bar 10x Pack"
-        NFT?
+      value: Do you really want to mint 10 "Copper Bar" into a "Copper Bar - 10x"
+        NFT pack?
       objectReference: {fileID: 0}
     - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -1407,7 +1407,7 @@ PrefabInstance:
     - target: {fileID: 9196668233930203563, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: 10 copper bar will be deducted from your account and moved into the
+      value: 10 "Copper Bar" will be deducted from your account and moved into the
         NFT.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2004,7 +2004,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e7a987c0fd38511489752d63bd64d9bb,
+      objectReference: {fileID: 21300000, guid: 4011c7323b977854e8281c39f2e257d7,
         type: 3}
     - target: {fileID: 7258901386904766721, guid: be870bb564e54af44924490eb48773df,
         type: 3}
@@ -2353,7 +2353,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: cff7ae1c0212b2547b516fdeabd38546,
+      objectReference: {fileID: 21300000, guid: 502711399900ea943b28479c57a39c54,
         type: 3}
     - target: {fileID: 7258901386904766721, guid: be870bb564e54af44924490eb48773df,
         type: 3}
@@ -2509,7 +2509,7 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: Added 10 copper bar to your account.
+      value: Added 10 "Copper Bar" to your account.
       objectReference: {fileID: 0}
     - target: {fileID: 3869616473336320641, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -2957,7 +2957,7 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: Added "Copper ore 10x Pack" NFT to your wallet.
+      value: Added "Copper Ore - 10x" NFT pack to your wallet.
       objectReference: {fileID: 0}
     - target: {fileID: 3869616473336320641, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -3757,8 +3757,8 @@ PrefabInstance:
     - target: {fileID: 5094213997980379781, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
       propertyPath: m_text
-      value: By using the "Add" button, you will burn a "Copper ore - 10x" NFT pack
-        and 10 copper ore will be added to your account.
+      value: By using the "Add" button, you will burn a "Copper Ore - 10x" NFT pack
+        and 10 "Copper Ore" will be added to your account.
       objectReference: {fileID: 0}
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
@@ -4862,7 +4862,7 @@ PrefabInstance:
     - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: Do you really want to add 10 copper bar to your account?
+      value: Do you really want to add 10 "Copper Bar" to your account?
       objectReference: {fileID: 0}
     - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -4982,8 +4982,8 @@ PrefabInstance:
     - target: {fileID: 9196668233930203563, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: A "Copper bar 10x Pack" NFT from your wallet will be burned and 10 copper
-        bar added to your account.
+      value: A "Copper Bar - 10x" NFT pack from your wallet will be burned and 10
+        "Copper Bar" added to your account.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a56feea110abf04288e05f553423ee6, type: 3}
@@ -6462,7 +6462,7 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: Added "Copper bar 10x Pack" NFT to your wallet.
+      value: Added "Copper Bar - 10x" NFT pack to your wallet.
       objectReference: {fileID: 0}
     - target: {fileID: 3869616473336320641, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -6533,8 +6533,8 @@ PrefabInstance:
     - target: {fileID: 5094213997980379781, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
       propertyPath: m_text
-      value: 'By using the "Mint" button, you will be able to mint 10 copper ore
-        into a "Copper ore - 10x" NFT pack and 10 copper ore will be deducted from
+      value: 'By using the "Mint" button, you will be able to mint 10 "Copper Ore"
+        into a "Copper Ore - 10x" NFT pack and 10 "Copper Ore" will be deducted from
         your account.
 
         Afterwards you will be able to sell that NFT on the
@@ -7333,7 +7333,7 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: Added 10 copper ore to your account.
+      value: Added 10 "Copper Ore" to your account.
       objectReference: {fileID: 0}
     - target: {fileID: 3869616473336320641, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -7958,7 +7958,7 @@ PrefabInstance:
 
 
         You can
-        then use the refined mtaerials together with other refined materials to craft
+        then use the refined materials together with other refined materials to craft
         items if you have the appropriate profession.'
       objectReference: {fileID: 0}
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
@@ -8458,8 +8458,8 @@ PrefabInstance:
     - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: Do you really want to mint 10 copper ore into a "Copper ore 10x Pack"
-        NFT?
+      value: Do you really want to mint 10 "Copper Ore" into a "Copper Ore - 10x"
+        NFT pack?
       objectReference: {fileID: 0}
     - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -8574,7 +8574,7 @@ PrefabInstance:
     - target: {fileID: 9196668233930203563, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: 10 copper ore will be deducted from your account and moved into the
+      value: 10 "Copper Ore" will be deducted from your account and moved into the
         NFT.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9988,8 +9988,8 @@ PrefabInstance:
     - target: {fileID: 5094213997980379781, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
       propertyPath: m_text
-      value: By using the "Add" button, you will burn a "Copper bar - 10x" NFT pack
-        and 10 copper bar will be added to your account.
+      value: By using the "Add" button, you will burn a "Copper Bar - 10x" NFT pack
+        and 10 "Copper Bar" will be added to your account.
       objectReference: {fileID: 0}
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
@@ -10774,7 +10774,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 84db17cd778d47d44bb2576d4679380f,
+      objectReference: {fileID: 21300000, guid: 933835bcbe92a994ab8f2268e576381c,
         type: 3}
     - target: {fileID: 7258901386904766721, guid: be870bb564e54af44924490eb48773df,
         type: 3}
@@ -10928,7 +10928,7 @@ PrefabInstance:
     - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: Do you really want to add 10 copper ore to your account?
+      value: Do you really want to add 10 "Copper Ore" to your account?
       objectReference: {fileID: 0}
     - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -11048,8 +11048,8 @@ PrefabInstance:
     - target: {fileID: 9196668233930203563, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: A "Copper ore 10x Pack" NFT from your wallet will be burned and 10 copper
-        ore added to your account.
+      value: A "Copper Ore - 10x" NFT pack from your wallet will be burned and 10
+        "Copper Ore" added to your account.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a56feea110abf04288e05f553423ee6, type: 3}

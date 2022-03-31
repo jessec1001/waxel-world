@@ -408,7 +408,7 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: Added 10 citizens to your account.
+      value: Added 10 "Citizens" to your account.
       objectReference: {fileID: 0}
     - target: {fileID: 3869616473336320641, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -574,7 +574,7 @@ PrefabInstance:
     - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: Do you really want to add 10 citizens to your account?
+      value: Do you really want to add 10 "Citizens" to your account?
       objectReference: {fileID: 0}
     - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -694,8 +694,13 @@ PrefabInstance:
     - target: {fileID: 9196668233930203563, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: A "Citizens 10x Pack" NFT from your wallet will be burned and 10 citizens
+      value: A "Citizen - 10x" NFT pack from your wallet will be burned and 10 "Citizens"
         added to your account.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233930203565, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a56feea110abf04288e05f553423ee6, type: 3}
@@ -906,8 +911,8 @@ PrefabInstance:
     - target: {fileID: 5094213997980379781, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
       propertyPath: m_text
-      value: By using the "Add" button, you will burn a "Citizens - 10x" NFT pack
-        and 10 citizens will be added to your account.
+      value: By using the "Add" button, you will burn a "Citizen - 10x" NFT pack
+        and 10 "Citizens" will be added to your account.
       objectReference: {fileID: 0}
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
@@ -1800,7 +1805,7 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: Added "Citizens 10x Pack" NFT to your wallet.
+      value: Added "Citizen - 10x" NFT pack to your wallet.
       objectReference: {fileID: 0}
     - target: {fileID: 3869616473336320641, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -1966,7 +1971,7 @@ PrefabInstance:
     - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: Do you really want to mint 10 citizens into an "Citizens 10x Pack" NFT?
+      value: Do you really want to mint 10 citizens into a "Citizen - 10x" NFT pack?
       objectReference: {fileID: 0}
     - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -2055,6 +2060,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -2081,7 +2091,8 @@ PrefabInstance:
     - target: {fileID: 9196668233930203563, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: 10 citizens will be deducted from your account and moved into the NFT.
+      value: 10 "Citizens" will be deducted from your account and moved into the
+        NFT.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a56feea110abf04288e05f553423ee6, type: 3}
@@ -2384,11 +2395,12 @@ PrefabInstance:
     - target: {fileID: 2897049795627331613, guid: 6cfe7a42342616e45b2b2d8ea640430d,
         type: 3}
       propertyPath: m_text
-      value: 'By using the "Mint" button, you will be able to mint 10 Citizens into
-        a "Citizens - 10x" NFT pack and 10 citizens will be deducted from your account.
+      value: 'By using the "Mint" button, you will be able to mint 10 "Citizens"
+        into a "Citizen - 10x" NFT pack and 10 "Citizens" will be deducted from your
+        account.
 
-        Afterwards
-        you will be able to sell that NFT on the market or trade with other players.'
+        Afterwards you will be able to sell that NFT on the market
+        or trade with other players.'
       objectReference: {fileID: 0}
     - target: {fileID: 2897049795917341772, guid: 6cfe7a42342616e45b2b2d8ea640430d,
         type: 3}
@@ -2458,14 +2470,14 @@ PrefabInstance:
     - target: {fileID: 3434272936262815471, guid: 6cfe7a42342616e45b2b2d8ea640430d,
         type: 3}
       propertyPath: m_text
-      value: 'If you have 5 Citizens and the according profession book, you will
-        be able to blend them into one of the following 3 professions: Miner, lumberjack
-        or farmer.
+      value: 'If you have 5 "Citizens" and the according "Profession Book", you will
+        be able to blend them into one of the following 3 professions: "Miner", "Lumberjack"
+        or "Farmer".
 
 
-        If you have 10 Citizens and the according profession
-        book, you will be able to blend them into one of the following 4 professions:
-        Blacksmith, Carpenter, Tailor or Engineer.'
+        If you have 10 "Citizens" and the according "Profession
+        Book", you will be able to blend them into one of the following 4 professions:
+        "Blacksmith", "Carpenter", "Tailor" or "Engineer".'
       objectReference: {fileID: 0}
     - target: {fileID: 3434272936262815471, guid: 6cfe7a42342616e45b2b2d8ea640430d,
         type: 3}

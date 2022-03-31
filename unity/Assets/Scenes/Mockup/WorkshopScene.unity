@@ -1907,8 +1907,8 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: 1 copper bar survived while burning the item NFT and was added to your
-        account!
+      value: 1 "Copper Bar" survived while burning the item NFT and was added to
+        your account!
       objectReference: {fileID: 0}
     - target: {fileID: 7404491398828757803, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -2269,7 +2269,7 @@ PrefabInstance:
     - target: {fileID: 6887329398702292399, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6887329398702292399, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
@@ -6383,12 +6383,12 @@ PrefabInstance:
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
@@ -7236,12 +7236,12 @@ PrefabInstance:
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2134752382302868454, guid: c05d0c20975d1214c8dd11306f501a17,
         type: 3}
@@ -8581,7 +8581,7 @@ PrefabInstance:
     - target: {fileID: 6887329398702292399, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6887329398702292399, guid: 140b43b461c504945b03f05e77d99ca1,
         type: 3}
@@ -14846,7 +14846,7 @@ PrefabInstance:
     - target: {fileID: 7850276875609967678, guid: 7c929245a61b6674c88d169b593f8326,
         type: 3}
       propertyPath: m_text
-      value: 'Unfortunately you don''t have any tin hammer & chisel.
+      value: 'Unfortunately you don''t have any "Tin Hammer & Chisel".
 
 
         You
@@ -19346,8 +19346,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The hammer & chisel is 1 of 3 different items that can be equipped by the
-    "Miner" profession to boost the gathering efficiency. Depending on the rarity
+  m_text: The "Hammer & Chisel" is 1 of 3 different items that can be equipped by
+    the "Miner" profession to boost the gathering efficiency. Depending on the rarity
     value of the item, the profession will have a higher chance of finding more rare
     materials.
   m_isRightToLeft: 0
@@ -19822,8 +19822,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The hammer & chisel is 1 of 3 different items that can be equipped by the
-    "Miner" profession to boost the gathering efficiency. Depending on the rarity
+  m_text: The "Hammer & Chisel" is 1 of 3 different items that can be equipped by
+    the "Miner" profession to boost the gathering efficiency. Depending on the rarity
     value of the item, the profession will have a higher chance of finding more rare
     materials.
   m_isRightToLeft: 0
