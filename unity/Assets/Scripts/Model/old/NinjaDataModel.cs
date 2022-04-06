@@ -4,6 +4,8 @@
 public class NinjaDataModel
 {
     public string asset_id;
+    public string mint_id;
+    
     public string delay_seconds;
     public string last_search;
     public string race;

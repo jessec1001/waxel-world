@@ -11,26 +11,26 @@ public class LoginView : BaseView
     protected override void Start()
     {
         base.Start();
-        MessageHandler.Server_TryAutoLogin();
+        //MessageHandler.Server_TryAutoLogin();
         MessageHandler.onLoadingData += onLoadingData;
-        MessageHandler.OnUserData += OnUserData;
+        MessageHandler.OnLoginData += OnLoginData;
     }
 
     protected override void OnDestroy()
     {
         base.OnDestroy();
         MessageHandler.onLoadingData -= onLoadingData;
-        MessageHandler.OnUserData -= OnUserData;
+        MessageHandler.OnLoginData -= OnLoginData;
     }
 
     public void OnAnchorButtonClick()
     {
-        MessageHandler.Server_GetUserData("anchor");
+        //MessageHandler.Server_GetUserData("anchor");
     }
 
     public void OnWaxButtonClick()
     {
-        MessageHandler.Server_GetUserData("cloud");
+        //MessageHandler.Server_GetUserData("cloud");
     }
 
     public void onCreateButtonClick()
@@ -54,7 +54,7 @@ public class LoginView : BaseView
         }
     }
 
-    private void OnUserData()
+    private void OnLoginData()
     {
         SceneManager.LoadScene("MenuScene");
     }

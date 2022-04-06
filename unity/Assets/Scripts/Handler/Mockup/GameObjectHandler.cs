@@ -41,5 +41,9 @@ public class GameObjectHandler : MonoBehaviour
             panel.SetActive(true);
         }
     }
+    public void OnLogoutButtonClick()
+    {
+        MessageHandler.LogoutRequest();
+    }
 
 }

@@ -30,6 +30,11 @@
       </div>
     </div>
     <script>
+      // logout
+      // window.addEventListener("beforeunload", function (e) {        
+      //     localStorage.clear();
+      //   return;
+      // });
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
@@ -39,14 +44,14 @@
 
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Waxel_Build.loader.js";
+      var loaderUrl = buildUrl + "/Waxel_World.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Waxel_Build.data",
-        frameworkUrl: buildUrl + "/Waxel_Build.framework.js",
-        codeUrl: buildUrl + "/Waxel_Build.wasm",
+        dataUrl: buildUrl + "/Waxel_World.data",
+        frameworkUrl: buildUrl + "/Waxel_World.framework.js",
+        codeUrl: buildUrl + "/Waxel_World.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Waxel_World",
+        companyName: "Waxel",
+        productName: "Waxel World (alpha)",
         productVersion: "0.1",
       };
 

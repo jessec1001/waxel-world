@@ -6,68 +6,51 @@ using UnityEngine;
 
 public class MessageHandler : MonoBehaviour
 {
+    // Request Handlers from Unity
     [DllImport("__Internal")]
     private static extern void autologin();
-
     [DllImport("__Internal")]
     private static extern void login(string type);
-
+    [DllImport("__Internal")]
+    private static extern void logout();
     [DllImport("__Internal")]
     private static extern void getAssetData();
     [DllImport("__Internal")]
     private static extern void mintcitizens();
-
     [DllImport("__Internal")]
     private static extern void burncitizennft();
-
     [DllImport("__Internal")]
     private static extern void getNinjaData();
-
     [DllImport("__Internal")]
     private static extern void searchcz(string assetid, string type,string asset_type);
-
     [DllImport("__Internal")]
     private static extern void registernft(string assetid, string race);
-
     [DllImport("__Internal")]
     private static extern void unregisternft(string assetid, string race);
-
     [DllImport("__Internal")]
     private static extern void asset_transfer(string assetid, string memo,string type);
-
     [DllImport("__Internal")]
     private static extern void asset_withdraw(string assetid,string type);
-
     [DllImport("__Internal")]
     private static extern void equip_items(string p_id,string item_id);
-
     [DllImport("__Internal")]
     private static extern void unequip_items(string ids,string mat_name,string p_id);
-
     [DllImport("__Internal")]
     private static extern void findmat(string asset_id);
-
     [DllImport("__Internal")]
     private static extern void refine_mat(string profession_id, string mat,string profession_name);
-
     [DllImport("__Internal")]
     private static extern void refine_comp(string profession_id);
-
     [DllImport("__Internal")]
     private static extern void craft_mat(string profession_id, string mat_id, string profession_name);
-
     [DllImport("__Internal")]
     private static extern void craft_comp(string profession_id);
-
     [DllImport("__Internal")]
     private static extern void mint_mat(string mat_name);
-
     [DllImport("__Internal")]
     private static extern void burn_mat(string mat_name);
-
     [DllImport("__Internal")]
     private static extern void burn_items(string item_name, string item_id);
-
     [DllImport("__Internal")]
     private static extern void burn_profession(string p_name, string p_id);
 
@@ -75,8 +58,8 @@ public class MessageHandler : MonoBehaviour
     public delegate void LoadingData(string status);
     public static LoadingData onLoadingData;
 
-    public delegate void UserData();
-    public static UserData OnUserData;
+    public delegate void OnLogin();
+    public static OnLogin OnLoginData;
 
     public delegate void CallBack(CallBackDataModel[] callData);
     public static CallBack OnCallBackData;
@@ -121,13 +104,49 @@ public class MessageHandler : MonoBehaviour
     public delegate void MessageData(string[] messages);
     public static MessageData OnMessageData;
 
-    public static void Server_TryAutoLogin()
+    // Request from Unity
+    public static void AutoLoginRequest()
     {
         autologin();
     }
-    public static void Server_GetUserData(string type)
+    public static void LoginRequest(string type)
     {
         login(type);
+    }
+    public static void LogoutRequest()
+    {
+        logout();
+    }
+    public static void RegisterNFTRequest(string assetId, string race)
+    {
+        registernft(assetId, race);
+    }
+    public static void Server_RegisterNFT(string assetid, string race)
+    {
+        registernft(assetid, race);
+    }
+    public static void Server_SearchCitizen(string assetid, string type,string asset_type)
+    {
+        searchcz(assetid, type,asset_type);
+    }
+    public static void Server_UnregisterNFT(string assetid, string race)
+    {
+        unregisternft(assetid, race);
+    }
+
+    // Response to Unity
+    public void ResponseCallbackData(string data)
+    {
+        string jsonData = JsonHelper.fixJson(data);
+        callBack = JsonHelper.FromJson<CallBackDataModel>(jsonData);
+        OnCallBackData(callBack);
+    }
+    public void Client_SetNinjaData(string ninjadata)
+    {
+        string jsonData = JsonHelper.fixJson(ninjadata);
+        NinjaDataModel[] ninja_data = JsonHelper.FromJson<NinjaDataModel>(jsonData);
+        userModel.ninjas = ninja_data;
+        OnNinjaData(ninja_data);
     }
 
     public static void Server_GetAssetData()
@@ -139,7 +158,12 @@ public class MessageHandler : MonoBehaviour
     {
         getNinjaData();
     }
-
+    public void Client_SetCallBackData(string data)
+    {
+        string jsonData = JsonHelper.fixJson(data);
+        callBack = JsonHelper.FromJson<CallBackDataModel>(jsonData);
+        OnCallBackData(callBack);
+    }
     public static void Server_MintCitizenPack()
     {
         mintcitizens();
@@ -165,20 +189,10 @@ public class MessageHandler : MonoBehaviour
         burn_profession(profession_name, asset_id);
     }
 
-    public static void Server_SearchCitizen(string assetid, string type,string asset_type)
-    {
-        searchcz(assetid, type,asset_type);
-    }
 
-    public static void Server_RegisterNFT(string assetid, string race)
-    {
-        registernft(assetid, race);
-    }
 
-    public static void Server_UnregisterNFT(string assetid, string race)
-    {
-        unregisternft(assetid, race);
-    }
+
+
 
     public static void Server_BurnCitizenPack()
     {
@@ -230,10 +244,10 @@ public class MessageHandler : MonoBehaviour
         craft_comp(profession_id);
     }
 
-    public void Client_SetUserData(string playerdata)
+    public void Client_SetLoginData(string playerdata)
     {
         userModel = JsonUtility.FromJson<UserModel>(playerdata);
-        OnUserData();
+        OnLoginData();
     }
 
     public void Client_SetFetchingData(string status)
@@ -249,13 +263,7 @@ public class MessageHandler : MonoBehaviour
         OnAssetData(assetModel);
     }
 
-    public void Client_SetNinjaData(string ninjadata)
-    {
-        string jsonData = JsonHelper.fixJson(ninjadata);
-        NinjaDataModel[] ninja_data = JsonHelper.FromJson<NinjaDataModel>(jsonData);
-        userModel.ninjas = ninja_data;
-        OnNinjaData(ninja_data);
-    }
+
 
     public void Client_SetSettlementData(string settlementdata)
     {
@@ -265,12 +273,7 @@ public class MessageHandler : MonoBehaviour
         OnSettlementData(settlement_data);
     }
 
-    public void Client_SetCallBackData(string data)
-    {
-        string jsonData = JsonHelper.fixJson(data);
-        callBack = JsonHelper.FromJson<CallBackDataModel>(jsonData);
-        OnCallBackData(callBack);
-    }
+
 
     public void Client_SetProfessionData(string professiondata)
     {

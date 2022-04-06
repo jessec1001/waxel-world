@@ -12,8 +12,9 @@ var anchorAuth = "owner";
 
 const dapp = "WaxelNinjas";
 const endpoint = "testnet.wax.pink.gg";
-const contract = "waxelworld11";
-const tokenContract = 'waxeltokens1';
+const contract = "waxelowner12";
+// const contract = "waxelworld11";
+// const tokenContract = 'waxeltokens1';
 const collectionName = 'laxewneftyyy';
 const schemaName = 'laxewnefty';
 const ninja_arr = ["Human", "Orc", "Demon", "Undead", "Elf"];
@@ -58,6 +59,8 @@ async function selectWallet(walletType) {
   login();
 }
 
+
+
 async function wallet_selectWallet(walletType) {
   useAnchor = walletType == "anchor";
 }
@@ -98,27 +101,7 @@ async function wallet_login() {
   return wallet_userAccount;
 }
 
-async function wallet_transact(actions) {
-  if (useAnchor) {
-    var result = await wallet_session.transact({
-      actions: actions
-    }, {
-      blocksBehind: 3,
-      expireSeconds: 30
-    });
-    result = {
-      transaction_id: result.processed.id
-    };
-  } else {
-    var result = await wallet_session.transact({
-      actions: actions
-    }, {
-      blocksBehind: 3,
-      expireSeconds: 30
-    });
-  }
-  return result;
-}
+
 
 async function fetchingData() {
   let status = "true";
@@ -158,6 +141,7 @@ async function sendUserData() {
 
 
     dropData = await getDrop();
+  
     let obj = {
       account: userAccount.toString(),
       ninjas: ninjaData,
@@ -173,17 +157,16 @@ async function sendUserData() {
       total_matCount: total_matCount,
       craft_combos: configData[1]
     }
-
-    console.log(obj);
-
+    console.log('needed to the next task for ninja')
+    console.log(obj)
     unityInstance.SendMessage(
       "GameController",
-      "Client_SetUserData",
+      "Client_SetLoginData",
       obj === undefined ? JSON.stringify({}) : JSON.stringify(obj)
     );
 
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     unityInstance.SendMessage("ErrorHandler", "Client_SetErrorData", e.message);
   }
 }
@@ -331,7 +314,7 @@ async function getAssetD() {
     let assets = getAssets();
     assetdata = await assets;
 
-    console.log(assetdata);
+    // console.log(assetdata);
 
     unityInstance.SendMessage(
       "GameController",
@@ -350,7 +333,8 @@ async function getNinjaData() {
     assetData = await assets;
 
     var ninja_data = [];
-
+    // console.log('before ninjaModel: ')
+    // console.log(assetData)
     const arr = Object.values(assetData);
     if (arr.length != 0) {
       const check_data = await checkAssetIds("ninjas");
@@ -363,6 +347,7 @@ async function getNinjaData() {
               if (bodyData.id == asset.asset_id) {
                 ninja_data.push({
                   asset_id: asset.asset_id,
+                  mint_id: asset.template_mint,
                   delay_seconds: bodyData.delay_seconds,
                   last_search: bodyData.last_search,
                   race: asset.name,
@@ -375,6 +360,7 @@ async function getNinjaData() {
           } else {
             ninja_data.push({
               asset_id: asset.asset_id,
+              mint_id: asset.template_mint,
               delay_seconds: "",
               last_search: "",
               race: asset.name,
@@ -388,6 +374,7 @@ async function getNinjaData() {
         for (const asset of arr) {
           ninja_data.push({
             asset_id: asset.asset_id,
+            mint_id: asset.template_mint,
             delay_seconds: "",
             last_search: "",
             race: asset.name,
@@ -398,7 +385,8 @@ async function getNinjaData() {
         }
       }
     }
-    console.log(ninja_data);
+    // console.log('ninjaModeler:');
+    // console.log(ninja_data)
     return ninja_data;
   } catch (e) {
     console.log(e);
@@ -666,7 +654,7 @@ async function getItemsData(config) {
       const check_data = await checkAssetIds("items");
       if (typeof check_data !== 'undefined') {
         const check_ids = check_data[0];
-        console.log(check_data[1]);
+        //console.log(check_data[1]);
         for (const asset of arr) {
           if (check_ids.includes(asset.asset_id)) {
             const check_body_data = check_data[1];
@@ -747,30 +735,19 @@ const getCitizensPack = async (assets) => {
       if (asset.name == "Citizens - 10x" && asset.schema == "citizens")
         citizens_pack.push(asset.asset_id);
     }
-    console.log(citizens_pack);
+    //console.log(citizens_pack);
   } catch (e) {
     unityInstance.SendMessage("ErrorHandler", "Client_SetErrorData", e.message);
   }
 }
 
-async function getNinjaD() {
-  try {
-    let ninjadata = await getNinjaData();
-    unityInstance.SendMessage(
-      "GameController",
-      "Client_SetNinjaData",
-      ninjadata === undefined ? JSON.stringify({}) : JSON.stringify(ninjadata)
-    );
-  } catch (e) {
-    unityInstance.SendMessage("ErrorHandler", "Client_SetErrorData", e.message);
-  }
-}
+
 
 async function getProfessionD() {
   try {
-    console.log("in getP");
+    //console.log("in getP");
     let professiondata = await getProfessionData();
-    console.log(professiondata);
+    //console.log(professiondata);
     unityInstance.SendMessage(
       "GameController",
       "Client_SetProfessionData",
@@ -784,7 +761,7 @@ async function getProfessionD() {
 const getItemD = async () => {
   try {
     item_data_updated = await getItemsData(configData[0]);
-    console.log(item_data_updated);
+    //console.log(item_data_updated);
     unityInstance.SendMessage(
       "GameController",
       "Client_SetItemData",
@@ -816,7 +793,7 @@ async function getSearchD(table, assetid, action_type) {
       method: "POST",
     });
     const body = await response.json();
-    console.log("insearch");
+    //console.log("insearch");
     const search_data = [];
     if (body.rows.length != 0) {
       if (body.rows[0].status == "holdup") {
@@ -843,7 +820,7 @@ async function getSearchD(table, assetid, action_type) {
             totalCitizensCount: (await getUserData()).citizen_count
           });
         } else if (professions_arr.includes(body.rows[0].name)) {
-          console.log("in else if");
+          // console.log("in else if");
           if (body.rows[0].type == "Gatherer") {
             switch (action_type) {
               case ("start_mat_find"):
@@ -899,7 +876,7 @@ async function getSearchD(table, assetid, action_type) {
                 break;
             }
           } else if (body.rows[0].type == "Refiner and crafter") {
-            console.log(action_type);
+            // console.log(action_type);
             switch (action_type) {
               case ("refining"):
                 let inv = [];
@@ -921,7 +898,7 @@ async function getSearchD(table, assetid, action_type) {
                 });
                 break;
               case ("crafting"):
-                console.log(body.rows[0]);
+                // console.log(body.rows[0]);
                 let c_inv = [];
                 c_inv = body.rows[0].status.split("%");
                 let craftName;
@@ -972,7 +949,7 @@ async function getSearchD(table, assetid, action_type) {
             }
           }
         }
-        console.log(search_data);
+        // console.log(search_data);
         unityInstance.SendMessage(
           "GameController",
           "Client_SetCallBackData",
@@ -1009,7 +986,7 @@ async function start_search(assetid) {
 
 async function search_citizen(assetId, type, asset_type) {
   try {
-    console.log(assetId);
+    // console.log(assetId);
     const result = type == "1" ? await wallet_transact([{
       account: contract,
       name: "startsearch",
@@ -1035,10 +1012,13 @@ async function search_citizen(assetId, type, asset_type) {
     }, ]);
     await delay(4000);
     if (ninja_arr.includes(asset_type)) {
+      console.log('whci');
       await getNinjaD();
       function_call_count = 0;
       await getSearchD("ninjas", assetId, "");
     } else if (professions_arr.includes(asset_type)) {
+      console.log('whcihhh');
+
       await getProfessionD();
       function_call_count = 0;
       await getSearchD("professions", assetId, "start_mat_find");
@@ -1094,22 +1074,47 @@ const unregisterAsset = async function (assetid, race) {
     unityInstance.SendMessage("ErrorHandler", "Client_SetErrorData", e.message);
   }
 }
-
-async function registerAsset(assetid, race) {
+// functions for control
+async function wallet_transact(actions) {
+  if (useAnchor) {
+    var result = await wallet_session.transact({
+      actions: actions
+    }, {
+      blocksBehind: 3,
+      expireSeconds: 30
+    });
+    result = {
+      transaction_id: result.processed.id
+    };
+  } else {
+    var result = await wallet_session.transact({
+      actions: actions
+    }, {
+      blocksBehind: 3,
+      expireSeconds: 30
+    });
+  }
+  return result;
+}
+// Request from Unity
+// logout
+async function doLogoutAction() {
+ localStorage.clear();
+}
+async function registernft(assetid, race) {
   try {
-    console.log(race);
-    const result = await wallet_transact([{
-      account: contract,
-      name: "registernfts",
-      authorization: [{
-        actor: wallet_userAccount,
-        permission: anchorAuth
-      }],
-      data: {
-        asset_ids: [assetid],
-        owner: wallet_userAccount
-      },
-    }, ]);
+    const result = await wallet_transact([
+      {
+        account: contract,
+        name: "registernfts",
+        authorization: [{
+          actor: wallet_userAccount,
+          permission: anchorAuth}],
+        data: {
+          asset_ids: [assetid],
+          owner: wallet_userAccount},
+      }, 
+    ]);
     if (ninja_arr.includes(race)) {
       await delay(2000);
       await getNinjaD();
@@ -1124,7 +1129,7 @@ async function registerAsset(assetid, race) {
     })
     unityInstance.SendMessage(
       "GameController",
-      "Client_SetCallBackData",
+      "ResponseCallbackData",
       register_callBack === undefined ? JSON.stringify({}) : JSON.stringify(register_callBack)
     );
   } catch (e) {
@@ -1132,6 +1137,21 @@ async function registerAsset(assetid, race) {
     unityInstance.SendMessage("ErrorHandler", "Client_SetErrorData", e.message);
   }
 }
+// Resposne to Unity
+async function getNinjaD() {
+  try {
+    let ninjadata = await getNinjaData();
+    unityInstance.SendMessage(
+      "GameController",
+      "Client_SetNinjaData",
+      ninjadata === undefined ? JSON.stringify({}) : JSON.stringify(ninjadata)
+    );
+  } catch (e) {
+    unityInstance.SendMessage("ErrorHandler", "Client_SetErrorData", e.message);
+  }
+}
+
+
 
 const mintcitizens = async () => {
   try {
@@ -1155,7 +1175,7 @@ const mintcitizens = async () => {
       transactionid: arr,
       citizens: user_d.citizen_count
     });
-    console.log(obj);
+    // console.log(obj);
     unityInstance.SendMessage(
       "GameController",
       "Client_TrxHash",
@@ -1195,7 +1215,7 @@ const mintmat = async (mat_name) => {
       transactionid: arr,
       citizens: total_matCount
     });
-    console.log(obj);
+    // console.log(obj);
     unityInstance.SendMessage(
       "GameController",
       "Client_TrxHash",
@@ -1211,7 +1231,7 @@ const burncitizennft = async () => {
     let id = 0;
     if (citizens_pack.length > 0) {
       id = citizens_pack[0];
-      console.log(id);
+      // console.log(id);
       const result = await wallet_transact([{
         account: "atomicassets",
         name: "burnasset",
@@ -1232,7 +1252,7 @@ const burncitizennft = async () => {
         transactionid: arr,
         citizens: user_d.citizen_count
       });
-      console.log(obj);
+      // console.log(obj);
       citizens_pack.splice(0, 1);
       unityInstance.SendMessage(
         "GameController",
@@ -1247,7 +1267,7 @@ const burncitizennft = async () => {
 
 const burn_itemsnft = async (item_name,asset_id) => {
   try {
-      console.log(item_name);
+      // console.log(item_name);
       const user_d = await getUserData();
       const temp_inventory = await getUserInventoryData(user_d.mat_inventory);
       const result = await wallet_transact([{
@@ -1269,8 +1289,8 @@ const burn_itemsnft = async (item_name,asset_id) => {
         await delay(1500);
         const new_user_d = await getUserData();
         const after_burn_inventory = await getUserInventoryData(new_user_d.mat_inventory);
-        console.log(temp_inventory);
-        console.log(after_burn_inventory);
+        // console.log(temp_inventory);
+        // console.log(after_burn_inventory);
         for(const temp_data of temp_inventory){
           for(const new_data of after_burn_inventory){
             if(temp_data.name == new_data.name){
@@ -1296,7 +1316,7 @@ const burn_itemsnft = async (item_name,asset_id) => {
           transactionid: item_name,
           citizens: ""
         });
-        console.log(obj);
+        // console.log(obj);
         unityInstance.SendMessage(
           "GameController",
           "Client_TrxHash",
@@ -1325,7 +1345,7 @@ const burn_itemsnft = async (item_name,asset_id) => {
 
 const burn_profession_nft = async(profession_name,asset_id) => {
   try {
-    console.log(profession_name);
+    // console.log(profession_name);
       const temp_citizens = (await getUserData()).citizen_count;
       const result = await wallet_transact([{
         account: "atomicassets",
@@ -1359,7 +1379,7 @@ const burn_profession_nft = async(profession_name,asset_id) => {
           transactionid: profession_name + "%" + diff,
           citizens: new_citizens
         });
-        console.log(obj);
+        // console.log(obj);
         unityInstance.SendMessage(
           "GameController",
           "Client_TrxHash",
@@ -1382,7 +1402,7 @@ const GetAsset_TemplateData = async (id) => {
   });
 
   const body = await response.json();
-  console.log(body);
+  // console.log(body);
   if (body.data.length == 0)
     return 0;
   else
@@ -1399,9 +1419,9 @@ const burnmat = async (mat_name) => {
         break;
       }
     }
-    console.log(template_id);
+    // console.log(template_id);
     asset_id = await GetAsset_TemplateData(template_id);
-    console.log(asset_id);
+    // console.log(asset_id);
     if (asset_id != 0) {
       const result = await wallet_transact([{
         account: "atomicassets",
@@ -1429,7 +1449,7 @@ const burnmat = async (mat_name) => {
         transactionid: arr,
         citizens: total_matCount
       });
-      console.log(obj);
+      // console.log(obj);
       unityInstance.SendMessage(
         "GameController",
         "Client_TrxHash",
@@ -1469,7 +1489,7 @@ const transfer = async (asset_id, memo, type) => {
     await delay(2000);
     if (memo == "regupgrade") {
       settlements_data = await getSettlementData();
-      console.log(settlements_data);
+      // console.log(settlements_data);
       unityInstance.SendMessage(
         "GameController",
         "Client_SetSettlementData",
@@ -1493,7 +1513,7 @@ const transfer = async (asset_id, memo, type) => {
 
 const equipItems = async (p_id, asset_id) => {
   try {
-    console.log(p_id);
+    // console.log(p_id);
     const result = await wallet_transact([{
       account: contract,
       name: "equipitems",
@@ -1518,7 +1538,7 @@ const equipItems = async (p_id, asset_id) => {
 
 const unequipItems = async (asset_id,mat_name,p_id) => {
   try {
-    console.log(p_id);
+    // console.log(p_id);
     const result = await wallet_transact([{
       account: contract,
       name: "unequipitems",
@@ -1538,14 +1558,14 @@ const unequipItems = async (asset_id,mat_name,p_id) => {
       transactionid: mat_name,
       citizens: ""
     });
-    console.log(obj);
+    // console.log(obj);
     unityInstance.SendMessage(
       "GameController",
       "Client_TrxHash",
       obj === undefined ? JSON.stringify({}) : JSON.stringify(obj)
     );
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     unityInstance.SendMessage("ErrorHandler", "Client_SetErrorData", e.message);
   }
 }
@@ -1618,7 +1638,7 @@ const find_mat = async (asset_id) => {
 
 const mat_refine = async (p_asset_id, mat_name, refine_profession_name) => {
   try {
-    console.log(mat_name);
+    // console.log(mat_name);
     const result = await wallet_transact([{
       account: contract,
       name: "startcraft",
@@ -1699,7 +1719,7 @@ const mat_craft = async (p_asset_id, mat_template, profession_name) => {
 
 const mat_refine_comp = async (p_asset_id) => {
   try {
-    console.log(p_asset_id);
+    // console.log(p_asset_id);
     const result = await wallet_transact([{
       account: contract,
       name: "refinemat",
