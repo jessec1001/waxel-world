@@ -939,7 +939,7 @@ PrefabInstance:
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
       propertyPath: m_text
-      value: Mint Copper bar as NFT Pack of 10
+      value: Mint Copper Bar as NFT Pack of 10
       objectReference: {fileID: 0}
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
@@ -950,6 +950,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MintMateriasAsNFTPack
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094213999549495466, guid: 9723fe2a02f295341a3ff44fa3a6b162,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5094213999549495469, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
@@ -3562,6 +3567,275 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &488527934
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1098702322}
+    m_Modifications:
+    - target: {fileID: 1155536411950652563, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_text
+      value: Buy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 97.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 97.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 97.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264989280571174121, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_text
+      value: Add Copper Ore to Account
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 488527935}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenUrl
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://wax-test.atomichub.io/market?collection_name=laxewneftyyy&order=desc&schema_name=materials&sort=created&symbol=WAX
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692152322668105211, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_Name
+      value: Buy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692152323171831969, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_text
+      value: No "Copper Ore - 10x" NFT pack in wallet.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390091, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_Name
+      value: PopupNoMaterial10xPackNFT
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390091, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233930203563, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_text
+      value: 'Unfortunately you don''t have any
+
+        "Copper Ore - 10x" NFT pack
+        in your wallet and will need to obtain one first.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668234271448985, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9a56feea110abf04288e05f553423ee6, type: 3}
+--- !u!114 &488527935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1807277754706907030, guid: 9a56feea110abf04288e05f553423ee6,
+    type: 3}
+  m_PrefabInstance: {fileID: 488527934}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03098a1b28d59a1468749adcca3e3727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &509302515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3763,7 +4037,7 @@ PrefabInstance:
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
       propertyPath: m_text
-      value: Add Copper ore
+      value: Add Copper Ore
       objectReference: {fileID: 0}
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
@@ -6543,7 +6817,7 @@ PrefabInstance:
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
       propertyPath: m_text
-      value: Mint Copper ore as NFT Pack of 10
+      value: Mint Copper Ore as NFT Pack of 10
       objectReference: {fileID: 0}
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
@@ -8343,7 +8617,7 @@ PrefabInstance:
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -8353,7 +8627,7 @@ PrefabInstance:
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 195
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -8368,7 +8642,7 @@ PrefabInstance:
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -8378,7 +8652,7 @@ PrefabInstance:
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 4264989280571174121, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -9303,6 +9577,279 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140b43b461c504945b03f05e77d99ca1, type: 3}
+--- !u!1001 &1534549988
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1098702322}
+    m_Modifications:
+    - target: {fileID: 1155536411950652563, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_text
+      value: Okay
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264989280571174121, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_text
+      value: Mint Copper Ore
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1534549989}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClosePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1534549990}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: https://test.neftyblocks.com/c/laxewneftyyy/drops/821
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668302457715682128, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692152322668105211, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_Name
+      value: Okay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692152323171831969, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_text
+      value: Not enough "Copper Ore".
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390091, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_Name
+      value: PopupNotEnoughMaterialsToMint
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233702390091, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668233930203563, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_text
+      value: Unfortunately you don't have enough "Copper Ore" (less than 10) in your
+        account and will need to obtain more first.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196668234271448985, guid: 9a56feea110abf04288e05f553423ee6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9a56feea110abf04288e05f553423ee6, type: 3}
+--- !u!114 &1534549989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1807277754706907030, guid: 9a56feea110abf04288e05f553423ee6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1534549988}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03098a1b28d59a1468749adcca3e3727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1534549990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9196668233702390091, guid: 9a56feea110abf04288e05f553423ee6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1534549988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1547527324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9994,7 +10541,7 @@ PrefabInstance:
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
       propertyPath: m_text
-      value: Add Copper bar
+      value: Add Copper Bar
       objectReference: {fileID: 0}
     - target: {fileID: 5094213998757822164, guid: 9723fe2a02f295341a3ff44fa3a6b162,
         type: 3}
