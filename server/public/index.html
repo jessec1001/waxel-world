@@ -62,6 +62,7 @@
       // the canvas DOM size and WebGL render target sizes yourself.
       // config.matchWebGLToCanvasSize = false;
 
+<<<<<<< HEAD
       // if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
       //   container.className = "unity-mobile";
       //   // Avoid draining fillrate performance on mobile devices,
@@ -72,6 +73,18 @@
         canvas.style.width = "1280px";
         canvas.style.height = "720px";
       // }
+=======
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        container.className = "unity-mobile";
+        // Avoid draining fillrate performance on mobile devices,
+        // and default/override low DPI mode on mobile browsers.
+        config.devicePixelRatio = 1;
+        unityShowBanner('WebGL builds are not supported on mobile devices.');
+      } else {
+        canvas.style.width = "1280px";
+        canvas.style.height = "720px";
+      }
+>>>>>>> 93654c7143ac9e3bd0e0d6ab0b9b15c0dcb42888
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
