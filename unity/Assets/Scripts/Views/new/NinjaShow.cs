@@ -20,6 +20,7 @@ public class NinjaShow : BaseView
     [Space]
     [Header("PanelManager")]
     public GameObject NinjaInfoPanel;
+    public TMP_Text RegisterInfoText;
     public GameObject NinjsEmptyPanel;
     public GameObject ContentPanel;
     public Transform ContentTransform;
@@ -28,8 +29,9 @@ public class NinjaShow : BaseView
     public GameObject OneCampPrefab;
     public GameObject FoundCzPopup;
     public GameObject NoFoundCzPopup;
-
-
+    [Space]
+    [Header("SceneAsset")]
+    public ImgObjectView[] images;
     
 
 
@@ -67,6 +69,10 @@ public class NinjaShow : BaseView
     private Dictionary<string, DelayDataModel> DelayValues = new Dictionary<string, DelayDataModel>();
     private Dictionary<string, string> imgHashes = new Dictionary<string, string>();
 
+    public delegate void SetHeader();
+    public static SetHeader onSetHeaderElements;
+    
+
 
     protected override void Start()
     {
@@ -88,26 +94,23 @@ public class NinjaShow : BaseView
     }
     private void SetUIElements()
     {
+        Debug.Log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
         if (MessageHandler.userModel.account != null)
         {
+            RegisteredCountShow();
             foreach (DelayDataModel data in MessageHandler.userModel.config.race_delay_values)
             {
                 if (!DelayValues.ContainsKey(data.key)) DelayValues.Add(data.key, data);
             }
-            // string maxCount = "";
-            // foreach (MaxNftDataModel nftData in MessageHandler.userModel.nft_count)
-            // {
-            //     if (nftData.name == "Max Ninja")
-            //     {
-            //         maxCount = nftData.count;
-            //         break;
-            //     }
-            // }
             for (int i = 0; i < ninja_each_count.Length; i++)
             {
                 switch (ninja_each_count[i].gameObject.name)
                 {
                     case ("Human"):
+                        Debug.Log("llllllllllllllllllllllllllllllllllll");
+                        Debug.Log(Human.Count.ToString());
+                        
+
                         ninja_each_count[i].text = "x" + Human.Count.ToString();
                         if (imgHashes.ContainsKey("Human")) human.gameObject.GetComponent<ImageLoader>().url = "https://ipfs.wecan.dev/ipfs/" + imgHashes["Human"];
                         break;
@@ -148,23 +151,20 @@ public class NinjaShow : BaseView
             {
                 case ("Human"):
                     Human.Add(ninja);
-                    if (!imgHashes.ContainsKey(ninja.race)) imgHashes.Add(ninja.race, ninja.img);
+                    Debug.Log("pppppppppppppppppppppppppppppppp");
+                    Debug.Log(Human.Count.ToString());
                     break;
                 case ("Elf"):
                     Elf.Add(ninja);
-                    if (!imgHashes.ContainsKey(ninja.race)) imgHashes.Add(ninja.race, ninja.img);
                     break;
                 case ("Orc"):
                     Orc.Add(ninja);
-                    if (!imgHashes.ContainsKey(ninja.race)) imgHashes.Add(ninja.race, ninja.img);
                     break;
                 case ("Undead"):
                     Undead.Add(ninja);
-                    if (!imgHashes.ContainsKey(ninja.race)) imgHashes.Add(ninja.race, ninja.img);
                     break;
                 case ("Demon"):
                     Demon.Add(ninja);
-                    if (!imgHashes.ContainsKey(ninja.race)) imgHashes.Add(ninja.race, ninja.img);
                     break;
                 default:
                     break;
@@ -212,9 +212,30 @@ public class NinjaShow : BaseView
                 break;
         }
     }
-
+    public void RegisteredCountShow(){
+        string maxCount = "0";
+        foreach (MaxNftDataModel nftData in MessageHandler.userModel.nft_count)
+        {
+            if (nftData.name == "Max Ninja")
+            {
+                maxCount = nftData.count;
+                break;
+            }
+        }
+        
+        int registeredCount = 0;
+        foreach (NinjaDataModel a in MessageHandler.userModel.ninjas)
+        {
+            if (a.reg == "1")
+            {
+                registeredCount += 1;
+            }
+        }
+        RegisterInfoText.text = "Waxel Ninjas " + registeredCount.ToString() + "/" + maxCount;
+    }
     public void NinjaActionShow(List<NinjaDataModel> ninjaModel)
     {   
+        RegisteredCountShow();
         if (ninjaModel.Count > 0)
         {
             NinjsEmptyPanel.SetActive(false);
@@ -236,9 +257,17 @@ public class NinjaShow : BaseView
                 child.race = ninja.race;
                 child.assetId = ninja.asset_id;
                 child.name.text = "Waxel Ninja #" + ninja.mint_id;
-                Debug.Log(ninja.img);
-                Debug.Log("https://ipfs.wecan.dev/ipfs/" + ninja.img);
-                child.img.loadimg("https://ipfs.wecan.dev/ipfs/" + ninja.img);
+                // child.img.loadimg("https://ipfs.wecan.dev/ipfs/" + ninja.img);
+                int temp = 0;
+                for (int j = 0; j < images.Length; j++)
+                {
+                    if (images[j].name == child.race)
+                    {
+                        temp = j;
+                        break;
+                    }
+                }
+                child.img.texture = images[temp].img;
                 //child.LoadingPanel = LoadingPanel;
                 if (ninja.reg == "0")
                 {
@@ -274,6 +303,7 @@ public class NinjaShow : BaseView
 
     public void ShowSettlements(List<SettlementsModel> camp)
     {
+        RegisteredCountShow();
         if(camp.Count < 1){
             CampEmptyPanel.SetActive(true);
 
@@ -491,14 +521,10 @@ public class NinjaShow : BaseView
                 citizens.text = MessageHandler.userModel.citizens;
                 FoundCzPopup.SetActive(true);
                 NoFoundCzPopup.SetActive(false);
-                //foundPanel.SetActive(true);
-                // foundtext.text = "Success ! Found a Citizen";
                 break;
             case ("Search failed"):
                 NoFoundCzPopup.SetActive(true);
                 FoundCzPopup.SetActive(false);
-                // foundPanel.SetActive(true);
-                // foundtext.text = "No Citizen Found";
                 break;
             case ("Registered Successfully"):
                 SSTools.ShowMessage("NFT Registration Successful !", SSTools.Position.bottom, SSTools.Time.twoSecond);
@@ -514,6 +540,10 @@ public class NinjaShow : BaseView
     public void BuyBtn()
     {
         Application.OpenURL(MessageHandler.userModel.drop);
+    }
+    public void FoundCzPopupOkayButtonClick()
+    {
+        onSetHeaderElements();
     }
 
     public void BuyUpgrades()

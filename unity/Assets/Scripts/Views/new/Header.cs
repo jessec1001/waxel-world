@@ -15,19 +15,19 @@ public class Header : BaseView
     public TMP_Text materials;
     public TMP_Text ninjas;
     public TMP_Text items;
-
     protected override void Start()
     {
         base.Start();
-        SetHeaderElements();
+        NinjaShow.onSetHeaderElements += onSetHeaderElements;
+        onSetHeaderElements();
     }
-
     protected override void OnDestroy()
     {
         base.OnDestroy();
+        // NinjaShow.onSetHeaderElements -= onSetHeaderElements;
     }
 
-    private void SetHeaderElements()
+    private void onSetHeaderElements()
     {
         if (MessageHandler.userModel.account != null)
         {
@@ -37,7 +37,8 @@ public class Header : BaseView
             ninjas.text = MessageHandler.userModel.ninjas.Length.ToString();
             citizens.text = MessageHandler.userModel.citizens;
             professions.text = MessageHandler.userModel.professions.Length.ToString();
-            materials.text = MessageHandler.userModel.items.Length.ToString();
+            materials.text = MessageHandler.userModel.total_matCount.ToString();
+            items.text = MessageHandler.userModel.items.Length.ToString();
             username.text = MessageHandler.userModel.account;
         }
     }

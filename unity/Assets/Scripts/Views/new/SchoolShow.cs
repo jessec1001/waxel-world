@@ -8,6 +8,9 @@ using UnityEngine.UI;
 using UnityEditor;
 public class SchoolShow : BaseView
 {
+    
+    [Space]
+    [Header("Profession's Info")]
     public TMP_Text miner_count;
     public TMP_Text lumberjack_count;
     public TMP_Text farmer_count;
@@ -17,11 +20,22 @@ public class SchoolShow : BaseView
     public TMP_Text engineer_count;
     public GameObject ProfessionInfoPanel;
     public GameObject ProfessionShowPanel;
-
-    public TMP_Text CountInfoText;
-
     public Transform ActionsPanel;
     public GameObject OneProfessionPrefab;
+    public TMP_Text CountInfoText;
+    [Space]
+    [Header("Gatherer's Result")]
+    public GameObject WorkSuccessPopup;
+    public TMP_Text WorkTitle;
+    public TMP_Text WorkResultText;
+    public RawImage WorkResultImage;
+    [Space]
+    [Header("Refiner's Panel")]
+    public GameObject RefinePanel;
+    public Transform RefineParent;
+    [Space]
+    [Header("Crafter's Panel")]
+    public GameObject CraftPanel;
 
 
     
@@ -83,7 +97,7 @@ public class SchoolShow : BaseView
     public Transform mainPanel;
     public Transform item_inventory_parent;
     public Transform currently_equipped_parent;
-    public Transform refineParent;
+
     public Transform settlementObj;
     public Transform unregisteredSettlementObj;
 
@@ -212,106 +226,36 @@ public class SchoolShow : BaseView
     }
     public void ProfessionButtonClick(string type)
     {
+        // RefinePanel.SetActive(true);
         ProfessionInfoPanel.SetActive(false);
         ProfessionShowPanel.SetActive(true);
-
         switch (type)
         {
             case "Miner":
-                // if (Miners.Count > 0)
-                // {
-                    SetProfessions(Miners, "Gatherer");
-                // }
-                // else
-                // {
-                //     if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                //     if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                //     SetBlendingData(BlendingData, "Miner");
-                // }
+                SetProfessions(Miners);
                 break;
             case "Lumberjack":
-                if (LumberJack.Count > 0)
-                {
-                    SetProfessions(LumberJack, "Gatherer");
-                }
-                else
-                {
-                    SetBlendingData(BlendingData,"Lumberjack");
-                }
+                SetProfessions(LumberJack);
                 break;
             case "Farmer":
-                if (Farmers.Count > 0)
-                {
-                    SetProfessions(Farmers, "Gatherer");
-                }
-                // else
-                // {
-                //     // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                //     // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                //     SetBlendingData(BlendingData, "Farmer");
-                // }
+                SetProfessions(Farmers);
                 break;
             case "Engineer":
-                if (Engineer.Count > 0)
-                {
-                    // if (!Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(true);
-                    // if (BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(false);
-                    SetProfessions(Engineer, "Refiner and Crafter");
-                    // if(upgrade_btn.gameObject.activeInHierarchy) upgrade_btn.gameObject.SetActive(false);
-                }
-                else
-                {
-                    // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                    // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                    SetBlendingData(BlendingData,"Engineer");
-                }
+                SetProfessions(Engineer);
+                // if(upgrade_btn.gameObject.activeInHierarchy) upgrade_btn.gameObject.SetActive(false);
                 break;
             case "Carpenter":
-                if (Carpenter.Count > 0)
-                {
-                    // if (!Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(true);
-                    // if (BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(false);
-                    SetProfessions(Carpenter, "Refiner and Crafter");
-                    // if (upgrade_btn.gameObject.activeInHierarchy) upgrade_btn.gameObject.SetActive(false);
-                }
-                else
-                {
-                    // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                    // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                    SetBlendingData(BlendingData,"Carpenter");
-                }
+                SetProfessions(Carpenter);
+                // if (upgrade_btn.gameObject.activeInHierarchy) upgrade_btn.gameObject.SetActive(false);
                 break;
             case "Tailor":
-                if (Tailor.Count > 0)
-                {
-                    // if (!Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(true);
-                    // if (BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(false);
-                    SetProfessions(Tailor, "Refiner and Crafter");
-                    // if (upgrade_btn.gameObject.activeInHierarchy) upgrade_btn.gameObject.SetActive(false);
-                }
-                else
-                {
-                    // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                    // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                    SetBlendingData(BlendingData,"Tailor");
-                }
+                SetProfessions(Tailor);
+                // if (upgrade_btn.gameObject.activeInHierarchy) upgrade_btn.gameObject.SetActive(false);
                 break;
             case "Blacksmith":
-                if (Blacksmith.Count > 0)
-                {
-                    // if (!Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(true);
-                    // if (BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(false);
-                    SetProfessions(Blacksmith, "Refiner and Crafter");
-                    // if (upgrade_btn.gameObject.activeInHierarchy) upgrade_btn.gameObject.SetActive(false);
-                }
-                else
-                {
-                    // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                    // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                    SetBlendingData(BlendingData,"Blacksmith");
-                }
+                SetProfessions(Blacksmith);
+                // if (upgrade_btn.gameObject.activeInHierarchy) upgrade_btn.gameObject.SetActive(false);
                 break;
-
             default:
                 break;
         }
@@ -375,11 +319,20 @@ public class SchoolShow : BaseView
     {
 
     }
+    public void SetWorkResult(string title, string result, Texture image){
+        WorkSuccessPopup.SetActive(true);
+        WorkTitle.text = title;
+        WorkResultImage.texture = image;
+        WorkResultText.text = result;
+        // TMP_Text title = WorkSuccessPopup.Find("Title") as TMP_Text;
+        // title.text = "okay";
+        // HingeJoint hinge = gameObject.GetComponent("HingeJoint") as HingeJoint;
+    }
     public void SetProfessionEmptyPanel(string name)
     {
         
     }
-    public void SetProfessions(List<ProfessionDataModel> professionModel,  string type)
+    public void SetProfessions(List<ProfessionDataModel> professionModel)
     {
         if (ActionsPanel.childCount >= 1)
         {
@@ -388,7 +341,11 @@ public class SchoolShow : BaseView
                 GameObject.Destroy(child.gameObject);
             }
         }
-
+        if (professionModel.Count < 1){
+            CountInfoText.text = professionModel[0].name;
+        }
+        else
+        {
         ///dfafafafa
         // string name = professionModel[0].name;
         // string maxCount = "";
@@ -401,10 +358,8 @@ public class SchoolShow : BaseView
         //     }
         // }
         // if (!string.IsNullOrEmpty(maxCount)) 
-        //     //profession_text.text = name + "   " + professionModel.Count.ToString() + "/" + maxCount; 
         //     CountInfoText.text = name + "   " + professionModel.Count.ToString() + "/" + maxCount; 
         // else 
-        //     // profession_text.text = name + "   " + professionModel.Count.ToString() + "/" + "10";
         //     CountInfoText.text = name + "   " + professionModel.Count.ToString() + "/" + "10";
         ///dfafafafa
         for (int i = 0; i < professionModel.Count; i++)
@@ -414,6 +369,15 @@ public class SchoolShow : BaseView
                 ins.transform.localScale = new Vector3(1, 1, 1);
                 var child = ins.gameObject.GetComponent<OneProfessionStatus>();
             //     child.LoadingPanel = this.LoadingPanel;
+                //             for (int j = 0; j < images.Length; j++)
+                // {
+                //     if (images[j].name == name)
+                //     {
+                //         temp = j;
+                //         break;
+                //     }
+                // }
+                // BlendingPanel_img.texture = images[temp].img;
                 Sprite swordImage = Resources.Load("Assets/Sprites/old/waxel_world_assets/assets/6x_max_the_miner.png") as Sprite;
                 child.img.sprite = swordImage;  
             //     child.name_nft.text = professionModel[i].name;
@@ -421,7 +385,7 @@ public class SchoolShow : BaseView
                 child.AssetIdText.text = "#" + professionModel[i].asset_id.ToString();
                 child.type = professionModel[i].name;
                 child.UseLeftCount.text = professionModel[i].uses_left.ToString();
-                Debug.Log(child.type);
+                // Debug.Log(child.type);
                 if (professionModel[i].reg == "0")
                 {
                     child.Register.SetActive(true);
@@ -429,319 +393,57 @@ public class SchoolShow : BaseView
                 }
                 else if (professionModel[i].reg == "1")
                 {
-                    switch (child.type)
-                    {
-                        case ("Farmer"):
-                        case ("Miner"):
-                        case ("Lumberjack"):
-                            child.ItemInfo.text = "Item : " + professionModel[i].items.Length.ToString();
-                            child.action_text.text = "Work";
-                            if (professionModel[i].status != "Idle ")
-                            {
-                                child.Timer.SetActive(true);
-                                child.ItemSeller.SetActive(true);
-                                child.ItemBtn.gameObject.GetComponent<Button>().interactable = false;
-                                child.StartTimer(professionModel[i].last_material_search,100);
-                            } else {
-                                child.Registered.SetActive(true);
-                                child.Seller.SetActive(false);
-                                child.ItemSeller.SetActive(true);
-                                string[] items = professionModel[i].items;
-                                child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { workAction(child.assetId, child.type);});
-                                child.ItemBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { showItems(items, child.type, child.assetId); }); 
-                            }
-                        break;
-                        case ("Carpenter"):
-                        case ("Tailor"):
-                            child.ItemInfo.text = "Craft";
-                            child.action_text.text = "Refine";
-                            if (professionModel[i].status != "Idle ")
-                            {
-                                child.Timer.SetActive(true);
-                                child.ItemSeller.SetActive(true);
-                                child.ItemBtn.gameObject.GetComponent<Button>().interactable = false;
-                                child.StartTimer(professionModel[i].last_material_search,100);
-                            } else {
-                                child.Registered.SetActive(true);
-                                child.Seller.SetActive(false);
-                                child.ItemSeller.SetActive(true);
-
-                                // child.ItemInfo.text = "Item : " + professionModel[i].items.Length.ToString();
-                                // string professionName = professionModel[i].name;
-                                string[] items = professionModel[i].items;
-                                // string p_id = professionModel[i].asset_id;
-                                child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { workAction(child.assetId, child.type);});
-                                child.ItemBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { showItems(items, child.type, child.assetId); });
-                                // switch (type)
-                                // {
-                                //     case ("Gatherer"):
-                                //         child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { workAction(child.assetId, child.type);});
-                                //         child.ItemBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { showItems(items, professionName, p_id); });
-                                //     break;
-                                //     case ("Refiner and Crafter"):
-                                        child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { OnRefineBtnClick(child.assetId, child.type);});
-                                        child.ItemBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { OnCraftBtnClick(child.assetId); });
-               
-                            }
-                            break;
-                        default:
-                            break;
+                    if (child.type == "Farmer" || child.type == "Miner" || child.type =="Lumberjack"){
+                        child.ItemInfo.text = "Item : " + professionModel[i].items.Length.ToString();
+                        child.action_text.text = "Work";
+                    } else if (child.type == "Carpenter"|| child.type == "Tailor" || child.type == "Blacksmith"){
+                        child.ItemInfo.text = "Craft";
+                        child.action_text.text = "Refine";
+                    } else {
+                        child.action_text.text = "Craft";
                     }
-                    // if (professionModel[i].status != "Idle" || professionModel[i].last_material_search != "1970-01-01T00:00:00")
-                    // if (professionModel[i].status != "Idle ")
-                    // {
-                    //     child.Timer.SetActive(true);
-                    //     child.ItemSeller.SetActive(true);
-                    //     child.ItemBtn.gameObject.GetComponent<Button>().interactable = false;
-                    //     child.StartTimer(professionModel[i].last_material_search,100);
-                    // } else {
-                    //     child.Registered.SetActive(true);
-                    //     child.Seller.SetActive(false);
-                    //     child.ItemSeller.SetActive(true);
+                    if (professionModel[i].status == "Idle " || professionModel[i].last_material_search == "1970-01-01T00:00:00")
+                    {   
+                        child.Check.SetActive(false);
+                        child.Registered.SetActive(true);
+                        if (child.type == "Farmer" || child.type == "Miner" || child.type =="Lumberjack"){
+                            // child.Seller.SetActive(false);
+                            child.ItemSeller.SetActive(true);
+                            string[] items = professionModel[i].items;
+                            child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { workAction(child.assetId, child.type);});
+                            child.ItemBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { showItems(items, child.type, child.assetId); }); 
+                        } else if (child.type == "Carpenter"|| child.type == "Tailor" || child.type == "Blacksmith"){
+                            // child.Seller.SetActive(false);
+                            child.ItemSeller.SetActive(true);
+                            child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { RefineButtonClick(child.assetId, child.type);});
+                            child.ItemBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { CraftButtonClick(child.assetId); });
+                        } else {
+                            child.Seller.SetActive(true);
+                            child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { CraftButtonClick(child.assetId); });
+                            // child.ItemInfo.text = "Craft";
+                        }
+                    } else {
+                        child.Timer.SetActive(true);
+                        if (child.type != "Engineer")
+                        {
+                            child.ItemSeller.SetActive(true);
+                            child.ItemBtn.gameObject.GetComponent<Button>().interactable = false;
+                            child.StartTimer(professionModel[i].last_material_search,100);
+                        }
+                        else
+                        {
+                            child.Seller.SetActive(true);
+                            child.Seller.gameObject.GetComponent<Button>().interactable = false;
+                            child.StartTimer(professionModel[i].last_material_search,100);
 
-                    //     // child.ItemInfo.text = "Item : " + professionModel[i].items.Length.ToString();
-                    //     string professionName = professionModel[i].name;
-                    //     string[] items = professionModel[i].items;
-                    //     string p_id = professionModel[i].asset_id;
-                    //     switch (type)
-                    //     {
-                    //         case ("Gatherer"):
-                    //             child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { workAction(child.assetId, child.type);});
-                    //             child.ItemBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { showItems(items, professionName, p_id); });
-                    //         break;
-                    //         case ("Refiner and Crafter"):
-                    //             child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { OnRefineBtnClick(child.assetId, child.type);});
-                    //             child.ItemBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { OnCraftBtnClick(p_id); });
-                    //             break;
-                    //         default:
-                    //             break;
-                    //     }
-                        
-                    // }
-
+                        }
+  
+                    }
                 }
             }
-            // professionModel[i].name == "Engineer"
 
-
-
-
-        // switch (type)
-        // {
-        //     case ("Gatherer"):
-        //         for (int i = 0; i < professionModel.Count; i++)
-        //         {
-        //             var ins = Instantiate(OneProfessionPrefab);
-        //             ins.transform.SetParent(ActionsPanel);
-        //             ins.transform.localScale = new Vector3(1, 1, 1);
-        //             var child = ins.gameObject.GetComponent<OneProfessionStatus>();
-        //         //     child.LoadingPanel = this.LoadingPanel;
-        //             Sprite swordImage = Resources.Load("Assets/Sprites/old/waxel_world_assets/assets/6x_max_the_miner.png") as Sprite;
-        //             child.img.sprite = swordImage;  
-        //         //     child.name_nft.text = professionModel[i].name;
-        //             child.assetId = professionModel[i].asset_id;
-        //             child.AssetIdText.text = "#" + professionModel[i].asset_id.ToString();
-        //             child.type = professionModel[i].name;
-        //             child.UseLeftCount.text = professionModel[i].uses_left.ToString();
-        //             if (professionModel[i].reg == "0")
-        //             {
-        //                 child.Register.SetActive(true);
-        //                 child.Seller.SetActive(true);
-        //             }
-        //             else if (professionModel[i].reg == "1")
-        //             {
-        //                 child.ItemInfo.text = "Item : " + professionModel[i].items.Length.ToString();
-        //                 // if (professionModel[i].status != "Idle" || professionModel[i].last_material_search != "1970-01-01T00:00:00")
-        //                 if (professionModel[i].status != "Idle ")
-        //                 {
-        //                         child.Timer.SetActive(true);
-        //                         child.ItemSeller.SetActive(true);
-        //                         child.ItemBtn.gameObject.GetComponent<Button>().interactable = false;
-        //                         child.StartTimer(professionModel[i].last_material_search,100);
-        //                 } else {
-        //                     child.Registered.SetActive(true);
-        //                     child.Seller.SetActive(false);
-        //                     child.ItemSeller.SetActive(true);
-        //                     child.action_text.text = "Work";
-        //                     // child.ItemInfo.text = "Item : " + professionModel[i].items.Length.ToString();
-        //                     string professionName = professionModel[i].name;
-        //                     string[] items = professionModel[i].items;
-        //                     string p_id = professionModel[i].asset_id;
-        //                     child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { workAction(child.assetId, child.type);});
-        //                     child.ItemBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { showItems(items, professionName, p_id); });
-        //                 }
-
-        //             }
-        //         }
-        //         break;
-        //     case ("Refiner and Crafter"):
-        //         for (int i = 0; i < professionModel.Count; i++)
-        //             {
-        //             var ins = Instantiate(OneProfessionPrefab);
-        //             ins.transform.SetParent(ActionsPanel);
-        //             ins.transform.localScale = new Vector3(1, 1, 1);
-        //             var child = ins.gameObject.GetComponent<OneProfessionStatus>();
-        //         //     child.LoadingPanel = this.LoadingPanel;
-        //             Sprite swordImage = Resources.Load("Assets/Sprites/old/waxel_world_assets/assets/6x_max_the_miner.png") as Sprite;
-        //             child.img.sprite = swordImage;  
-        //         //     child.name_nft.text = professionModel[i].name;
-        //             child.assetId = professionModel[i].asset_id;
-        //             child.AssetIdText.text = "#" + professionModel[i].asset_id.ToString();
-        //             child.type = professionModel[i].name;
-        //             child.UseLeftCount.text = professionModel[i].uses_left.ToString();
-        //             if (professionModel[i].reg == "0")
-        //             {
-        //                 child.Register.SetActive(true);
-        //                 child.Seller.SetActive(true);
-        //             }
-        //             else if (professionModel[i].reg == "1")
-        //             {
-        //                 child.ItemInfo.text = "Craft";
-        //                 child.action_text.text = "Refine";
-        //                 // if (professionModel[i].status != "Idle" || professionModel[i].last_material_search != "1970-01-01T00:00:00")
-        //                 if (professionModel[i].status != "Idle ")
-        //                 {
-        //                     Debug.Log("what i want to know");
-        //                     Debug.Log(professionModel[i].status);
-        //                     Debug.Log(professionModel[i].last_material_search);
-        //                     // if (professionModel[i].status == "Mining"){
-        //                         child.Timer.SetActive(true);
-        //                         child.ItemSeller.SetActive(true);
-        //                         child.ItemBtn.gameObject.GetComponent<Button>().interactable = false;
-        //                         child.StartTimer(professionModel[i].last_material_search,100);
-        //                     // }
-        //                 } else {
-        //                     child.Registered.SetActive(true);
-        //                     child.Seller.SetActive(false);
-        //                     child.ItemSeller.SetActive(true);
-                            
-        //                     string professionName = professionModel[i].name;
-        //                     string[] items = professionModel[i].items;
-        //                     string p_id = professionModel[i].asset_id;
-        //                     child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { OnRefineBtnClick(child.assetId, child.type);});
-        //                     child.ItemBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { OnCraftBtnClick(p_id); });
-        //                 }
-
-        //             }
-        //         }
-
-        //         break;
-        //     case ("Carpenter"):
-        //         break;
-        //     case ("Tailor"):
-        //         break;
-        //     case ("Engineer"):
-        //         break;
-        //     default:
-        //         break;
-        // }
-
-        // for (int i = 0; i < professionModel.Count; i++)
-        // {
-        //     else if (professionModel[i].reg == "1")
-        //     {
-        //         if (type == "Gatherer")
-        //         {
-        //             child.gatherer = true;
-
-        //         }
-
-        //         else if (type == "Refiner and Crafter")
-        //         {
-        //             child.gatherer = false;
-        //             CraftPanelCall craftScript = craft_panel.GetComponent<CraftPanelCall>();
-        //             craftScript.EngineerType.SetActive(false);
-        //             craftScript.BlacksmithType.SetActive(false);
-        //             craftScript.grade_obj_parent.SetActive(false);
-        //             craftScript.ing_obj_parent.SetActive(false);
-
-        //             if (professionModel[i].name == "Engineer")
-        //             {
-        //                 child.UnRegister_Btn.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(child.Registered.gameObject.GetComponent<RectTransform>().sizeDelta.x, child.Registered.gameObject.GetComponent<RectTransform>().sizeDelta.y);
-        //                 child.BurnBtn.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(child.Registered.gameObject.GetComponent<RectTransform>().sizeDelta.x, child.Registered.gameObject.GetComponent<RectTransform>().sizeDelta.y);
-        //                 child.CraftBtn.SetActive(true);
-        //                 child.craft_text.text = professionModel[i].uses_left.ToString();
-        //                 string p_id = professionModel[i].asset_id;
-        //                 child.CraftBtn.GetComponent<Button>().onClick.AddListener(delegate { OnCraftBtnClick(p_id); });
-        //                 craftScript.profession_name = professionModel[i].name;
-        //                 craftScript.EngineerType.SetActive(true);
-        //             }
-        //             else if (professionModel[i].name == "Tailor" || professionModel[i].name == "Carpenter")
-        //             {
-        //                 child.RefineBtn.SetActive(true);
-        //                 child.refine_text.text = professionModel[i].uses_left.ToString();
-        //                 child.CraftBtn.SetActive(false);
-        //                 child.Sellbtn.GetComponent<RectTransform>().sizeDelta = new Vector2(child.Registered.gameObject.GetComponent<RectTransform>().sizeDelta.x, child.Registered.gameObject.GetComponent<RectTransform>().sizeDelta.y);
-        //             }
-        //             else
-        //             {
-        //                 child.RefineBtn.SetActive(true);
-        //                 child.CraftBtn.SetActive(true);
-        //                 child.refine_text.text = professionModel[i].uses_left.ToString();
-        //                 child.craft_text.text = professionModel[i].uses_left.ToString();
-        //                 string p_id = professionModel[i].asset_id;
-        //                 child.CraftBtn.GetComponent<Button>().onClick.AddListener(delegate { OnCraftBtnClick(p_id); });
-        //                 craftScript.profession_id = professionModel[i].asset_id;
-        //                 craftScript.profession_name = professionModel[i].name;
-        //                 craftScript.BlacksmithType.SetActive(true);
-        //             }
-        //             string profession_name = professionModel[i].name;
-        //             string asset_id = professionModel[i].asset_id;
-        //             child.RefineBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { OnRefineBtnClick(profession_name,asset_id); });
-        //             if (int.Parse(professionModel[i].uses_left) == 0)
-        //             {
-        //                 child.WorkBtn.GetComponent<Button>().interactable = false;
-        //                 child.RefineBtn.GetComponent<Button>().interactable = false;
-        //                 child.CraftBtn.GetComponent<Button>().interactable = false;
-        //                 child.UnRegister_Btn.gameObject.SetActive(false);
-        //                 child.BurnBtn.gameObject.SetActive(true);
-        //                 child.BurnBtn.onClick.RemoveAllListeners();
-        //                 string p_name = professionModel[i].name;
-        //                 child.BurnBtn.onClick.AddListener(delegate { Show_BurnPanel(p_name); });
-        //                 yesbtn.onClick.RemoveAllListeners();
-        //                 yesbtn.onClick.AddListener(delegate { child.BurnBtn_Call(); });
-        //             }
-        //         }
-
-        //         if (professionModel[i].status != "Idle" || professionModel[i].last_material_search != "1970-01-01T00:00:00")
-        //         {
-        //             if(professionModel[i].status == "Mining")
-        //                 child.StartTimer(professionModel[i].last_material_search,100);
-        //             else if(professionModel[i].status == "holdup")
-        //             {
-        //                 child.WorkBtn.gameObject.GetComponent<Button>().interactable = false;
-        //                 SSTools.ShowMessage("One or more Asset ID is under holdup status", SSTools.Position.bottom, SSTools.Time.twoSecond);
-        //             }
-        //             else
-        //             {
-        //                 string[] newstring = professionModel[i].status.Split('%');
-        //                 switch (newstring[0])
-        //                 {
-        //                     case ("Refining"):
-        //                         child.matName = newstring[1];
-        //                         child.craft = false;
-        //                         child.StartTimer(professionModel[i].last_material_search,100);
-        //                         break;
-        //                     case ("Crafting"):
-        //                         child.matName = newstring[1];
-        //                         child.craft = true;
-        //                         foreach(Config_CraftComboModel craftData in MessageHandler.userModel.craft_combos)
-        //                         {
-        //                             if(newstring[1] == craftData.template_id)
-        //                             {
-        //                                 child.StartTimer(professionModel[i].last_material_search, (int)Int64.Parse(craftData.delay));
-        //                                 Debug.Log((int)Int64.Parse(craftData.delay));
-        //                                 break;
-        //                             }
-        //                         }
-        //                         break;
-        //                     default:
-        //                         break;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        }
+   
     }
 
     public void Show_BurnPanel(string p_name)
@@ -925,102 +627,25 @@ public class SchoolShow : BaseView
         switch (callBack.name)
         {
             case "Miner":
-                if (Miners.Count > 0)
-                {
-                    // if (!Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(true);
-                    // if (BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(false);
-                    SetProfessions(Miners, "Gatherer");
-                }
-                else
-                {
-                    // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                    // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                    SetBlendingData(BlendingData, "Miner");
-                }
+                    SetProfessions(Miners);
                 break;
             case "Farmer":
-                if (Farmers.Count > 0)
-                {
-                    // if (!Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(true);
-                    // if (BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(false);
-                    SetProfessions(Farmers, "Gatherer");
-                }
-                else
-                {
-                    // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                    // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                    SetBlendingData(BlendingData, "Farmer");
-                }
+                    SetProfessions(Farmers);
                 break;
             case "Engineer":
-                if (Engineer.Count > 0)
-                {
-                    // if (!Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(true);
-                    // if (BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(false);
-                    SetProfessions(Engineer, "Refiner and Crafter");
-                }
-                else
-                {
-                    // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                    // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                    SetBlendingData(BlendingData, "Engineer");
-                }
+                    SetProfessions(Engineer);
                 break;
             case "Carpenter":
-                if (Carpenter.Count > 0)
-                {
-                    // if (!Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(true);
-                    // if (BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(false);
-                    SetProfessions(Carpenter, "Refiner and Crafter");
-                }
-                else
-                {
-                    // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                    // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                    SetBlendingData(BlendingData, "Carpenter");
-                }
+                    SetProfessions(Carpenter);
                 break;
             case "Tailor":
-                if (Tailor.Count > 0)
-                {
-                    // if (!Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(true);
-                    // if (BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(false);
-                    SetProfessions(Tailor, "Refiner and Crafter");
-                }
-                else
-                {
-                    // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                    // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                    SetBlendingData(BlendingData, "Tailor");
-                }
+                    SetProfessions(Tailor);
                 break;
             case "Blacksmith":
-                if (Blacksmith.Count > 0)
-                {
-                    // if (!Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(true);
-                    // if (BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(false);
-                    SetProfessions(Blacksmith, "Refiner and Crafter");
-                }
-                else
-                {
-                    // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                    // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                    SetBlendingData(BlendingData, "Blacksmith");
-                }
+                    SetProfessions(Blacksmith);
                 break;
             case "Lumberjack":
-                if (LumberJack.Count > 0)
-                {
-                    // if (!Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(true);
-                    // if (BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(false);
-                    SetProfessions(LumberJack, "Gatherer");
-                }
-                else
-                {
-                    // if (Profession_Panel.activeInHierarchy) Profession_Panel.SetActive(false);
-                    // if (!BlendingPanel.activeInHierarchy) BlendingPanel.SetActive(true);
-                    SetBlendingData(BlendingData, "Lumberjack");
-                }
+                    SetProfessions(LumberJack);
                 break;
             case ("Forest"):
                 ShowSettlements(Forest);
@@ -1067,17 +692,21 @@ public class SchoolShow : BaseView
             if (!string.IsNullOrEmpty(callBack.matName) || !string.IsNullOrEmpty(callBack.matCount))
             {
                 MessageHandler.userModel.total_matCount = callBack.totalMatCount;
-                materials.text = MessageHandler.userModel.total_matCount;
-                if (!FoundPanel.activeInHierarchy) FoundPanel.SetActive(true);
+                // materials.text = MessageHandler.userModel.total_matCount;
+                // if (!FoundPanel.activeInHierarchy) FoundPanel.SetActive(true);
+                string title = "Work Result";
+                Texture b = null;
+                string result = "";
                 foreach(ImgObjectView data in images)
                 {
                     if(data.name == callBack.matName)
                     {
-                        Found_Mat_Img.texture = data.img;
-                        found_text.text = "Found " + callBack.matCount + " " + helper.mat_abv[callBack.matName];
+                        b = data.img;
+                        result = "You found " + callBack.matCount + " " + helper.mat_abv[callBack.matName];
                         break;
                     }
                 }
+                SetWorkResult(title, result, b);
             }
         }
         else if (!string.IsNullOrEmpty(callBack.matFound) && !string.IsNullOrEmpty(callBack.matRefined) && callBack.matFound == "false" && callBack.matRefined == "true")
@@ -1141,73 +770,70 @@ public class SchoolShow : BaseView
     {
 
     }
-
-    public void OnCraftBtnClick(string profession_id)
+    public void CraftButtonClick(string profession_id)
     {
         craft_panel.SetActive(true);
         Debug.Log("Craft P Id - " + profession_id);
         craft_panel.GetComponent<CraftPanelCall>().profession_id = profession_id;
         Debug.Log("Craft P Id - " + craft_panel.GetComponent<CraftPanelCall>().profession_id);
     }
-
-    public void OnRefineBtnClick(string profession, string profession_id)
+    public void RefineButtonClick(string profession, string profession_id)
     {
-        refinePanel.SetActive(true);
-        if (refineParent.childCount >= 1)
-        {
-            foreach (Transform child in refineParent)
-            {
-                Destroy(child.gameObject);
-            }
-        }
-        foreach (RefineDataModel refine_mat in refineData)
-        {
-            if(refine_mat.profession == profession)
-            {
-                Debug.Log("Profession Found " + profession);
-                var ins = Instantiate(refineProductPrefab);
-                ins.transform.SetParent(refineParent);
-                ins.transform.localScale = new Vector3(1, 1, 1);
-                var child = ins.gameObject.GetComponent<RefineMatCall>();
-                child.mat_name.text = "Name : " + refine_mat.name;
-                child.nft_img.texture = refine_mat.img;
-                child.rarity.text = "Rarity : " + refine_mat.rarity;
-                string qty = "0";
-                string material_short_name = helper.mat_abv_rev[refine_mat.name];
-                if (MessageHandler.userModel.inventory.Length == 0)
-                {
-                    child.qty.text = "Qty : 0";
-                }
-                else
-                {
-                    bool found = false;
-                    foreach (InventoryModel data in MessageHandler.userModel.inventory)
-                    {
-                        Debug.Log("In QTY For Loop");
-                        if (data.name == material_short_name)
-                        {
-                            Debug.Log("Found Qty");
-                            child.qty.text = "Qty :" + data.count;
-                            qty = data.count;
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (!found)
-                        child.qty.text = "Qty : 0";
-                }
-                if(qty != "0")
-                    child.showRefines.onClick.AddListener(delegate { Refine_MatOnClick(refine_mat.name,profession_id); });
-                else
-                {
-                    child.showRefines.onClick.AddListener(delegate { SSTools.ShowMessage("Not Enough Qty to Refine", SSTools.Position.bottom, SSTools.Time.twoSecond); });
-                }
-                Debug.Log("Button Set !");
+        RefinePanel.SetActive(true);
+        // if (RefineParent.childCount >= 1)
+        // {
+        //     foreach (Transform child in RefineParent)
+        //     {
+        //         Destroy(child.gameObject);
+        //     }
+        // }
+        // foreach (RefineDataModel refine_mat in refineData)
+        // {
+        //     if(refine_mat.profession == profession)
+        //     {
+        //         // Debug.Log("Profession Found " + profession);
+        //         var ins = Instantiate(refineProductPrefab);
+        //         ins.transform.SetParent(RefineParent);
+        //         ins.transform.localScale = new Vector3(1, 1, 1);
+        //         var child = ins.gameObject.GetComponent<RefineMatCall>();
+        //         child.mat_name.text = "Name : " + refine_mat.name;
+        //         child.nft_img.texture = refine_mat.img;
+        //         child.rarity.text = "Rarity : " + refine_mat.rarity;
+        //         string qty = "0";
+        //         string material_short_name = helper.mat_abv_rev[refine_mat.name];
+        //         if (MessageHandler.userModel.inventory.Length == 0)
+        //         {
+        //             child.qty.text = "Qty : 0";
+        //         }
+        //         else
+        //         {
+        //             bool found = false;
+        //             foreach (InventoryModel data in MessageHandler.userModel.inventory)
+        //             {
+        //                 Debug.Log("In QTY For Loop");
+        //                 if (data.name == material_short_name)
+        //                 {
+        //                     Debug.Log("Found Qty");
+        //                     child.qty.text = "Qty :" + data.count;
+        //                     qty = data.count;
+        //                     found = true;
+        //                     break;
+        //                 }
+        //             }
+        //             if (!found)
+        //                 child.qty.text = "Qty : 0";
+        //         }
+        //         if(qty != "0")
+        //             child.showRefines.onClick.AddListener(delegate { Refine_MatOnClick(refine_mat.name,profession_id); });
+        //         else
+        //         {
+        //             child.showRefines.onClick.AddListener(delegate { SSTools.ShowMessage("Not Enough Qty to Refine", SSTools.Position.bottom, SSTools.Time.twoSecond); });
+        //         }
+        //         Debug.Log("Button Set !");
 
-            }
-        }
+        //     }
+        // }
     }
-
     public void Refine_MatOnClick(string mat_name,string profession_id)
     {
         refineProductPanel.SetActive(true);
