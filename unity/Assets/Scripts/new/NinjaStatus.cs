@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class NinjaStatus : MonoBehaviour
 {
-    public ImageLoader img;
+    public RawImage img;
     public TMP_Text name;
     //public GameObject UnRegistered;
     public GameObject Register;
@@ -16,11 +16,6 @@ public class NinjaStatus : MonoBehaviour
     public GameObject Timer;
     public GameObject Check;
     public GameObject SellBtn;
-    // public Button SellBtn;
-    // public Button RegisterBtn;
-    // public Button UnRegisterBtn;
-    // public Button CheckBtn;
-    // public Button SearchBtn;
     // public GameObject LoadingPanel;
     public string assetId;
     public string race;
@@ -72,14 +67,12 @@ public class NinjaStatus : MonoBehaviour
 
     public void StartTimer(string last_search,string delayValue)
     {
-        Debug.Log(delayValue);
+        // Debug.Log(delayValue);
         StartCoroutine(StartCountdown(last_search,delayValue));
     }
 
     private IEnumerator StartCountdown(string time,string delayValue)
     {
-        // Debug.Log("In timer");
-        //SellBtn.gameObject.GetComponent<Button>().interactable = false;
         DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         int epoch_time = (int)(DateTime.Parse(time) - epochStart).TotalSeconds;
         // Debug.Log(epoch_time);
@@ -88,7 +81,7 @@ public class NinjaStatus : MonoBehaviour
         double final_epoch_time = epoch_time + delay_seconds;
         double currentEpochTime = (int)(DateTime.UtcNow - epochStart).TotalSeconds;
         double diff = final_epoch_time - currentEpochTime;
-        Debug.Log(diff);
+        // Debug.Log(diff);
         if (diff > 0)
         {
             Timer.SetActive(true);

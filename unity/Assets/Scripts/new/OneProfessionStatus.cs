@@ -85,15 +85,33 @@ public class OneProfessionStatus : MonoBehaviour
         StartCoroutine(StartCountdown(last_search, delay));
     }
 
-    public void CheckBtn_Call()
-    {
-        LoadingPanel.SetActive(true);
-        if (gatherer) MessageHandler.Server_FindMat(assetId);
-        else
+    public void CheckButtonClick()
+    {   
+        switch (type)
         {
-            if (!craft) MessageHandler.Server_RefineComp(assetId);
-            else MessageHandler.Server_CraftComp(assetId);
+            case "Miner":
+            case "Farmer":
+            case "Lumberjack":
+                    MessageHandler.Server_FindMat(assetId);
+                break;
+            case "Engineer":
+                    MessageHandler.Server_CraftComp(assetId);
+                break;
+            case "Carpenter":
+            case "Tailor":
+            case "Blacksmith":
+                    MessageHandler.Server_RefineComp(assetId);
+                break;
+            default:
+                break;
         }
+        // LoadingPanel.SetActive(true);
+        // if (gatherer) MessageHandler.Server_FindMat(assetId);
+        // else
+        // {
+        //     if (!craft) MessageHandler.Server_RefineComp(assetId);
+        //     else MessageHandler.Server_CraftComp(assetId);
+        // }
     }
 
     public void WorkBtn_Call()
