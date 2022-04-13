@@ -6,8 +6,11 @@ using UnityEngine.UI;
 
 public class ProfessionItemSelect : MonoBehaviour
 {
-    public string tool_id;
-    public string toolname;
+    // by l
+    public GameObject EquipButton;
+    public GameObject UnequipButton;
+    public TMP_Text UseLeftText;
+
     public RawImage tool_img;
     public TMP_Text tool_name;
     public TMP_Text tool_function;
@@ -15,6 +18,10 @@ public class ProfessionItemSelect : MonoBehaviour
     public GameObject textPanels;
     public GameObject parent;
     public Button show_btn;
+    public string tool_id;
+    public string toolname;
     public bool current_equipped;
+    public string type;
+
     public string funtion_type;
 }

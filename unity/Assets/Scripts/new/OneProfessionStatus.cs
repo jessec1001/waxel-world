@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class OneProfessionStatus : MonoBehaviour
 {
-    public Image img;
+    public RawImage img;
     public TMP_Text name_nft;
     public TMP_Text item_count;
     public TMP_Text uses_left;
