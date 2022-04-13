@@ -988,6 +988,7 @@ MonoBehaviour:
   - SchoolScene
   - WorkshopScene
   - WarehouseScene
+  - ShopScene
   instanceName: 
 --- !u!114 &1803072202 stripped
 MonoBehaviour:
@@ -1008,6 +1009,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708957750}
     m_Modifications:
+    - target: {fileID: 2367806709877577975, guid: a07870687233ba74fa98ff935d47bb53,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367806709877577975, guid: a07870687233ba74fa98ff935d47bb53,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ShopScene
+      objectReference: {fileID: 0}
     - target: {fileID: 4201645367121533102, guid: a07870687233ba74fa98ff935d47bb53,
         type: 3}
       propertyPath: m_Pivot.x
