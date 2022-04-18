@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ItemsPanelView : MonoBehaviour
 {
+    public GameObject EquipButton;
+
     public string unequip_id;
     public string unequip_item_name;
     public string equip_id;
@@ -13,6 +15,17 @@ public class ItemsPanelView : MonoBehaviour
     public GameObject loadingPanel;
     public string p_id;
 
+    public void PopupEquipButtonClick()
+    {
+        Debug.Log(p_id);
+        if (!string.IsNullOrEmpty(equip_id))
+        {
+            // loadingPanel.SetActive(true);
+            MessageHandler.Server_EquipItems(p_id, equip_id);
+        }
+        else
+            SSTools.ShowMessage("No item selected to equip", SSTools.Position.bottom, SSTools.Time.twoSecond);
+    }
     public void Equip_call()
     {
         Debug.Log(p_id);
