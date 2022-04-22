@@ -68,7 +68,8 @@ public class NinjaShow : BaseView
 
     private Dictionary<string, DelayDataModel> DelayValues = new Dictionary<string, DelayDataModel>();
     private Dictionary<string, string> imgHashes = new Dictionary<string, string>();
-
+    
+    // setting the header
     public delegate void SetHeader();
     public static SetHeader onSetHeaderElements;
     
@@ -94,10 +95,9 @@ public class NinjaShow : BaseView
     }
     private void SetUIElements()
     {
-        Debug.Log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
         if (MessageHandler.userModel.account != null)
         {
-            RegisteredCountShow();
+            RegisteredCountShow("ninja");
             foreach (DelayDataModel data in MessageHandler.userModel.config.race_delay_values)
             {
                 if (!DelayValues.ContainsKey(data.key)) DelayValues.Add(data.key, data);
@@ -107,10 +107,6 @@ public class NinjaShow : BaseView
                 switch (ninja_each_count[i].gameObject.name)
                 {
                     case ("Human"):
-                        Debug.Log("llllllllllllllllllllllllllllllllllll");
-                        Debug.Log(Human.Count.ToString());
-                        
-
                         ninja_each_count[i].text = "x" + Human.Count.ToString();
                         if (imgHashes.ContainsKey("Human")) human.gameObject.GetComponent<ImageLoader>().url = "https://ipfs.wecan.dev/ipfs/" + imgHashes["Human"];
                         break;
@@ -151,8 +147,6 @@ public class NinjaShow : BaseView
             {
                 case ("Human"):
                     Human.Add(ninja);
-                    Debug.Log("pppppppppppppppppppppppppppppppp");
-                    Debug.Log(Human.Count.ToString());
                     break;
                 case ("Elf"):
                     Elf.Add(ninja);
@@ -212,30 +206,47 @@ public class NinjaShow : BaseView
                 break;
         }
     }
-    public void RegisteredCountShow(){
-        string maxCount = "0";
-        foreach (MaxNftDataModel nftData in MessageHandler.userModel.nft_count)
+    public void RegisteredCountShow(string type){
+        if (type == "ninja")
         {
-            if (nftData.name == "Max Ninja")
+            string maxCount = "10";
+            foreach (MaxNftDataModel nftData in MessageHandler.userModel.nft_count)
             {
-                maxCount = nftData.count;
-                break;
+                if (nftData.name == "Max Ninja")
+                {
+                    maxCount = nftData.count;
+                    break;
+                }
             }
+            
+            int registeredCount = 0;
+            foreach (NinjaDataModel a in MessageHandler.userModel.ninjas)
+            {
+                if (a.reg == "1")
+                {
+                    registeredCount += 1;
+                }
+            }
+            RegisterInfoText.text = "Waxel Ninjas " + registeredCount.ToString() + "/" + maxCount;
         }
-        
-        int registeredCount = 0;
-        foreach (NinjaDataModel a in MessageHandler.userModel.ninjas)
+        else
         {
-            if (a.reg == "1")
+            string maxCount = Camp.Count.ToString();            
+            int registeredCount = 0;
+            foreach (SettlementsModel c in Camp)
             {
-                registeredCount += 1;
+                if (c.reg == "1")
+                {
+                    registeredCount += 1;
+                }
             }
+            RegisterInfoText.text = "Camp " + registeredCount.ToString() + "/" + maxCount;
         }
-        RegisterInfoText.text = "Waxel Ninjas " + registeredCount.ToString() + "/" + maxCount;
+
     }
     public void NinjaActionShow(List<NinjaDataModel> ninjaModel)
     {   
-        RegisteredCountShow();
+        RegisteredCountShow("ninja");
         if (ninjaModel.Count > 0)
         {
             NinjsEmptyPanel.SetActive(false);
@@ -303,161 +314,45 @@ public class NinjaShow : BaseView
 
     public void ShowSettlements(List<SettlementsModel> camp)
     {
-        RegisteredCountShow();
-        if(camp.Count < 1){
-            CampEmptyPanel.SetActive(true);
-
-        } else {
-            ContentPanel.SetActive(true);
-            // NinjaInfoPanel.SetActive(false);
-            CampEmptyPanel.SetActive(false);
-            // NinjsEmptyPanel.SetActive(false);
-            // NinjasByNamePanel.SetActive(true);
-            if (ContentTransform.childCount >= 1)
+        RegisteredCountShow("camp");
+        ContentPanel.SetActive(true);
+        // NinjaInfoPanel.SetActive(false);
+        // CampEmptyPanel.SetActive(false);
+        // NinjsEmptyPanel.SetActive(false);
+        // NinjasByNamePanel.SetActive(true);
+        if (ContentTransform.childCount >= 1)
+        {
+            foreach (Transform child in ContentTransform)
             {
-                // Debug.Log("InDelete");
-                foreach (Transform child in ContentTransform)
-                {
-                    GameObject.Destroy(child.gameObject);
-                }
-            }
-            foreach (SettlementsModel data in camp)
-            {
-                var ins = Instantiate(OneCampPrefab);
-                ins.transform.SetParent(ContentTransform);
-                ins.transform.localScale = new Vector3(1, 1, 1);
-                var child = ins.gameObject.GetComponent<OneCampStatus>();
-                child.name.text = "#" + data.asset_id;
-                // // child.nft_name.text = "Name : " + data.name;
-                child.assetId = data.asset_id;
-                // // child.asset_id = data.asset_id;
-                // child.img.loadimg("https://ipfs.wecan.dev/ipfs/" + data.img);
-                // // child.nftImg.loadimg("https://ipfs.wecan.dev/ipfs/" + data.img);
-                if (data.reg == "0")
-                { 
-                    // ins.transform.SetParent(unregisteredSettlementObj);
-                    // ins.transform.localScale = new Vector3(1, 1, 1);
-                    child.Register.SetActive(true);
-                    // child.Register.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Register_Settlement(data.asset_id); });
-                }
-                else if (data.reg == "1")
-                { 
-                    child.SellBtn.gameObject.GetComponent<Button>().interactable = false;
-                    child.Unregister.SetActive(true);
-                    // child.DeRegister.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DeRegister_Settlement(data.asset_id); });
-                }
+                GameObject.Destroy(child.gameObject);
             }
         }
-            //     if (settlementObj.childCount == 0)
-            //         SettlementDeregButton.gameObject.GetComponent<Button>().interactable = false;
-            //     if (unregisteredSettlementObj.childCount == 0)
-            //         NoCamp_text.SetActive(true);
-
-
-
-
-
-
-
-
-            //     SettlementChildPanel.SetActive(true);
-            //     UnregisteredSettlementChildPanel.SetActive(true);
-            //     RegisteredSettlementChildPanel.SetActive(true);
-            //     SettlementDeregButton.SetActive(true);
-            //     foreach (SettlementsModel data in camp)
-            //     {
-            //         var ins = Instantiate(SettlementPrefab);
-            //         var child = ins.gameObject.GetComponent<SettlementCall>();
-            //         child.nft_name.text = "Name : " + data.name;
-            //         child.nftImg.loadimg("https://ipfs.wecan.dev/ipfs/" + data.img);
-            //         child.asset_id = data.asset_id;
-            //         if (data.reg == "0")
-            //         { 
-            //             ins.transform.SetParent(unregisteredSettlementObj);
-            //             ins.transform.localScale = new Vector3(1, 1, 1);
-            //             child.Register.SetActive(true);
-            //             child.Register.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Register_Settlement(data.asset_id); });
-            //         }
-            //         else if (data.reg == "1")
-            //         { 
-            //             ins.transform.SetParent(settlementObj);
-            //             ins.transform.localScale = new Vector3(1, 1, 1);
-            //             child.DeRegister.SetActive(true);
-            //             child.DeRegister.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DeRegister_Settlement(data.asset_id); });
-            //         }
-            //     }
-            //     if (settlementObj.childCount == 0)
-            //         SettlementDeregButton.gameObject.GetComponent<Button>().interactable = false;
-            //     if (unregisteredSettlementObj.childCount == 0)
-            //         NoCamp_text.SetActive(true);
-
-
-
-
-
-
-
-            //NoCamp_text.SetActive(false);
-            // if (unregisteredSettlementObj.childCount >= 1)
-            // {
-            //     Debug.Log("Delete");
-            //     foreach (Transform child in unregisteredSettlementObj)
-            //     {
-            //         GameObject.Destroy(child.gameObject);
-            //     }
-            // }
-            // if (settlementObj.childCount >= 1)
-            // {
-            //     Debug.Log("InDelete");
-            //     foreach (Transform child in settlementObj)
-            //     {
-            //         GameObject.Destroy(child.gameObject);
-            //     }
-            // }
-            // if (camp.Count >= 1)
-            // {
-            //     SettlementChildPanel.SetActive(true);
-            //     UnregisteredSettlementChildPanel.SetActive(true);
-            //     RegisteredSettlementChildPanel.SetActive(true);
-            //     SettlementDeregButton.SetActive(true);
-            //     foreach (SettlementsModel data in camp)
-            //     {
-            //         var ins = Instantiate(SettlementPrefab);
-            //         var child = ins.gameObject.GetComponent<SettlementCall>();
-            //         child.nft_name.text = "Name : " + data.name;
-            //         child.nftImg.loadimg("https://ipfs.wecan.dev/ipfs/" + data.img);
-            //         child.asset_id = data.asset_id;
-            //         if (data.reg == "0")
-            //         { 
-            //             ins.transform.SetParent(unregisteredSettlementObj);
-            //             ins.transform.localScale = new Vector3(1, 1, 1);
-            //             child.Register.SetActive(true);
-            //             child.Register.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Register_Settlement(data.asset_id); });
-            //         }
-
-            //         else if (data.reg == "1")
-            //         { 
-            //             ins.transform.SetParent(settlementObj);
-            //             ins.transform.localScale = new Vector3(1, 1, 1);
-            //             child.DeRegister.SetActive(true);
-            //             child.DeRegister.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DeRegister_Settlement(data.asset_id); });
-            //         }
-
-            //     }
-            //     if (settlementObj.childCount == 0)
-            //         SettlementDeregButton.gameObject.GetComponent<Button>().interactable = false;
-            //     if (unregisteredSettlementObj.childCount == 0)
-            //         NoCamp_text.SetActive(true);
-
-            // }
-            // else if (camp.Count == 0)
-            // {
-            //     SettlementTextPanel.SetActive(true);
-            //     SettlementBuyBtn.SetActive(true);
-            // }
-
-
-
+        foreach (SettlementsModel data in camp)
+        {
+            var ins = Instantiate(OneCampPrefab);
+            ins.transform.SetParent(ContentTransform);
+            ins.transform.localScale = new Vector3(1, 1, 1);
+            var child = ins.gameObject.GetComponent<OneCampStatus>();
+            child.name.text = "#" + data.asset_id;
+            // // child.nft_name.text = "Name : " + data.name;
+            child.assetId = data.asset_id;
+            // // child.asset_id = data.asset_id;
+            // child.img.loadimg("https://ipfs.wecan.dev/ipfs/" + data.img);
+            // // child.nftImg.loadimg("https://ipfs.wecan.dev/ipfs/" + data.img);
+            if (data.reg == "0")
+            { 
+                // ins.transform.SetParent(unregisteredSettlementObj);
+                // ins.transform.localScale = new Vector3(1, 1, 1);
+                child.Register.SetActive(true);
+                // child.Register.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Register_Settlement(data.asset_id); });
+            }
+            else if (data.reg == "1")
+            { 
+                child.SellBtn.gameObject.GetComponent<Button>().interactable = false;
+                child.Unregister.SetActive(true);
+                // child.DeRegister.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DeRegister_Settlement(data.asset_id); });
+            }
+        }
     }
 
     public void Register_Settlement(string asset_id)
@@ -518,7 +413,7 @@ public class NinjaShow : BaseView
         {
             case ("Search successful"):
                 MessageHandler.userModel.citizens = callBack.totalCitizensCount;
-                citizens.text = MessageHandler.userModel.citizens;
+                // citizens.text = MessageHandler.userModel.citizens;
                 FoundCzPopup.SetActive(true);
                 NoFoundCzPopup.SetActive(false);
                 break;
@@ -566,10 +461,13 @@ public class NinjaShow : BaseView
 
     public void UpgradeButtonClick()
     {
-        NinjaInfoPanel.SetActive(false);
-        NinjsEmptyPanel.SetActive(false);
-        // SettlementParentPanel.SetActive(true);
-        ShowSettlements(Camp);
+        if(Camp.Count < 1){
+            CampEmptyPanel.SetActive(true);
+        } else {
+            NinjaInfoPanel.SetActive(false);
+            NinjsEmptyPanel.SetActive(false);
+            ShowSettlements(Camp);
+        }
 
     }
 

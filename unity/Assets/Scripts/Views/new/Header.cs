@@ -19,25 +19,24 @@ public class Header : BaseView
     {
         base.Start();
         NinjaShow.onSetHeaderElements += onSetHeaderElements;
+        CampShow.onSetHeaderElements += onSetHeaderElements;
         onSetHeaderElements();
     }
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        // NinjaShow.onSetHeaderElements -= onSetHeaderElements;
-    }
+        NinjaShow.onSetHeaderElements -= onSetHeaderElements;
+        CampShow.onSetHeaderElements -= onSetHeaderElements;
 
+    }
     private void onSetHeaderElements()
     {
         if (MessageHandler.userModel.account != null)
         {
-            // Debug.Log("Professions Length -    " + MessageHandler.userModel.professions.Length);
-            // Debug.Log("Ninjas Length -    " + MessageHandler.userModel.ninjas.Length);
-            // Debug.Log("Material Length -    " + MessageHandler.userModel.items.Length);
             ninjas.text = MessageHandler.userModel.ninjas.Length.ToString();
             citizens.text = MessageHandler.userModel.citizens;
             professions.text = MessageHandler.userModel.professions.Length.ToString();
-            materials.text = MessageHandler.userModel.total_matCount.ToString();
+            materials.text = Int64.Parse(MessageHandler.userModel.total_matCount).ToString();
             items.text = MessageHandler.userModel.items.Length.ToString();
             username.text = MessageHandler.userModel.account;
         }
