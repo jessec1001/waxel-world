@@ -459,7 +459,7 @@ PrefabInstance:
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -469,7 +469,7 @@ PrefabInstance:
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 195
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -484,7 +484,7 @@ PrefabInstance:
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -494,7 +494,7 @@ PrefabInstance:
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 4264989280571174121, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -2398,7 +2398,7 @@ PrefabInstance:
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -2408,7 +2408,7 @@ PrefabInstance:
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 195
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -2423,7 +2423,7 @@ PrefabInstance:
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -2433,7 +2433,7 @@ PrefabInstance:
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 4264989280571174121, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -2513,7 +2513,8 @@ PrefabInstance:
     - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: Do you really want to mint 10 citizens into a "Citizen - 10x" NFT pack?
+      value: Do you really want to mint 10 "Citizens" into a "Citizen - 10x" NFT
+        pack?
       objectReference: {fileID: 0}
     - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
