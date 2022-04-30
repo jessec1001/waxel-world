@@ -140,9 +140,6 @@ public class OneProfessionStatus : MonoBehaviour
 
     private IEnumerator StartCountdown(string time,int delay)
     {
-        // ItemBtn.gameObject.GetComponent<Button>().interactable = false;
-        // Seller.gameObject.GetComponent<Button>().interactable = false;  
-        // CraftBtn.gameObject.GetComponent<Button>().interactable = false;
         DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         int epoch_time = (int)(DateTime.Parse(time) - epochStart).TotalSeconds;
         int final_epoch_time = epoch_time + delay;

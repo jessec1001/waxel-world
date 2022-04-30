@@ -14,7 +14,7 @@ public class WarehouseShow : BaseView
     public Transform MaterailGroup;
     public GameObject OneMaterialPrefab;
     [Space]
-    [Header("MainPopup")]
+    [Header("OneMaterialPopup")]
     public GameObject OneMaterialPopup;
     public TMP_Text PopupTitle;
     public TMP_Text TopSectionTitle;
@@ -52,6 +52,7 @@ public class WarehouseShow : BaseView
     [Space]
     [Header("Variables")]
     public MaterialDataModel[] MaterialSchema;
+    public AbbreviationsHelper helper;
 
     public GameObject material_panel;
     public GameObject child_panel;
@@ -70,7 +71,6 @@ public class WarehouseShow : BaseView
     public Image refine_img;
     public Image done_panel_img;
     public Button add_btn;
-    public AbbreviationsHelper helper;
 
     public GameObject PermissionPanel;
     public GameObject DonePanel;
@@ -121,8 +121,8 @@ public class WarehouseShow : BaseView
             var child = ins.gameObject.GetComponent<OneMaterialStatus>();
             child.CountText.text = "x0";
             child.image.texture = m.image;
-            child.type = m.type;
-            child.end_product = m.end_product;
+            // child.type = m.type;
+            // child.end_product = m.end_product;
             foreach (InventoryModel r in MessageHandler.userModel.inventory)
             {
                 if (m.name == r.name){
@@ -134,7 +134,6 @@ public class WarehouseShow : BaseView
     }
     public void DetailButtonClick(MaterialDataModel m)
     {
-        Debug.Log("I am here");
         OneMaterialPopup.SetActive(true);
         string matName = helper.mat_abv[m.name];
         PopupTitle.text = matName;
@@ -147,7 +146,7 @@ public class WarehouseShow : BaseView
             TopSectionTitle.text= "Use refined materials to craft items";
         }
         LeftSectionTitle.text = "Mint " + matName + " as NFT Pack of 10";
-        LeftSectionInfo.text = "By using the 'Mint' button, you will be able to mint 10 " + matName +" into a '" + matName +" - 10x' NFT pack and 10 "
+        LeftSectionInfo.text = "By using the \"Mint\" button, you will be able to mint 10 " + matName +" into a '" + matName +" - 10x' NFT pack and 10 "
                                 + matName  + " will be deducted from your account. Afterwards you will be able to sell that NFT on the market or trade with other players.";
         LeftSectionImage.texture = m.image_multi;
         RightSectionTitle.text = "Add " + matName;
@@ -166,17 +165,17 @@ public class WarehouseShow : BaseView
                 if (Int64.Parse(inv.count) >= 10)
                 {
                     MintPopup.SetActive(true);
-                    MintPopupTitle.text = "afa";
-                    MintPopupTopInfo.text ="rr";
-                    MintPopupBottomInfo.text = "afa";
+                    MintPopupTitle.text = "Mint " + matName + " as NFT";
+                    MintPopupTopInfo.text ="Do you really want to mint 10 '" + matName + "' into a '" + matName + "- 10x' NFT pack?";
+                    MintPopupBottomInfo.text = "10 '" + matName + "' will be deducted from your account and moved into the NFT.";
                     MintPopupYesButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MintPopupYesButtonClick(keyName); });
                 }
                 else if (Int64.Parse(inv.count) < 10)
                 {
                     NotMintPopup.SetActive(true);
-                    NotMintPopupTitle.text = "afa";
-                    NotMintPopupTopInfo.text ="rr";
-                    NotMintPopupBottomInfo.text = "afa";
+                    NotMintPopupTitle.text = "Mint" + matName;
+                    NotMintPopupTopInfo.text = "Not enough '" + matName + "'.";
+                    NotMintPopupBottomInfo.text = "Unfortunately you don't have enough '" + matName + "' (less than 10) in your account and will need to obtain more first.";
                 }
                 break;
             }
@@ -195,17 +194,17 @@ public class WarehouseShow : BaseView
                 if (Int64.Parse(inv.count) >= 10)
                 {
                     AddPopup.SetActive(true);
-                    AddPopupTitle.text = "afa";
-                    AddPopupTopInfo.text ="rr";
-                    AddPopupBottomInfo.text = "afa";
+                    AddPopupTitle.text = "Add " + matName + " to Account";
+                    AddPopupTopInfo.text ="Do you really want to add 10 '" + matName + "' to your account?";
+                    AddPopupBottomInfo.text = "A '" + matName + " - 10x' NFT pack from your wallet will be burned and 10 '" + matName + "' added to your account.";
                     AddPopupYesButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { AddPopupYesButtonClick(keyName); });
                 }
                 else if (Int64.Parse(inv.count) < 10)
                 {
                     NotAddPopup.SetActive(true);
-                    NotAddPopupTitle.text = "afa";
-                    NotAddPopupTopInfo.text ="rr";
-                    NotAddPopupBottomInfo.text = "afa";
+                    NotAddPopupTitle.text = "Add " + matName + " to Account";
+                    NotAddPopupTopInfo.text = "No '" + matName + " - 10x' NFT pack in wallet.";
+                    NotAddPopupBottomInfo.text = "Unfortunately you don't have any '" + matName + " - 10x' NFT pack in your wallet and will need to obtain one first.";
                 }
                 break;
             }

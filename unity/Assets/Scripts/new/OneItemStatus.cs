@@ -10,5 +10,5 @@ public class OneItemStatus : MonoBehaviour
     public RawImage image;
     public TMP_Text CountText;
     public GameObject DetailButton;
-    public string type;
+    // public string type;
 }

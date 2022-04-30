@@ -11,7 +11,19 @@ public class SchoolShow : BaseView
     [Space]
     [Header("Button Manage")]
     public GameObject UpdateButton;
-    public GameObject BlendButton;   
+    [Space]
+    [Header("BlendAction")]
+    public GameObject ProfessionBlendingPanel;
+    public GameObject TopBlendButton;
+    // public GameObject BlendPanel;
+    public RawImage BlendPanelImage;
+    public GameObject BlendButton;
+    public TMP_Text BlendingInfoText;
+    public TMP_Text BlendingTypeText;
+    public TMP_Text BlendingUsesText;
+    public TMP_Text BlendingCitizenText;
+    public TMP_Text BlendingBooksText;
+
     [Space]
     [Header("Profession's Info")]
     public TMP_Text miner_count;
@@ -42,6 +54,10 @@ public class SchoolShow : BaseView
     public GameObject EquipItemPopup;
     public Transform EquipableItemParent;
     public GameObject EquipItemPrefab;
+    public GameObject PopupEquipButtonActive;
+    public GameObject PopupEquipButtonInactive;
+
+
     public GameObject EmptyEquipItemPopup;
     [Space]
     [Header("Refiner Action")]
@@ -75,14 +91,6 @@ public class SchoolShow : BaseView
     public TMP_Text SettlementEmptyInfoText;
     public GameObject OneSettlementPrefab;
 
-    // public GameObject UpgradePanel;
-    // public GameObject CraftBlackActionTop;
-    // public GameObject CraftEngineerActionTop;
-    // public GameObject CraftHelloInfo;
-    // public GameObject CraftActionSeries;
-    // public GameObject CraftActionInfo;
-    // public GameObject PopupCraftButton;
-    // public GameObject CraftMaterialPrefab;
 
 
     public TMP_Text profession_text;
@@ -92,20 +100,11 @@ public class SchoolShow : BaseView
     public TMP_Text uses_text;
     public TMP_Text books_text;
     public TMP_Text name_text;
-    public TMP_Text found_text;
-    public TMP_Text refineProduct1_name;
-    public TMP_Text refineProduct2_name;
+
     public TMP_Text text_permission;
     public TMP_Text done_panel_text;
-    public GameObject FoundPanel;
-    public GameObject ItemPanel;
-    public GameObject item_object;
-    public GameObject items_textpanel;
-    public GameObject craft_panel;
-    public GameObject BlendingPanel;
-    public GameObject refineProductPanel;
-    public GameObject refineProductPrefab;
-    public GameObject refinePanel;
+    
+    
     public GameObject SettlementParentPanel;
     public GameObject SettlementChildPanel;
     public GameObject UnregisteredSettlementChildPanel;
@@ -113,31 +112,19 @@ public class SchoolShow : BaseView
     public GameObject SettlementBuyBtn;
     public GameObject SettlementDeregButton;
     public GameObject RegisteredSettlementChildPanel;
-    public GameObject SettlementPrefab;
     public GameObject NoForest_Text;
     public GameObject PermissionPanel;
     public GameObject DonePanel;
 
-    public RawImage Found_Mat_Img;
-    public RawImage refineProduct1;
-    public RawImage refineProduct2;
+   
     public RawImage BlendingPanel_img;
     public RawImage done_panel_img;
 
-    public Transform Profession_Parent_Obj;
-    public Transform mainPanel;
-    public Transform item_inventory_parent;
-    public Transform currently_equipped_parent;
-
-    public Transform settlementObj;
-    public Transform unregisteredSettlementObj;
+ 
 
   
-    public Button refineBtn;
-    public Button items_craftBtn;
-    public Button crafts_btn;
-    public Button upgrade_btn;
-    public Button yesbtn;
+  
+
     [Space]
     [Header("Data Models and Scripts")]
     public List<BlendingModel> BlendingData = new List<BlendingModel>();
@@ -155,7 +142,6 @@ public class SchoolShow : BaseView
     private List<SettlementsModel> Forest = new List<SettlementsModel>();
     private List<SettlementsModel> Field = new List<SettlementsModel>();
 
-    private GameObject profession_itemSelect = null;
     // setting the header
     public delegate void SetHeader();
     public static SetHeader onSetHeaderElements;
@@ -263,45 +249,74 @@ public class SchoolShow : BaseView
             // }
         }
     }
+    public void TopBlendButtonClick(string type)
+    {
+        ProfessionInfoPanel.SetActive(false);
+        ProfessionShowPanel.SetActive(false);
+        ProfessionEmptyPanel.SetActive(false);
+        ProfessionBlendingPanel.SetActive(true);
+        for (int j = 0; j < images.Length; j++)
+        {
+            if (images[j].name == type)
+            {
+                BlendPanelImage.texture = images[j].img;  
+                break;
+            }
+        }
+        foreach (BlendingModel m in BlendingData)
+        {
+            if(m.profession == type)
+            {
+                BlendingInfoText.text = m.info;
+                BlendingTypeText.text = m.types;
+                BlendingUsesText.text = m.uses;
+                BlendingCitizenText.text = m.citizens;
+                BlendingBooksText.text = m.books;
+                break;
+            }
+        }
+        BlendButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { BlendButtonClick(type); });
+
+    }
+    public void BlendButtonClick(string type)
+    {
+
+    }
     public void ProfessionButtonClick(string type)
     {
         ProfessionInfoPanel.SetActive(false);
+        ProfessionBlendingPanel.SetActive(false);
         ProfessionPanelParent.GetComponent<ProfessionUpgradeIndex>().upgrade_indexer = type;
+        TopBlendButton.SetActive(true);
+        TopBlendButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { TopBlendButtonClick(type); });
         switch (type)
         {
             case "Miner":
                 UpdateButton.SetActive(true);
-                BlendButton.SetActive(true);
                 SetProfessions(Miners, type);
                 break;
             case "Lumberjack":
                 UpdateButton.SetActive(true);
-                BlendButton.SetActive(true);
                 SetProfessions(LumberJack, type);
                 break;
             case "Farmer":
                 UpdateButton.SetActive(true);
-                BlendButton.SetActive(true);
                 SetProfessions(Farmers, type);
                 break;
             case "Engineer":
                 SetProfessions(Engineer, type);
-                BlendButton.SetActive(true);
                 UpdateButton.SetActive(false);
                 break;
             case "Carpenter":
                 UpdateButton.SetActive(false);
-                BlendButton.SetActive(true);
                 SetProfessions(Carpenter, type);
                 break;
             case "Tailor":
                 UpdateButton.SetActive(false);
-                BlendButton.SetActive(true);
                 SetProfessions(Tailor, type);
                 break;
             case "Blacksmith":
                 UpdateButton.SetActive(false);
-                BlendButton.SetActive(true);
                 SetProfessions(Blacksmith, type);
                 break;
             default:
@@ -408,16 +423,6 @@ public class SchoolShow : BaseView
                         break;
                     }
                 }
-                // if (child.type == "Farmer" || child.type == "Miner" || child.type =="Lumberjack"){
-                //     child.ItemInfo.text = "Item : " + professionModel[i].items.Length.ToString();
-                //     child.UseLeftCount.text = "60";
-                //     child.action_text.text = "Work";
-                // } else if (child.type == "Carpenter"|| child.type == "Tailor" || child.type == "Blacksmith"){
-                //     child.ItemInfo.text = "Craft";
-                //     child.action_text.text = "Refine";
-                // } else {
-                //     child.action_text.text = "Craft";
-                // }
                 if (string.IsNullOrEmpty(professionModel[i].uses_left))
                 {
                     if (child.type == "Farmer" || child.type == "Miner" || child.type =="Lumberjack"){
@@ -475,15 +480,16 @@ public class SchoolShow : BaseView
                         {
                             child.Seller.SetActive(true);
                             child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { CraftButtonClick(child.assetId, child.type); });
-
                         }
-                    } else {
+                    } 
+                    else 
+                    {
                         child.Timer.SetActive(true);
                         if (child.type != "Engineer")
                         {
                             child.ItemSeller.SetActive(true);
                             child.ItemBtn.gameObject.GetComponent<Button>().interactable = false;
-                            child.StartTimer(professionModel[i].last_material_search,100);
+                            child.StartTimer(professionModel[i].last_material_search, 100);
                         }
                         else
                         {
@@ -495,9 +501,13 @@ public class SchoolShow : BaseView
                     }
                 }
             }
-
         }
-        CountInfoText.text = type + "   " + registeredCount.ToString() + "/" + maxCount;
+        // setting the header of panel
+        if (type == "Farmer" || type == "Miner" || type =="Lumberjack"){
+            CountInfoText.text = type + "   " + registeredCount.ToString() + "/" + maxCount;
+        } else {
+            CountInfoText.text = type + "   " + registeredCount.ToString();
+        }
     }
     public void Show_BurnPanel(string p_name)
     {
@@ -573,19 +583,11 @@ public class SchoolShow : BaseView
             }
         }
     }
-    public void UnequipButtonClick(string item_id, string item_name, string profession_id)
+    public void EquipButtonClick(string selectedItemType, string profession_id, string professionName)
     {
-        Debug.Log("UnequipButtonClick(ProfessionItemSelect type, string profession_id)");
-        if (!string.IsNullOrEmpty(item_id))
-        {
-            MessageHandler.Server_UnequipItems(item_id, item_name, profession_id);
-        }
-        else
-            SSTools.ShowMessage("No item selected to unequip", SSTools.Position.bottom, SSTools.Time.twoSecond);
-    }
-
-    public void EquipButtonClick(string type, string profession_id, string professionName)
-    {
+        PopupEquipButtonInactive.SetActive(true);
+        PopupEquipButtonActive.SetActive(false);
+        // selectedItemType: Rare || Double || Extra
         EquipItemPopup.SetActive(true);
         if (EquipableItemParent.childCount >= 1)
         {
@@ -594,21 +596,19 @@ public class SchoolShow : BaseView
                 GameObject.Destroy(c.gameObject);
             }
         }
-        ItemsPanelView equipableItemsPopup = EquipItemPopup.gameObject.GetComponent<ItemsPanelView>();
-        equipableItemsPopup.p_id = profession_id;
-        equipableItemsPopup.EquipButton.gameObject.GetComponent<Button>().interactable = false;
-        string[] item_names = helper.profession_equip_items[professionName];
+        Debug.Log(selectedItemType);
+        string[] item_names = helper.profession_equip_items[professionName];// get available items for profession of kind
         foreach (string n in item_names)
         {
             foreach (ItemDataModel t in MessageHandler.userModel.items)
             {
-                if (t.equipped == "0" && n == t.name && t.function_name == type)
+                if (t.equipped == "0" && n == t.name && t.function_name == selectedItemType)
                 {
                     var ins = Instantiate(EquipItemPrefab);
                     ins.transform.SetParent(EquipableItemParent);
                     ins.transform.localScale = new Vector3(1, 1, 1);
                     var child = ins.gameObject.GetComponent<EquipItemStatus>();
-                    child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { ItemImageClick(t.asset_id, equipableItemsPopup); });
+                    child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { ItemImageClick(t.asset_id, profession_id); });
                     child.UseLeftCount.text = "x" + t.uses_left;
                     foreach (ImgObjectView m in images)
                     {
@@ -627,13 +627,39 @@ public class SchoolShow : BaseView
             EmptyEquipItemPopup.SetActive(true);
         }
     }
-    public void ItemImageClick(string id, ItemsPanelView equipableItemsPopup)
+    public void ItemImageClick(string assetId, string professionId)
     {
-        Debug.Log("ItemImageClick");
-        equipableItemsPopup.EquipButton.gameObject.GetComponent<Button>().interactable = true;
-        equipableItemsPopup.equip_id = id;
+        // Debug.Log("ItemImageClick");
+        // PopupEquipButton.gameObject.GetComponent<Button>().interactable = true;
+        PopupEquipButtonInactive.SetActive(false);
+        PopupEquipButtonActive.SetActive(true);
+        PopupEquipButtonActive.gameObject.GetComponent<Button>().onClick.AddListener(delegate { PopupEquipButtonClick(assetId, professionId); });
+        // equipableItemsPopup.equip_id = id;
     }
-
+    public void PopupEquipButtonClick(string assetId, string professionId)
+    {
+        // Debug.Log(assetId);
+        // Debug.Log(professionId);
+        // // Debug.Log("PopupEquipButtonClick");
+        // // Debug.Log(p_id);
+        if (!string.IsNullOrEmpty(assetId))
+        {
+            // loadingPanel.SetActive(true);
+            MessageHandler.Server_EquipItems(professionId, assetId);
+        }
+        else
+            SSTools.ShowMessage("No item selected to equip", SSTools.Position.bottom, SSTools.Time.twoSecond);
+    }
+    public void UnequipButtonClick(string item_id, string item_name, string profession_id)
+    {
+        Debug.Log("UnequipButtonClick(ProfessionItemSelect type, string profession_id)");
+        if (!string.IsNullOrEmpty(item_id))
+        {
+            MessageHandler.Server_UnequipItems(item_id, item_name, profession_id);
+        }
+        else
+            SSTools.ShowMessage("No item selected to unequip", SSTools.Position.bottom, SSTools.Time.twoSecond);
+    }
 
     public void OnProfessionData(ProfessionDataModel[] profession)
     {
@@ -685,7 +711,7 @@ public class SchoolShow : BaseView
             default:
                 break;
         }
-        //LoadingPanel.SetActive(false);
+        // SSTools toast
         switch (callBack.status)
         {
             case ("Registered Successfully"):
@@ -724,8 +750,7 @@ public class SchoolShow : BaseView
             if (!string.IsNullOrEmpty(callBack.matName) || !string.IsNullOrEmpty(callBack.matCount))
             {
                 MessageHandler.userModel.total_matCount = callBack.totalMatCount;
-                // materials.text = MessageHandler.userModel.total_matCount;
-                // if (!FoundPanel.activeInHierarchy) FoundPanel.SetActive(true);
+                onSetHeaderElements();
                 string title = "Work Result";
                 Texture b = null;
                 string result = "";
@@ -734,39 +759,59 @@ public class SchoolShow : BaseView
                     if(data.name == callBack.matName)
                     {
                         b = data.img;
-                        result = "You found " + callBack.matCount + " " + helper.mat_abv[callBack.matName];
+                        result = "You found " + callBack.matCount + " " + helper.mat_abv[callBack.matName] + "!";
                         break;
                     }
                 }
                 SetWorkResult(title, result, b);
-                onSetHeaderElements();
             }
         }
         else if (!string.IsNullOrEmpty(callBack.matFound) && !string.IsNullOrEmpty(callBack.matRefined) && callBack.matFound == "false" && callBack.matRefined == "true")
         {
             if (!string.IsNullOrEmpty(callBack.matName))
             {
-                Debug.Log(callBack.matName);
                 MessageHandler.userModel.total_matCount = callBack.totalMatCount;
-                if (!FoundPanel.activeInHierarchy) FoundPanel.SetActive(true);
+                onSetHeaderElements();
+                string title = "Refine Result";
+                Texture b = null;
+                string result = "";
                 string refined_mat = helper.mat_abv[callBack.matName];
-                Debug.Log(refined_mat);
                 foreach (RefineDataModel refine_mat in refineData)
                 {
                     if (refine_mat.name == refined_mat)
                     {
-                        Found_Mat_Img.texture = refine_mat.refined_product_img;
-                        found_text.text = "Successfully Refined " + refine_mat.name + " " + "to " + refine_mat.refined_product;
+                        b = refine_mat.refined_product_img;
+                        result = "You successfully refined 3x '"+ refine_mat.name + "' " + "into 1x '" + refine_mat.refined_product +"'";
                         break;
                     }
                 }
-                onSetHeaderElements();
+                SetWorkResult(title, result, b);
             }
         }
-
-        else if(!string.IsNullOrEmpty(callBack.matFound) && !string.IsNullOrEmpty(callBack.matRefined) && callBack.matFound == "false" && callBack.matRefined == "false" && callBack.equipped == "1")
+        else if (!string.IsNullOrEmpty(callBack.matFound) && !string.IsNullOrEmpty(callBack.matRefined) && !string.IsNullOrEmpty(callBack.matCrafted) && callBack.matFound == "false" && callBack.matRefined == "false" && callBack.matCrafted == "true")
         {
 
+            if (!string.IsNullOrEmpty(callBack.matName))
+            {
+                MessageHandler.userModel.total_matCount = callBack.totalMatCount;
+                onSetHeaderElements();
+                string title = "Craft Result";
+                Texture b = null;
+                string result = "";
+                foreach(ImgObjectView img in images)
+                {
+                    if(img.name == callBack.matName)
+                    {
+                        b = img.img;
+                        result = "You successfully crafted \"" + callBack.matName + "\"";
+                        break;
+                    }
+                }
+                SetWorkResult(title, result, b);
+            }
+        }
+        else if(!string.IsNullOrEmpty(callBack.matFound) && !string.IsNullOrEmpty(callBack.matRefined) && callBack.matFound == "false" && callBack.matRefined == "false" && callBack.equipped == "1")
+        {
             ItemButtonClick(callBack.items_ids,callBack.name,callBack.asset_id);
         }
 
@@ -776,27 +821,7 @@ public class SchoolShow : BaseView
             ItemButtonClick(callBack.items_ids, callBack.name, callBack.asset_id);
         }
 
-        else if (!string.IsNullOrEmpty(callBack.matFound) && !string.IsNullOrEmpty(callBack.matRefined) && !string.IsNullOrEmpty(callBack.matCrafted) && callBack.matFound == "false" && callBack.matRefined == "false" && callBack.matCrafted == "true")
-        {
 
-            if (!string.IsNullOrEmpty(callBack.matName))
-            {
-                Debug.Log(callBack.matName);
-                MessageHandler.userModel.total_matCount = callBack.totalMatCount;
-                if (!FoundPanel.activeInHierarchy) FoundPanel.SetActive(true);
-                foreach(ImgObjectView img in images)
-                {
-                    if(img.name == callBack.matName)
-                    {
-                        Found_Mat_Img.texture = img.img;
-                        found_text.text = "Successfully Crafted  " + callBack.matName;
-                        break;
-                    }
-                }
-                onSetHeaderElements();
-
-            }
-        }
 
     }
 
@@ -804,8 +829,10 @@ public class SchoolShow : BaseView
     
     public void RefineButtonClick(string profession_id, string profession)
     {
-        
         RefinePanel.SetActive(true);
+        RefineActionInfo.SetActive(false);
+        RefineHelloInfo.SetActive(true);
+        PopupRefineButton.gameObject.GetComponent<Button>().interactable = false;
         if (RefineParent.childCount >= 1)
         {
             foreach (Transform child in RefineParent)
@@ -843,8 +870,6 @@ public class SchoolShow : BaseView
     }
     public void RefineMaterialImageClick(string mat_name, string profession_id, int count)
     {
-        Debug.Log(mat_name);
-        Debug.Log(profession_id);
         RefineHelloInfo.SetActive(false);
         RefineActionInfo.SetActive(true);
         PopupRefineButton.gameObject.GetComponent<Button>().interactable = false;
@@ -880,6 +905,7 @@ public class SchoolShow : BaseView
     public void CraftButtonClick(string profession_id, string type)
     {
         CraftPanel.SetActive(true);
+        PopupCraftButton.gameObject.GetComponent<Button>().interactable = false;
         if (type == "Blacksmith")
         {
             CraftEngineerActionTop.SetActive(false);
@@ -890,17 +916,17 @@ public class SchoolShow : BaseView
             CraftBlackActionTop.SetActive(false);
             CraftEngineerActionTop.SetActive(true);
         }
-        // Debug.Log("Craft P Id - " + profession_id);
         CraftPanel.GetComponent<CraftPanelIndices>().profession_id = profession_id;
-        // Debug.Log("Craft P Id - " + craft_panel.GetComponent<CraftPanelCall>().profession_id);
     }
-    public void ShowCraft_Rarity(CraftDataModel arr)
+    public void ShowCraft_Rarity(CraftDataModel selected_item_group)
     {
         CraftHelloInfo.SetActive(false);
         CraftActionInfo.SetActive(false);
         CraftActionSeries.SetActive(true);
-        string mat_name = arr.craft_name; string type = arr.profession_name;
-        // if (!craftScript.grade_obj_parent.gameObject.activeInHierarchy) craftScript.grade_obj_parent.gameObject.SetActive(true);
+        PopupCraftButton.gameObject.GetComponent<Button>().interactable = false;
+        // selected_item_group has two properties: one: crafte_name: Hoe || Sickle || hammer|| ... two: profession_name: who is gonna craft Blacksmirth|| Engineer
+        string mat_name = selected_item_group.craft_name;
+        string type = selected_item_group.profession_name;
         CraftPanelIndices craftScript = CraftPanel.GetComponent<CraftPanelIndices>(); 
         foreach(RefineRarityIndex s in craftScript.Series)
         {
@@ -939,10 +965,6 @@ public class SchoolShow : BaseView
                                 break;
                         }
                     }
-                    // gb.item_name.text = "Name : " + craft_name;
-                    // gb.functionality.text = "Rarity : " + data_model.rarity;
-                    // TimeSpan t = TimeSpan.FromSeconds(Double.Parse(data_model.delay));
-                    // gb.durability.text = "Time to craft : " + t.Hours + " Hours";
                     foreach(ImgObjectView img in images)
                     {
                         if(img.name == craft_name)
@@ -952,14 +974,14 @@ public class SchoolShow : BaseView
                         }
                     }
                     s.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
-                    s.gameObject.GetComponent<Button>().onClick.AddListener(delegate { ShowCraftIngredients(mat_name, craft_name, data_model); });
+                    s.gameObject.GetComponent<Button>().onClick.AddListener(delegate { ShowFinalCraftIngredients(mat_name, craft_name, data_model); });
                     break;
                 }
             }
         }
     }
 
-    public void ShowCraftIngredients(string mat_name, string craft_name, Config_CraftComboModel c_data)
+    public void ShowFinalCraftIngredients(string mat_name, string craft_name, Config_CraftComboModel c_data)
     {
         CraftPanelIndices craftScript = CraftPanel.GetComponent<CraftPanelIndices>();
         CraftActionInfo.SetActive(true);
@@ -981,10 +1003,11 @@ public class SchoolShow : BaseView
                 if (img.name == ingredients_craft[i].key)
                 {
                     TimeSpan t = TimeSpan.FromSeconds(Double.Parse(c_data.delay));
-                    craftScript.product_durability.text = "The crafting process will take" + t.Hours + " hours";
+                    craftScript.product_durability.text = "The crafting process will take " + t.Hours + " hours";
 
                     craftScript.craft_img[i].texture = img.img;
                     craftScript.ing_name[i].text = helper.mat_abv[ingredients_craft[i].key];
+                    craftScript.req_qty[i].text = ingredients_craft[i].value + "x";
                     craftScript.ing_qty[i].text = "x0";
                     if (MessageHandler.userModel.inventory.Length > 0)
                     {
@@ -993,6 +1016,7 @@ public class SchoolShow : BaseView
                             if (inv_data.name == ingredients_craft[i].key)
                             {
                                 craftScript.ing_qty[i].text = "x" + inv_data.count;
+
                                 if (Int64.Parse(inv_data.count) >= Int64.Parse(ingredients_craft[i].value))
                                 {
                                     canCraft += 1;
@@ -1006,12 +1030,60 @@ public class SchoolShow : BaseView
             }
         }
         // setting the result image
+        // ss
         foreach (ImgObjectView img in images)
         { 
             if(craft_name == img.name)
             {
                 craftScript.end_product.texture = img.img;
-                craftScript.product_name.text = craft_name;
+                if (craft_name == "Copper Hammer & Chisel")
+                {
+                    craftScript.product_name.text = "Copper H.&C.";
+                }
+                else if(craft_name == "Tin Hammer & Chisel")
+                {
+                    craftScript.product_name.text = "Tin H.&C.";
+                }
+                else if(craft_name == "Iron Hammer & Chisel")
+                {
+                    craftScript.product_name.text = "Iron H.&C.";
+                }
+                else if(craft_name == "Copper Sickle")
+                {
+                    craftScript.product_name.text = "Copper S.";
+                }
+                else if(craft_name == "Copper Pickaxe")
+                {
+                    craftScript.product_name.text = "Copper P.";
+                }
+                else if(craft_name == "Birch Mining Cart")
+                {
+                    craftScript.product_name.text = "Birch M.C.";
+                }
+                else if(craft_name == "Oak Mining Cart")
+                {
+                    craftScript.product_name.text = "Oak M.C.";
+                }
+                else if(craft_name == "Teak Mining Cart")
+                {
+                    craftScript.product_name.text = "Teak M.C.";
+                }
+                else if(craft_name == "Birch Wheelbarrow")
+                {
+                    craftScript.product_name.text = "Birch W.";
+                }
+                else if(craft_name == "Oak Wheelbarrow")
+                {
+                    craftScript.product_name.text = "Oak W.";
+                }
+                else if(craft_name == "Teak Wheelbarrow")
+                {
+                    craftScript.product_name.text = "Teak W.";
+                }
+                else
+                {
+                    craftScript.product_name.text = craft_name;
+                }
                 break;
             }
         }
@@ -1029,38 +1101,9 @@ public class SchoolShow : BaseView
         Debug.Log(profession_id);
         Debug.Log(template);
         Debug.Log(profession_name);
-
+        CraftPanel.SetActive(false);
         // LoadingPanel.SetActive(true);
         MessageHandler.Server_CraftMat(profession_id, template, profession_name);
-    }
-
-    public void Okbtn()
-    {
-        if (FoundPanel.activeInHierarchy) FoundPanel.SetActive(false);
-        if (refinePanel.activeInHierarchy)
-        {
-            refinePanel.SetActive(false);
-            refineProductPanel.SetActive(false);
-            refineBtn.onClick.RemoveAllListeners();
-        }
-        if (ItemPanel.activeInHierarchy) ItemPanel.SetActive(false);
-        if (items_textpanel.activeInHierarchy) items_textpanel.SetActive(false);
-        if (craft_panel.activeInHierarchy) craft_panel.SetActive(false);
-        if (crafts_btn.interactable) crafts_btn.interactable = false;
-        if (DonePanel.activeInHierarchy) DonePanel.SetActive(false);
-        if (PermissionPanel.activeInHierarchy) PermissionPanel.SetActive(false);
-    }
-
-    public void CrossBtn()
-    {
-        SettlementParentPanel.SetActive(false);
-        SettlementChildPanel.SetActive(false);
-        UnregisteredSettlementChildPanel.SetActive(false);
-        SettlementTextPanel.SetActive(false);
-        SettlementBuyBtn.SetActive(false);
-        SettlementDeregButton.SetActive(false);
-        RegisteredSettlementChildPanel.SetActive(false);
-        NoForest_Text.SetActive(false);
     }
     public void ShowSettlements(List<SettlementsModel> settlementsModels, string type)
     {
@@ -1126,7 +1169,7 @@ public class SchoolShow : BaseView
 
     public void UpgradeButtonClick()
     {
-        BlendButton.SetActive(false);
+        TopBlendButton.SetActive(false);
         string type = ProfessionPanelParent.GetComponent<ProfessionUpgradeIndex>().upgrade_indexer;
         switch (type)
         {

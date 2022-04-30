@@ -11,10 +11,28 @@ public class WorkshopShow : BaseView
     [Header("MainPanel")]
     public GameObject MainItemPanel;
     public Transform ItemGroup;
+    public GameObject ItemStatsPrefab;
+    [Space]
+    [Header("ItemDetailPopup")]
+    public GameObject ItemDetailPopup;
+    public RawImage ItemDetailImage;
+    public TMP_Text ItemDetailToptext;
+    public TMP_Text ItemDetailRarityText;
+    public TMP_Text ItemDetailFunctionText;
+    public TMP_Text ItemDetailDurablilityText;
+    public TMP_Text ItemDetailUsedByText;
+    public TMP_Text ItemDetailCraftedByText;
+    public TMP_Text ItemDetailMaterialsNeededText;
+    public TMP_Text ItemDetailBottomTopText;
+    public Transform ItemDetailBottomParent;
     public GameObject OneItemPrefab;
     [Space]
-    [Header("Variables")]
-    public GameObject ItemDetailPopup;
+    [Header("Burning Action")]
+    public GameObject BurnPopupAlarm;
+    public TMP_Text BurnPopupAlarmInfo;
+    public GameObject BurnResultPopup;
+
+
     [Space]
     [Header("Variables")]
     public WorkshopDataModel[] ItemSchema;
@@ -87,7 +105,6 @@ public class WorkshopShow : BaseView
         base.Start();
         SetItemData(MessageHandler.userModel.items);
         SetItems();
-        // SetUI();
         MessageHandler.OnCallBackData += OnCallBackData;
         MessageHandler.OnTransactionData += OnTransactionData;
         MessageHandler.OnItemData += OnItemData;
@@ -105,395 +122,149 @@ public class WorkshopShow : BaseView
         }
         foreach (WorkshopDataModel i in ItemSchema)
         {
-            var ins = Instantiate(OneItemPrefab);
+            var ins = Instantiate(ItemStatsPrefab);
             ins.transform.SetParent(ItemGroup);
             ins.transform.localScale = new Vector3(1, 1, 1);
             var child = ins.gameObject.GetComponent<OneItemStatus>();
-            // child.CountText.text = "x0";
             child.image.texture = i.image;
-            child.type = i.name;
-            child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(); });
+            // child.type = i.name;
+            
             // child.end_product = m.end_product;
-            switch (child.type)
+            switch (i.name)
             {
                 case "CHammer":
                     child.CountText.text = "x" + CHammer.Count.ToString();
-                    // if (CHammer.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper Hammer and Chisel"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CHammer,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CHammer, i); });
                     break;
                 case "CPickAxe":
                     child.CountText.text = "x" + CPickAxe.Count.ToString();
-                    // if (CPickAxe.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper PickAxe"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CPickAxe,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CPickAxe, i); });
+
                     break;
                 case "CSaw":
                     child.CountText.text = "x" + CSaw.Count.ToString();
-                    // if (CSaw.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper Saw"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CSaw,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CSaw, i); });
+
                     break;
                 case "CAxe":
                     child.CountText.text = "x" + CAxe.Count.ToString();
-                    // if (CAxe.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper Axe"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CAxe,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CAxe, i); });
+
                     break;
                 case "CSickle":
                     child.CountText.text = "x" + CSickle.Count.ToString();
-                    // if (CSickle.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper Sickle"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CSickle,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CSickle, i); });
+
                     break;
                 case "CHoe":
                     child.CountText.text = "x" + CHoe.Count.ToString();
-                    // if (CHoe.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper Hoe"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CHoe,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CHoe, i); });
+
                     break;
                 case "BWagon":
                     child.CountText.text = "x" + BWagon.Count.ToString();
-                    // if (BWagon.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Birch Wagon"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(BWagon,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(BWagon, i); });
+
                     break;
                 case "OWagon":
                     child.CountText.text = "x" + OWagon.Count.ToString();
-                    // if (OWagon.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Oak Wagon"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(OWagon,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(OWagon, i); });
+
                     break;
                 case "TWagon":
                     child.CountText.text = "x" + TWagon.Count.ToString();
-                    // if (TWagon.Count < 1)
-                    // {
-                    //     Debug.Log("Twagon");
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Teak Wagon"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TWagon,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TWagon, i); });
+
                     break;
                 case "IHoe":
                     child.CountText.text = "x" + IHoe.Count.ToString();
-                    // if (IHoe.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron Hoe"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(IHoe,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(IHoe, i); });
+
                     break;
                 case "THoe":
                     child.CountText.text = "x" + THoe.Count.ToString();
-                    // if (THoe.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin Hoe"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(THoe,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(THoe, i); });
+
                     break;
                 case "ISickle":
                     child.CountText.text = "x" + ISickle.Count.ToString();
-                    //  if (ISickle.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron Sickle"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(ISickle,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(ISickle, i); });
+
                     break;
                 case "TSickle":
                     child.CountText.text = "x" + TSickle.Count.ToString();
-                    // if (TSickle.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin Sickle"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TSickle,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TSickle, i); });
+
                     break;
                 case "TWheelBarrow":
                     child.CountText.text = "x" + TWheelBarrow.Count.ToString();
-                    // if (TWheelBarrow.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Teak WheelBarrow"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TWheelBarrow,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TWheelBarrow, i); });
+
                     break;
                 case "OWheelBarrow":
                     child.CountText.text = "x" + OWheelBarrow.Count.ToString();
-                    // if (OWheelBarrow.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Oak WheelBarrow"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(OWheelBarrow,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(OWheelBarrow, i); });
+
                     break;
                 case "BWheelbarrow":
                     child.CountText.text = "x" + BWheelbarrow.Count.ToString();
-                    // if (BWheelbarrow.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Birch WheelBarrow"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(BWheelbarrow,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(BWheelbarrow, i); });
+
                     break;
                 case "IAxe":
                     child.CountText.text = "x" + IAxe.Count.ToString();
-                    // if (IAxe.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron Axe"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(IAxe,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(IAxe, i); });
+
                     break;
                 case "TAxe":
                     child.CountText.text = "x" + TAxe.Count.ToString();
-                    // if (TAxe.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin Axe"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TAxe,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TAxe, i); });
+
                     break;
                 case "ISaw":
                     child.CountText.text = "x" + ISaw.Count.ToString();
-                    // if (ISaw.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron Saw"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TSaw,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(ISaw, i); });
+
                     break;
                 case "TSaw":
                     child.CountText.text = "x" + TSaw.Count.ToString();
-                    // if (TSaw.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin Saw"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TSaw,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TSaw, i); });
+
                     break;
                 case "TCart":
                     child.CountText.text = "x" + TCart.Count.ToString();
-                    // if (TCart.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Teak MiningCart"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TCart,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TCart, i); });
+
                     break;
                 case "OCart":
                     child.CountText.text = "x" + OCart.Count.ToString();
-                    // if (OCart.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Oak Mining Cart"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(OCart,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(OCart, i); });
+
                     break;
                 case "BCart":
                     child.CountText.text = "x" + BCart.Count.ToString();
-                    // if (BCart.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Birch Mining Cart"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(BCart,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(BCart, i); });
+
                     break;
                 case "IPickAxe":
                     child.CountText.text = "x" + IPickAxe.Count.ToString();
-                    // if (IPickAxe.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron PickAxe"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(IPickAxe,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(IPickAxe, i); });
+
                     break;
                 case "TPickAxe":
                     child.CountText.text = "x" + TPickAxe.Count.ToString();
-                    // if (TPickAxe.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin PickAxe"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TPickAxe,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TPickAxe, i); });
+                    
                     break;
                 case "IHammer":
                     child.CountText.text = "x" + IHammer.Count.ToString();
-                    // if (IHammer.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron Hammer"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(IHammer,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(IHammer, i); });
+                    
                     break;
                 case "THammer":
                     child.CountText.text = "x" + THammer.Count.ToString();
-                    // if (THammer.Count < 1)
-                    // {
-                    //     UnityEngine.Color alpha = w_data.img.color;
-                    //     alpha.a = 0.5f;
-                    //     w_data.img.color = alpha;
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin Hammer"); });
-                    // }
-                    // else
-                    // {
-                    //     w_data.details_btn.onClick.AddListener(delegate { Display_Asset(THammer,w_data); });
-                    // }
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(THammer, i); });
+
                     break;
                 default:
                     break;
@@ -503,6 +274,88 @@ public class WorkshopShow : BaseView
         }
         
     }
+    public void DetailButtonClick(List<ItemDataModel> my_items, WorkshopDataModel selected_schema)
+    {
+        ItemDetailPopup.SetActive(true);
+        ItemDetailImage.texture = selected_schema.image;
+        ItemDetailToptext.text = "The '" + selected_schema.fullname + "' is 1 of 3 different items that can be equipped by the '"
+                                + selected_schema.profession_type + "' profession to boost the gathering efficiency. Depending on the rarity value of the item, the profession will have a higher chance of finding more rare materials." ;
+        ItemDetailRarityText.text = selected_schema.rarity;
+        ItemDetailFunctionText.text = selected_schema.function;
+        ItemDetailDurablilityText.text = selected_schema.durability;
+        ItemDetailUsedByText.text = selected_schema.profession_type;
+        ItemDetailCraftedByText.text = selected_schema.crafter;
+        ItemDetailMaterialsNeededText.text = selected_schema.mat_need;
+        ItemDetailBottomTopText.text = selected_schema.fullname + " "+ my_items.Count.ToString();
+        if (ItemDetailBottomParent.childCount >= 1)
+        {
+            foreach (Transform child in ItemDetailBottomParent)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
+        if (my_items.Count > 0)
+        {
+            for (int i = 0; i < my_items.Count; i++)
+            {
+                var ins = Instantiate(OneItemPrefab);
+                ins.transform.SetParent(ItemDetailBottomParent);
+                ins.transform.localScale = new Vector3(1, 1, 1);
+                var child = ins.gameObject.GetComponent<ItemStatus>();
+                child.image.texture = selected_schema.image;
+                child.AssetIdText.text = "#" + my_items[i].asset_id.ToString();
+                child.UseLeftText.text = my_items[i].uses_left;
+
+                child.asset_id = my_items[i].asset_id;
+                child.mat_name = my_items[i].name;
+                if (my_items[i].equipped == "1")
+                {
+                    child.EquipButton.SetActive(false);
+                    child.UnEquipButton.SetActive(true);
+                    child.BurnButton.gameObject.GetComponent<Button>().interactable = false;
+                    child.SellButton.gameObject.GetComponent<Button>().interactable = false;
+                    child.p_id = my_items[i].profession;
+                    // YesBtn.onClick.RemoveAllListeners();
+                    // YesBtn.onClick.AddListener(delegate { child.BurnBtn(); });
+                }
+                else if (my_items[i].equipped == "0")
+                {
+                    child.EquipButton.SetActive(true);
+                    // string item_name = idata[i].name;
+                    if(my_items[i].uses_left == "0")
+                    {
+                        child.EquipButton.gameObject.GetComponent<Button>().interactable = false;
+                        child.SellButton.gameObject.GetComponent<Button>().interactable = false;
+                        child.BurnButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate {BurnButtonClick(my_items[i].asset_id, my_items[i].name);});
+                    }
+                }
+            }
+        }
+    }
+
+    public void BurnButtonClick(string assetId, string matName)
+    {
+        BurnPopupAlarm.SetActive(true);
+        BurnPopupAlarm.GetComponent<BurnItemPopupProperty>().itemId = assetId;
+        BurnPopupAlarm.GetComponent<BurnItemPopupProperty>().matName = matName;
+
+
+        BurnPopupAlarmInfo.text = "Do you really want to burn your item with id ''" + "#" + BurnPopupAlarm.GetComponent<BurnItemPopupProperty>().itemId + "''?";
+    }
+    public void BurnPopupYesButtonClick()
+    {
+        BurnItemPopupProperty burnPopupPropery = BurnPopupAlarm.GetComponent<BurnItemPopupProperty>();
+        if (!string.IsNullOrEmpty(burnPopupPropery.itemId))
+        {
+            // LoadingPanel.SetActive(true);
+            MessageHandler.Server_BurnItem(burnPopupPropery.matName, burnPopupPropery.itemId);
+        }
+        else
+        {
+            SSTools.ShowMessage("Asset ID is null", SSTools.Position.bottom, SSTools.Time.twoSecond);
+        }
+    }
+
     protected override void OnDestroy()
     {
         base.OnDestroy();
@@ -511,403 +364,6 @@ public class WorkshopShow : BaseView
         MessageHandler.OnItemData -= OnItemData;
         MessageHandler.OnInventoryData -= OnInventoryData;
         MessageHandler.OnProfessionData -= OnProfessionData;
-    }
-
-    public void SetUI()
-    {
-        username.text = MessageHandler.userModel.account;
-        citizens.text = MessageHandler.userModel.citizens;
-        professions.text = MessageHandler.userModel.professions.Length.ToString();
-        materials.text = MessageHandler.userModel.items.Length.ToString();
-        ninjas.text = MessageHandler.userModel.ninjas.Length.ToString();
-        foreach (WorkshopDataModel w_data in wdata)
-        {
-            switch (w_data.name)
-            {
-                case "CHammer":
-                    w_data.count.text = CHammer.Count.ToString();
-                    if (CHammer.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper Hammer and Chisel"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CHammer,w_data); });
-                    }
-                    break;
-                case "CPickAxe":
-                    w_data.count.text = CPickAxe.Count.ToString();
-                    if (CPickAxe.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper PickAxe"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CPickAxe,w_data); });
-                    }
-                    break;
-                case "CSaw":
-                    w_data.count.text = CSaw.Count.ToString();
-                    if (CSaw.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper Saw"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CSaw,w_data); });
-                    }
-                    break;
-                case "CAxe":
-                    w_data.count.text = CAxe.Count.ToString();
-                    if (CAxe.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper Axe"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CAxe,w_data); });
-                    }
-                    break;
-                case "CSickle":
-                    w_data.count.text = CSickle.Count.ToString();
-                    if (CSickle.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper Sickle"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CSickle,w_data); });
-                    }
-                    break;
-                case "CHoe":
-                    w_data.count.text = CHoe.Count.ToString();
-                    if (CHoe.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Copper Hoe"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(CHoe,w_data); });
-                    }
-                    break;
-                case "BWagon":
-                    w_data.count.text = BWagon.Count.ToString();
-                    if (BWagon.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Birch Wagon"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(BWagon,w_data); });
-                    }
-                    break;
-                case "OWagon":
-                    w_data.count.text = OWagon.Count.ToString();
-                    if (OWagon.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Oak Wagon"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(OWagon,w_data); });
-                    }
-                    break;
-                case "TWagon":
-                    w_data.count.text = TWagon.Count.ToString();
-                    if (TWagon.Count < 1)
-                    {
-                        Debug.Log("Twagon");
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Teak Wagon"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TWagon,w_data); });
-                    }
-                    break;
-                case "IHoe":
-                    w_data.count.text = IHoe.Count.ToString();
-                    if (IHoe.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron Hoe"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(IHoe,w_data); });
-                    }
-                    break;
-                case "THoe":
-                    w_data.count.text = THoe.Count.ToString();
-                    if (THoe.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin Hoe"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(THoe,w_data); });
-                    }
-                    break;
-                case "ISickle":
-                    w_data.count.text = ISickle.Count.ToString();
-                     if (ISickle.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron Sickle"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(ISickle,w_data); });
-                    }
-                    break;
-                case "TSickle":
-                    w_data.count.text = TSickle.Count.ToString();
-                    if (TSickle.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin Sickle"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TSickle,w_data); });
-                    }
-                    break;
-                case "TWheelBarrow":
-                    w_data.count.text = TWheelBarrow.Count.ToString();
-                    if (TWheelBarrow.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Teak WheelBarrow"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TWheelBarrow,w_data); });
-                    }
-                    break;
-                case "OWheelBarrow":
-                    w_data.count.text = OWheelBarrow.Count.ToString();
-                    if (OWheelBarrow.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Oak WheelBarrow"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(OWheelBarrow,w_data); });
-                    }
-                    break;
-                case "BWheelbarrow":
-                    w_data.count.text = BWheelbarrow.Count.ToString();
-                    if (BWheelbarrow.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Birch WheelBarrow"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(BWheelbarrow,w_data); });
-                    }
-                    break;
-                case "IAxe":
-                    w_data.count.text = IAxe.Count.ToString();
-                    if (IAxe.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron Axe"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(IAxe,w_data); });
-                    }
-                    break;
-                case "TAxe":
-                    w_data.count.text = TAxe.Count.ToString();
-                    if (TAxe.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin Axe"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TAxe,w_data); });
-                    }
-                    break;
-                case "ISaw":
-                    w_data.count.text = ISaw.Count.ToString();
-                    if (ISaw.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron Saw"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TSaw,w_data); });
-                    }
-                    break;
-                case "TSaw":
-                    w_data.count.text = TSaw.Count.ToString();
-                    if (TSaw.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin Saw"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TSaw,w_data); });
-                    }
-                    break;
-                case "TCart":
-                    w_data.count.text = TCart.Count.ToString();
-                    if (TCart.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Teak MiningCart"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TCart,w_data); });
-                    }
-                    break;
-                case "OCart":
-                    w_data.count.text =OCart.Count.ToString();
-                    if (OCart.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Oak Mining Cart"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(OCart,w_data); });
-                    }
-                    break;
-                case "BCart":
-                    w_data.count.text =BCart.Count.ToString();
-                    if (BCart.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Birch Mining Cart"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(BCart,w_data); });
-                    }
-                    break;
-                case "IPickAxe":
-                    w_data.count.text = IPickAxe.Count.ToString();
-                    if (IPickAxe.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron PickAxe"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(IPickAxe,w_data); });
-                    }
-                    break;
-                case "TPickAxe":
-                    w_data.count.text = TPickAxe.Count.ToString();
-                    if (TPickAxe.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin PickAxe"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(TPickAxe,w_data); });
-                    }
-                    break;
-                case "IHammer":
-                    w_data.count.text = IHammer.Count.ToString();
-                    if (IHammer.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Iron Hammer"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(IHammer,w_data); });
-                    }
-                    break;
-                case "THammer":
-                    w_data.count.text = THammer.Count.ToString();
-                    if (THammer.Count < 1)
-                    {
-                        UnityEngine.Color alpha = w_data.img.color;
-                        alpha.a = 0.5f;
-                        w_data.img.color = alpha;
-                        w_data.details_btn.onClick.AddListener(delegate { Display_No_Asset(w_data, "Tin Hammer"); });
-                    }
-                    else
-                    {
-                        w_data.details_btn.onClick.AddListener(delegate { Display_Asset(THammer,w_data); });
-                    }
-                    break;
-                default:
-                    break;
-            }
-        
-        }
     }
 
     public void SetItemData(ItemDataModel[] items)
@@ -1024,10 +480,7 @@ public class WorkshopShow : BaseView
         crafted_by_text.text = wdata.crafter;
         craft_text.text = "~ Unfortunately you don't have any " + name;
     }
-    public void DetailButtonClick()
-    {
-        ItemDetailPopup.SetActive(true);
-    }
+
     public void Display_Asset(List<ItemDataModel> idata,WorkshopDataModel wdata)
     {
         foreach (Transform child in parent_object.transform)
@@ -1091,7 +544,7 @@ public class WorkshopShow : BaseView
         title_panel.SetActive(false);
         asset_display_panel.SetActive(false);
         no_asset_panel.SetActive(false);
-        SetUI();
+        SetItems();
     }
 
     public void OnItemData()
@@ -1427,25 +880,27 @@ public class WorkshopShow : BaseView
     private void OnInventoryData(InventoryModel[] inventoryData)
     {
         InventoryModel inventory = inventoryData[0];
-        LoadingPanel.SetActive(false);
-        permission_panel.SetActive(false);
-        donePanel.SetActive(true);
+        // LoadingPanel.SetActive(false);
+        // permission_panel.SetActive(false);
+        // donePanel.SetActive(true);
         if (inventory.name == "null")
         {
             done_panel_text.text = "No material could be extracted";
-            done_panel_img.gameObject.SetActive(false);
+            // done_panel_img.gameObject.SetActive(false);
         }
-        else {
-            done_panel_img.gameObject.SetActive(true);
-            string item_name = helper.mat_abv[inventory.name];
-            foreach(ImgObjectView img in image)
-            {
-                if(img.name == item_name)
-                {
-                    done_panel_img.texture = img.img;
-                }
-            }
-            done_panel_text.text = inventory.count + " " + item_name + " was extracted!";
+        else 
+        {
+            BurnResultPopup.SetActive(true);
+            // done_panel_img.gameObject.SetActive(true);
+            // string item_name = helper.mat_abv[inventory.name];
+            // foreach(ImgObjectView img in image)
+            // {
+            //     if(img.name == item_name)
+            //     {
+            //         done_panel_img.texture = img.img;
+            //     }
+            // }
+            // done_panel_text.text = inventory.count + " " + item_name + " was extracted!";
         }
 
     }
