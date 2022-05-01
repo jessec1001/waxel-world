@@ -57,7 +57,6 @@ public class SchoolShow : BaseView
     public GameObject PopupEquipButtonActive;
     public GameObject PopupEquipButtonInactive;
 
-
     public GameObject EmptyEquipItemPopup;
     [Space]
     [Header("Refiner Action")]
@@ -91,8 +90,6 @@ public class SchoolShow : BaseView
     public TMP_Text SettlementEmptyInfoText;
     public GameObject OneSettlementPrefab;
 
-
-
     public TMP_Text profession_text;
     public TMP_Text details_text;
     public TMP_Text types_text;
@@ -103,8 +100,7 @@ public class SchoolShow : BaseView
 
     public TMP_Text text_permission;
     public TMP_Text done_panel_text;
-    
-    
+
     public GameObject SettlementParentPanel;
     public GameObject SettlementChildPanel;
     public GameObject UnregisteredSettlementChildPanel;
@@ -116,14 +112,8 @@ public class SchoolShow : BaseView
     public GameObject PermissionPanel;
     public GameObject DonePanel;
 
-   
     public RawImage BlendingPanel_img;
     public RawImage done_panel_img;
-
- 
-
-  
-  
 
     [Space]
     [Header("Data Models and Scripts")]
@@ -358,7 +348,7 @@ public class SchoolShow : BaseView
                 }
                 BlendingPanel_img.texture = images[temp].img;
                 name_text.text = name;
-                details_text.text = "Every couple of hours you will be able to refine raw materials like copper ore (common), tin ore (uncommon) and iron ore (rare) and craft items.You will then be able to either trade, sell or refine these raw materials.";
+                details_text.text = "Every couple of hours you will be able to refine raw materials like \"Copper Ore\" (common), \"Tin Ore\" (uncommon) and \"Iron Ore\" (rare) and craft items. You will then be able to either trade, sell or refine these raw materials.";
                 uses_text.text = bmodel.uses;
                 types_text.text = bmodel.types;
                 citizens_text.text = bmodel.citizens;
@@ -393,7 +383,7 @@ public class SchoolShow : BaseView
         {
             ProfessionShowPanel.SetActive(false);
             ProfessionEmptyPanel.SetActive(true);
-            EmptyInfoText.text = "Unfortunately you don't have any " + type + "s.";
+            EmptyInfoText.text = "Unfortunately you don't have any \"" + type + "s\".";
         }
         else
         {
@@ -419,27 +409,28 @@ public class SchoolShow : BaseView
                 {
                     if (images[j].name == child.type)
                     {
-                        child.img.texture = images[j].img;  
+                        child.img.texture = images[j].img;
                         break;
                     }
                 }
-                if (string.IsNullOrEmpty(professionModel[i].uses_left))
-                {
-                    if (child.type == "Farmer" || child.type == "Miner" || child.type =="Lumberjack"){
-                        child.UseLeftCount.text = "60";
-                    } else if (child.type == "Carpenter"|| child.type == "Tailor" || child.type == "Blacksmith"){
-                        child.UseLeftCount.text = "180";
+                // TODO - Commented out as the uses left should always have the actual value of left uses no matter if registered or not
+                // if (string.IsNullOrEmpty(professionModel[i].uses_left))
+                // {
+                //     if (child.type == "Farmer" || child.type == "Miner" || child.type =="Lumberjack"){
+                //         child.UseLeftCount.text = "60";
+                //     } else if (child.type == "Carpenter"|| child.type == "Tailor" || child.type == "Blacksmith"){
+                //         child.UseLeftCount.text = "180";
 
-                        // child.ItemInfo.text = "Craft";
-                        // child.action_text.text = "Refine";
-                    } else {
-                        // child.action_text.text = "Craft";
-                    }
-                }
-                else
-                {
+                //         // child.ItemInfo.text = "Craft";
+                //         // child.action_text.text = "Refine";
+                //     } else {
+                //         // child.action_text.text = "Craft";
+                //     }
+                // }
+                // else
+                // {
                     child.UseLeftCount.text = professionModel[i].uses_left.ToString();
-                }
+                // }
                 if (professionModel[i].reg == "0")
                 {
                     child.Register.SetActive(true);
@@ -458,7 +449,7 @@ public class SchoolShow : BaseView
                         child.action_text.text = "Craft";
                     }
                     if (professionModel[i].status == "Idle " || professionModel[i].last_material_search == "1970-01-01T00:00:00")
-                    {   
+                    {
                         child.Check.SetActive(false);
                         child.Registered.SetActive(true);
                         if (child.type == "Farmer" || child.type == "Miner" || child.type =="Lumberjack"){
@@ -481,8 +472,8 @@ public class SchoolShow : BaseView
                             child.Seller.SetActive(true);
                             child.ActionBtn.gameObject.GetComponent<Button>().onClick.AddListener(delegate { CraftButtonClick(child.assetId, child.type); });
                         }
-                    } 
-                    else 
+                    }
+                    else
                     {
                         child.Timer.SetActive(true);
                         if (child.type != "Engineer")
@@ -497,7 +488,6 @@ public class SchoolShow : BaseView
                             child.Seller.gameObject.GetComponent<Button>().interactable = false;
                             child.StartTimer(professionModel[i].last_material_search,100);
                         }
-  
                     }
                 }
             }
@@ -512,7 +502,7 @@ public class SchoolShow : BaseView
     public void Show_BurnPanel(string p_name)
     {
         PermissionPanel.SetActive(true);
-        text_permission.text = "Do you really want to burn your " + p_name + "? If yes, you will have a some chance to get back 1 citizen";
+        text_permission.text = "Do you really want to burn your \"" + p_name + "\"? If yes, you will have a 10% chance to get back 1 \"Citizen\".";
     }
 
     public void ItemButtonClick(string[] item_ids,string profession_name,string profession_id)
@@ -648,7 +638,7 @@ public class SchoolShow : BaseView
             MessageHandler.Server_EquipItems(professionId, assetId);
         }
         else
-            SSTools.ShowMessage("No item selected to equip", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SSTools.ShowMessage("No item was selected to equip.", SSTools.Position.bottom, SSTools.Time.twoSecond);
     }
     public void UnequipButtonClick(string item_id, string item_name, string profession_id)
     {
@@ -658,7 +648,7 @@ public class SchoolShow : BaseView
             MessageHandler.Server_UnequipItems(item_id, item_name, profession_id);
         }
         else
-            SSTools.ShowMessage("No item selected to unequip", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SSTools.ShowMessage("No item was selected to unequip.", SSTools.Position.bottom, SSTools.Time.twoSecond);
     }
 
     public void OnProfessionData(ProfessionDataModel[] profession)
@@ -715,31 +705,31 @@ public class SchoolShow : BaseView
         switch (callBack.status)
         {
             case ("Registered Successfully"):
-                SSTools.ShowMessage("NFT Registration Successful !", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("NFT was successfully registered.", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 break;
             case ("De-Registered Successfully"):
-                SSTools.ShowMessage("NFT De-Registration Successful !", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("NFT was successfully unrgeistered.", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 break;
             case ("Item Equipped"):
-                SSTools.ShowMessage("Item Equiped Successfully !", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("Item was successfully equipped.", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 break;
             case ("De-Equiped"):
-                SSTools.ShowMessage("Item De-Equiped Successfully !", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("Item successfully unequiped.", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 break;
             case ("Refining Started"):
-                SSTools.ShowMessage("Refining Started !", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("Refining process started.", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 // Okbtn();
                 break;
             case ("Crafting Started"):
-                SSTools.ShowMessage("Crafting Started !", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("Crafting started.", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 // Okbtn();
                 break;
             case ("RNG Failed !"):
-                SSTools.ShowMessage("RNG Failed !", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("RNG failed!", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 // Okbtn();
                 break;
             case ("Burnt Successfully"):
-                SSTools.ShowMessage("NFT Burn Successful !", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("NFT was successfully burned.", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 break;
             default:
                 break;
@@ -759,7 +749,8 @@ public class SchoolShow : BaseView
                     if(data.name == callBack.matName)
                     {
                         b = data.img;
-                        result = "You found " + callBack.matCount + " " + helper.mat_abv[callBack.matName] + "!";
+                        decimal matCount =  Math.Round(callBack.matCount, 2);
+                        result = "You found " + matCount + "x \"" + helper.mat_abv[callBack.matName] + "\"!";
                         break;
                     }
                 }
@@ -781,7 +772,7 @@ public class SchoolShow : BaseView
                     if (refine_mat.name == refined_mat)
                     {
                         b = refine_mat.refined_product_img;
-                        result = "You successfully refined 3x '"+ refine_mat.name + "' " + "into 1x '" + refine_mat.refined_product +"'";
+                        result = "You successfully refined 3x \""+ refine_mat.name + "\" " + "into 1x \"" + refine_mat.refined_product +"\".";
                         break;
                     }
                 }
@@ -803,7 +794,7 @@ public class SchoolShow : BaseView
                     if(img.name == callBack.matName)
                     {
                         b = img.img;
-                        result = "You successfully crafted \"" + callBack.matName + "\"";
+                        result = "You successfully crafted \"" + callBack.matName + "\".";
                         break;
                     }
                 }
@@ -820,13 +811,8 @@ public class SchoolShow : BaseView
 
             ItemButtonClick(callBack.items_ids, callBack.name, callBack.asset_id);
         }
-
-
-
     }
 
-
-    
     public void RefineButtonClick(string profession_id, string profession)
     {
         RefinePanel.SetActive(true);
@@ -868,6 +854,7 @@ public class SchoolShow : BaseView
             }
         }
     }
+
     public void RefineMaterialImageClick(string mat_name, string profession_id, int count)
     {
         RefineHelloInfo.SetActive(false);
@@ -924,7 +911,7 @@ public class SchoolShow : BaseView
         CraftActionInfo.SetActive(false);
         CraftActionSeries.SetActive(true);
         PopupCraftButton.gameObject.GetComponent<Button>().interactable = false;
-        // selected_item_group has two properties: one: crafte_name: Hoe || Sickle || hammer|| ... two: profession_name: who is gonna craft Blacksmirth|| Engineer
+        // selected_item_group has two properties: one: crafte_name: Hoe || Sickle || hammer || ... two: profession_name: who is gonna craft Blacksmith || Engineer
         string mat_name = selected_item_group.craft_name;
         string type = selected_item_group.profession_name;
         CraftPanelIndices craftScript = CraftPanel.GetComponent<CraftPanelIndices>(); 
@@ -1032,7 +1019,7 @@ public class SchoolShow : BaseView
         // setting the result image
         // ss
         foreach (ImgObjectView img in images)
-        { 
+        {
             if(craft_name == img.name)
             {
                 craftScript.end_product.texture = img.img;
@@ -1093,7 +1080,7 @@ public class SchoolShow : BaseView
             PopupCraftButton.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
             PopupCraftButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { PopupCraftButtonClick(craftScript.profession_id, c_data.template_id, craftScript.profession_name); });
         }
-            
+
     }
     public void PopupCraftButtonClick(string profession_id,string template,string profession_name)
     {
@@ -1112,12 +1099,12 @@ public class SchoolShow : BaseView
         {
             SettlementEmptyPopup.SetActive(true);
             // ProfessionShowPanel.SetActive(false);
-            SettlementEmptyTitleText.text = "No " + type + " NFT in wallet";
-            SettlementEmptyInfoText.text = "Unfortunately you don't have any " + type + " NFT in your wallet and will need to obtain one first.";
+            SettlementEmptyTitleText.text = "No \"" + type + "\" NFT in wallet";
+            SettlementEmptyInfoText.text = "Unfortunately you don't have any \"" + type + "\" NFT in your wallet and will need to obtain one first.";
         }
         else
         {
-            string maxCount = settlementsModels.Count.ToString();            
+            string maxCount = settlementsModels.Count.ToString();
             int registeredCount = 0;
             foreach (SettlementsModel c in settlementsModels)
             {
@@ -1147,7 +1134,7 @@ public class SchoolShow : BaseView
                 {
                     if (images[j].name == child.type)
                     {
-                        child.image.texture = images[j].img;  
+                        child.image.texture = images[j].img;
                         break;
                     }
                 }
@@ -1159,12 +1146,9 @@ public class SchoolShow : BaseView
                 {
                     child.Unregister.SetActive(true);
                     child.SellBtn.gameObject.GetComponent<Button>().interactable = false;
-                    
                 }
             }
         }
-
-
     }
 
     public void UpgradeButtonClick()

@@ -37,7 +37,7 @@ public class NinjaStatus : MonoBehaviour
     {
         if (string.IsNullOrEmpty(assetId))
         {
-            SSTools.ShowMessage("Please click on NFT to Register", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SSTools.ShowMessage("Please click on NFT to Register.", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
         else
         {
@@ -50,7 +50,7 @@ public class NinjaStatus : MonoBehaviour
     {
         if (string.IsNullOrEmpty(assetId) || string.IsNullOrEmpty(race))
         {
-            SSTools.ShowMessage("Please click on Registered NFT to De-Register", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SSTools.ShowMessage("Please click on registered NFT to unregister.", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
         else
         {

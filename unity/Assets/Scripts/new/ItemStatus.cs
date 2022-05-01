@@ -24,7 +24,7 @@ public class ItemStatus : MonoBehaviour
         }
         else
         {
-            SSTools.ShowMessage("Asset ID is null", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SSTools.ShowMessage("Asset ID is null.", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
     }
 

@@ -11,8 +11,6 @@ public class CitizenShow : BaseView
 {
     public GameObject MintConfirmPanel;
     public GameObject MintSuccessPanel;
-
-
     public GameObject PermissionPanel;
     public GameObject DonePanel;
     public GameObject DonePanel_Obj;
@@ -28,7 +26,6 @@ public class CitizenShow : BaseView
     public TMP_Text materials;
     public TMP_Text ninjas;
     public TMP_Text done_panel_text;
-    
 
     protected override void Start()
     {
@@ -75,7 +72,7 @@ public class CitizenShow : BaseView
         }
         else if(Int64.Parse(MessageHandler.userModel.citizens) < 10)
         {
-            SSTools.ShowMessage("Your Citizen's Balance is Less than 10",SSTools.Position.bottom,SSTools.Time.threeSecond);
+            SSTools.ShowMessage("Your \"Citizens\" balance is less than 10.",SSTools.Position.bottom,SSTools.Time.threeSecond);
         }
 
     }
@@ -151,7 +148,7 @@ public class CitizenShow : BaseView
             }
             if (MessageHandler.transactionModel.transactionid == "Burn") 
             { 
-                done_panel_text.text = "10 Citizens have been added to your account";
+                done_panel_text.text = "Added 10 \"Citizens\" to your account.";
                 MessageHandler.userModel.citizens = MessageHandler.transactionModel.citizens;
                 citizens.text = MessageHandler.userModel.citizens;
             }

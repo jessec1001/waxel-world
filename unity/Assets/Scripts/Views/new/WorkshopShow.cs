@@ -37,33 +37,31 @@ public class WorkshopShow : BaseView
     [Header("Variables")]
     public WorkshopDataModel[] ItemSchema;
     private List<ItemDataModel> CHammer = new List<ItemDataModel>();
-    private List<ItemDataModel> CSaw = new List<ItemDataModel>();
-    private List<ItemDataModel> CSickle = new List<ItemDataModel>();
-    private List<ItemDataModel> CPickAxe = new List<ItemDataModel>();
-    private List<ItemDataModel> CAxe = new List<ItemDataModel>();
-    private List<ItemDataModel> CHoe = new List<ItemDataModel>();
-    private List<ItemDataModel> BCart = new List<ItemDataModel>();
-    private List<ItemDataModel> BWheelbarrow = new List<ItemDataModel>();
-    private List<ItemDataModel> BWagon = new List<ItemDataModel>();
-
     private List<ItemDataModel> THammer = new List<ItemDataModel>();
-    private List<ItemDataModel> TSaw = new List<ItemDataModel>();
-    private List<ItemDataModel> TSickle = new List<ItemDataModel>();
-    private List<ItemDataModel> TPickAxe = new List<ItemDataModel>();
-    private List<ItemDataModel> TAxe = new List<ItemDataModel>();
-    private List<ItemDataModel> THoe = new List<ItemDataModel>();
-    private List<ItemDataModel> OCart = new List<ItemDataModel>();
-    private List<ItemDataModel> OWheelBarrow = new List<ItemDataModel>();
-    private List<ItemDataModel> OWagon = new List<ItemDataModel>();
-
     private List<ItemDataModel> IHammer = new List<ItemDataModel>();
-    private List<ItemDataModel> ISaw = new List<ItemDataModel>();
-    private List<ItemDataModel> ISickle = new List<ItemDataModel>();
+    private List<ItemDataModel> CPickAxe = new List<ItemDataModel>();
+    private List<ItemDataModel> TPickAxe = new List<ItemDataModel>();
     private List<ItemDataModel> IPickAxe = new List<ItemDataModel>();
-    private List<ItemDataModel> IAxe = new List<ItemDataModel>();
-    private List<ItemDataModel> IHoe = new List<ItemDataModel>();
+    private List<ItemDataModel> BCart = new List<ItemDataModel>();
+    private List<ItemDataModel> OCart = new List<ItemDataModel>();
     private List<ItemDataModel> TCart = new List<ItemDataModel>();
+    private List<ItemDataModel> CSaw = new List<ItemDataModel>();
+    private List<ItemDataModel> TSaw = new List<ItemDataModel>();
+    private List<ItemDataModel> ISaw = new List<ItemDataModel>();
+    private List<ItemDataModel> CAxe = new List<ItemDataModel>();
+    private List<ItemDataModel> TAxe = new List<ItemDataModel>();
+    private List<ItemDataModel> IAxe = new List<ItemDataModel>();
+    private List<ItemDataModel> BWheelbarrow = new List<ItemDataModel>();
+    private List<ItemDataModel> OWheelBarrow = new List<ItemDataModel>();
     private List<ItemDataModel> TWheelBarrow = new List<ItemDataModel>();
+    private List<ItemDataModel> CSickle = new List<ItemDataModel>();
+    private List<ItemDataModel> TSickle = new List<ItemDataModel>();
+    private List<ItemDataModel> ISickle = new List<ItemDataModel>();
+    private List<ItemDataModel> CHoe = new List<ItemDataModel>();
+    private List<ItemDataModel> THoe = new List<ItemDataModel>();
+    private List<ItemDataModel> IHoe = new List<ItemDataModel>();
+    private List<ItemDataModel> BWagon = new List<ItemDataModel>();
+    private List<ItemDataModel> OWagon = new List<ItemDataModel>();
     private List<ItemDataModel> TWagon = new List<ItemDataModel>();
 
     public WorkshopDataModel[] wdata;
@@ -112,7 +110,7 @@ public class WorkshopShow : BaseView
         MessageHandler.OnProfessionData += OnProfessionData;
     }
     public void SetItems()
-    { 
+    {
         if (ItemGroup.childCount >= 1)
         {
             foreach (Transform child in ItemGroup)
@@ -128,7 +126,6 @@ public class WorkshopShow : BaseView
             var child = ins.gameObject.GetComponent<OneItemStatus>();
             child.image.texture = i.image;
             // child.type = i.name;
-            
             // child.end_product = m.end_product;
             switch (i.name)
             {
@@ -136,150 +133,130 @@ public class WorkshopShow : BaseView
                     child.CountText.text = "x" + CHammer.Count.ToString();
                     child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CHammer, i); });
                     break;
-                case "CPickAxe":
-                    child.CountText.text = "x" + CPickAxe.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CPickAxe, i); });
-
-                    break;
-                case "CSaw":
-                    child.CountText.text = "x" + CSaw.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CSaw, i); });
-
-                    break;
-                case "CAxe":
-                    child.CountText.text = "x" + CAxe.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CAxe, i); });
-
-                    break;
-                case "CSickle":
-                    child.CountText.text = "x" + CSickle.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CSickle, i); });
-
-                    break;
-                case "CHoe":
-                    child.CountText.text = "x" + CHoe.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CHoe, i); });
-
-                    break;
-                case "BWagon":
-                    child.CountText.text = "x" + BWagon.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(BWagon, i); });
-
-                    break;
-                case "OWagon":
-                    child.CountText.text = "x" + OWagon.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(OWagon, i); });
-
-                    break;
-                case "TWagon":
-                    child.CountText.text = "x" + TWagon.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TWagon, i); });
-
-                    break;
-                case "IHoe":
-                    child.CountText.text = "x" + IHoe.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(IHoe, i); });
-
-                    break;
-                case "THoe":
-                    child.CountText.text = "x" + THoe.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(THoe, i); });
-
-                    break;
-                case "ISickle":
-                    child.CountText.text = "x" + ISickle.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(ISickle, i); });
-
-                    break;
-                case "TSickle":
-                    child.CountText.text = "x" + TSickle.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TSickle, i); });
-
-                    break;
-                case "TWheelBarrow":
-                    child.CountText.text = "x" + TWheelBarrow.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TWheelBarrow, i); });
-
-                    break;
-                case "OWheelBarrow":
-                    child.CountText.text = "x" + OWheelBarrow.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(OWheelBarrow, i); });
-
-                    break;
-                case "BWheelbarrow":
-                    child.CountText.text = "x" + BWheelbarrow.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(BWheelbarrow, i); });
-
-                    break;
-                case "IAxe":
-                    child.CountText.text = "x" + IAxe.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(IAxe, i); });
-
-                    break;
-                case "TAxe":
-                    child.CountText.text = "x" + TAxe.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TAxe, i); });
-
-                    break;
-                case "ISaw":
-                    child.CountText.text = "x" + ISaw.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(ISaw, i); });
-
-                    break;
-                case "TSaw":
-                    child.CountText.text = "x" + TSaw.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TSaw, i); });
-
-                    break;
-                case "TCart":
-                    child.CountText.text = "x" + TCart.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TCart, i); });
-
-                    break;
-                case "OCart":
-                    child.CountText.text = "x" + OCart.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(OCart, i); });
-
-                    break;
-                case "BCart":
-                    child.CountText.text = "x" + BCart.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(BCart, i); });
-
-                    break;
-                case "IPickAxe":
-                    child.CountText.text = "x" + IPickAxe.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(IPickAxe, i); });
-
-                    break;
-                case "TPickAxe":
-                    child.CountText.text = "x" + TPickAxe.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TPickAxe, i); });
-                    
+                case "THammer":
+                    child.CountText.text = "x" + THammer.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(THammer, i); });
                     break;
                 case "IHammer":
                     child.CountText.text = "x" + IHammer.Count.ToString();
                     child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(IHammer, i); });
-                    
                     break;
-                case "THammer":
-                    child.CountText.text = "x" + THammer.Count.ToString();
-                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(THammer, i); });
-
+                case "CPickAxe":
+                    child.CountText.text = "x" + CPickAxe.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CPickAxe, i); });
+                    break;
+                case "TPickAxe":
+                    child.CountText.text = "x" + TPickAxe.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TPickAxe, i); });
+                    break;
+                case "IPickAxe":
+                    child.CountText.text = "x" + IPickAxe.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(IPickAxe, i); });
+                    break;
+                case "OCart":
+                    child.CountText.text = "x" + OCart.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(OCart, i); });
+                    break;
+                case "BCart":
+                    child.CountText.text = "x" + BCart.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(BCart, i); });
+                    break;
+                case "TCart":
+                    child.CountText.text = "x" + TCart.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TCart, i); });
+                    break;
+                case "CSaw":
+                    child.CountText.text = "x" + CSaw.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CSaw, i); });
+                    break;
+                case "TSaw":
+                    child.CountText.text = "x" + TSaw.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TSaw, i); });
+                    break;
+                case "ISaw":
+                    child.CountText.text = "x" + ISaw.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(ISaw, i); });
+                    break;
+                case "CAxe":
+                    child.CountText.text = "x" + CAxe.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CAxe, i); });
+                    break;
+                case "TAxe":
+                    child.CountText.text = "x" + TAxe.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TAxe, i); });
+                    break;
+                case "IAxe":
+                    child.CountText.text = "x" + IAxe.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(IAxe, i); });
+                    break;
+                case "BWheelbarrow":
+                    child.CountText.text = "x" + BWheelbarrow.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(BWheelbarrow, i); });
+                    break;
+                case "OWheelBarrow":
+                    child.CountText.text = "x" + OWheelBarrow.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(OWheelBarrow, i); });
+                    break;
+                case "TWheelBarrow":
+                    child.CountText.text = "x" + TWheelBarrow.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TWheelBarrow, i); });
+                    break;
+                case "CSickle":
+                    child.CountText.text = "x" + CSickle.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CSickle, i); });
+                    break;
+                case "TSickle":
+                    child.CountText.text = "x" + TSickle.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TSickle, i); });
+                    break;
+                case "ISickle":
+                    child.CountText.text = "x" + ISickle.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(ISickle, i); });
+                    break;
+                case "CHoe":
+                    child.CountText.text = "x" + CHoe.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(CHoe, i); });
+                    break;
+                case "THoe":
+                    child.CountText.text = "x" + THoe.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(THoe, i); });
+                    break;
+                case "IHoe":
+                    child.CountText.text = "x" + IHoe.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(IHoe, i); });
+                    break;
+                case "OWagon":
+                    child.CountText.text = "x" + OWagon.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(OWagon, i); });
+                    break;
+                case "BWagon":
+                    child.CountText.text = "x" + BWagon.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(BWagon, i); });
+                    break;
+                case "TWagon":
+                    child.CountText.text = "x" + TWagon.Count.ToString();
+                    child.DetailButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { DetailButtonClick(TWagon, i); });
                     break;
                 default:
                     break;
             }
-        
-            
         }
-        
     }
+
     public void DetailButtonClick(List<ItemDataModel> my_items, WorkshopDataModel selected_schema)
     {
         ItemDetailPopup.SetActive(true);
         ItemDetailImage.texture = selected_schema.image;
-        ItemDetailToptext.text = "The '" + selected_schema.fullname + "' is 1 of 3 different items that can be equipped by the '"
-                                + selected_schema.profession_type + "' profession to boost the gathering efficiency. Depending on the rarity value of the item, the profession will have a higher chance of finding more rare materials." ;
+        if (selected_schema.function.Contains("Rarity") == true) {
+            ItemDetailToptext.text = "The \"" + selected_schema.fullname + "\" is 1 of 3 different items that can be equipped by the \""
+                                        + selected_schema.profession_type + "\" profession to boost the gathering efficiency. Depending on the rarity value of the item, the profession will have a higher chance of finding more rare materials.";
+        } else if (selected_schema.function.Contains("Luck") == true) {
+            ItemDetailToptext.text = "The \"" + selected_schema.fullname + "\" is 1 of 3 different items that can be equipped by the \""
+                                        + selected_schema.profession_type + "\" profession to boost the gathering efficiency. Depending on the rarity value of the item, the profession will have a higher chance of finding a second material.";
+        } else if (selected_schema.function.Contains("Extra") == true) {
+            ItemDetailToptext.text = "The \"" + selected_schema.fullname + "\" is 1 of 3 different items that can be equipped by the \""
+                                        + selected_schema.profession_type + "\" profession to boost the gathering efficiency. Depending on the rarity value of the item, the profession will constantly find more materials.";
+        }
         ItemDetailRarityText.text = selected_schema.rarity;
         ItemDetailFunctionText.text = selected_schema.function;
         ItemDetailDurablilityText.text = selected_schema.durability;
@@ -312,8 +289,8 @@ public class WorkshopShow : BaseView
                 {
                     child.EquipButton.SetActive(false);
                     child.UnEquipButton.SetActive(true);
-                    child.BurnButton.gameObject.GetComponent<Button>().interactable = false;
                     child.SellButton.gameObject.GetComponent<Button>().interactable = false;
+                    child.BurnButton.gameObject.GetComponent<Button>().interactable = false;
                     child.p_id = my_items[i].profession;
                     // YesBtn.onClick.RemoveAllListeners();
                     // YesBtn.onClick.AddListener(delegate { child.BurnBtn(); });
@@ -338,9 +315,7 @@ public class WorkshopShow : BaseView
         BurnPopupAlarm.SetActive(true);
         BurnPopupAlarm.GetComponent<BurnItemPopupProperty>().itemId = assetId;
         BurnPopupAlarm.GetComponent<BurnItemPopupProperty>().matName = matName;
-
-
-        BurnPopupAlarmInfo.text = "Do you really want to burn your item with id ''" + "#" + BurnPopupAlarm.GetComponent<BurnItemPopupProperty>().itemId + "''?";
+        BurnPopupAlarmInfo.text = "Do you really want to burn your item with id \"#" + BurnPopupAlarm.GetComponent<BurnItemPopupProperty>().itemId + "\"?";
     }
     public void BurnPopupYesButtonClick()
     {
@@ -352,7 +327,7 @@ public class WorkshopShow : BaseView
         }
         else
         {
-            SSTools.ShowMessage("Asset ID is null", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SSTools.ShowMessage("Asset ID is null.", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
     }
 
@@ -372,23 +347,77 @@ public class WorkshopShow : BaseView
         {
             switch (idata.name)
             {
-                case "Copper Hammer and Chisel":
+                case "Copper Hammer & Chisel":
                     CHammer.Add(idata);
+                    break;
+                case "Tin Hammer & Chisel":
+                    THammer.Add(idata);
+                    break;
+                case "Iron Hammer & Chisel":
+                    IHammer.Add(idata);
                     break;
                 case "Copper Pickaxe":
                     CPickAxe.Add(idata);
                     break;
+                case "Tin Pickaxe":
+                    TPickAxe.Add(idata);
+                    break;
+                case "Iron Pickaxe":
+                    IPickAxe.Add(idata);
+                    break;
+                case "Birch Mining Cart":
+                    BCart.Add(idata);
+                    break;
+                case "Oak Mining Cart":
+                    OCart.Add(idata);
+                    break;
+                case "Teak Mining Cart":
+                    TCart.Add(idata);
+                    break;
                 case "Copper Saw":
                     CSaw.Add(idata);
+                    break;
+                case "Tin Saw":
+                    TSaw.Add(idata);
+                    break;
+                case "Iron Saw":
+                    ISaw.Add(idata);
                     break;
                 case "Copper Axe":
                     CAxe.Add(idata);
                     break;
+                case "Tin Axe":
+                    TAxe.Add(idata);
+                    break;
+                case "Iron Axe":
+                    IAxe.Add(idata);
+                    break;
+                case "Birch Wheelbarrow":
+                    BWheelbarrow.Add(idata);
+                    break;
+                case "Oak Wheelbarrow":
+                    OWheelBarrow.Add(idata);
+                    break;
+                case "Teak Wheelbarrow":
+                    TWheelBarrow.Add(idata);
+                    break;
                 case "Copper Sickle":
                     CSickle.Add(idata);
                     break;
+                case "Tin Sickle":
+                    TSickle.Add(idata);
+                    break;
+                case "Iron Sickle":
+                    ISickle.Add(idata);
+                    break;
                 case "Copper Hoe":
                     CHoe.Add(idata);
+                    break;
+                case "Tin Hoe":
+                    THoe.Add(idata);
+                    break;
+                case "Iron Hoe":
+                    IHoe.Add(idata);
                     break;
                 case "Birch Wagon":
                     BWagon.Add(idata);
@@ -398,60 +427,6 @@ public class WorkshopShow : BaseView
                     break;
                 case "Teak Wagon":
                     TWagon.Add(idata);
-                    break;
-                case "Iron Hoe":
-                    IHoe.Add(idata);
-                    break;
-                case "Tin Hoe":
-                    THoe.Add(idata);
-                    break;
-                case "Iron Sickle":
-                    ISickle.Add(idata);
-                    break;
-                case "Tin Sickle":
-                    TSickle.Add(idata);
-                    break;
-                case "Teak Wheelbarrow":
-                    TWheelBarrow.Add(idata);
-                    break;
-                case "Oak Wheelbarrow":
-                    OWheelBarrow.Add(idata);
-                    break;
-                case "Birch Wheelbarrow":
-                    BWheelbarrow.Add(idata);
-                    break;
-                case "Iron Axe":
-                    IAxe.Add(idata);
-                    break;
-                case "Tin Axe":
-                    TAxe.Add(idata);
-                    break;
-                case "Iron Saw":
-                    ISaw.Add(idata);
-                    break;
-                case "Tin Saw":
-                    TSaw.Add(idata);
-                    break;
-                case "Teak Mining Cart":
-                    TCart.Add(idata);
-                    break;
-                case "Oak Mining Cart":
-                    OCart.Add(idata);
-                    break;
-                case "Birch Mining Cart":
-                    BCart.Add(idata);
-                    break;
-                case "Iron Pickaxe":
-                    IPickAxe.Add(idata);
-                    break;
-                case "Tin Pickaxe":
-                    TPickAxe.Add(idata);
-                    break;
-                case "Iron Hammer and Chisel":
-                    IHammer.Add(idata);
-                    break;
-                case "Tin Hammer and Chisel":
-                    THammer.Add(idata);
                     break;
                 default:
                     break;
@@ -470,7 +445,7 @@ public class WorkshopShow : BaseView
         title_panel.SetActive(true);
         no_asset_panel.SetActive(true);
         item_img.sprite = wdata.img.sprite;
-        infotext1_text.text = "The " + name + " is 1 of 3 different items that can be equipped by the " + wdata.profession_type + " profession to boost the gathering process";
+        infotext1_text.text = "The \"" + name + "\" is 1 of 3 different items that can be equipped by the \"" + wdata.profession_type + "\" profession to boost the gathering process.";
         item_name_text.text = name;
         function_text.text = wdata.function;
         material_text.text = wdata.mat_need;
@@ -478,7 +453,7 @@ public class WorkshopShow : BaseView
         durability_text.text = wdata.durability;
         used_by_text.text = wdata.profession_type;
         crafted_by_text.text = wdata.crafter;
-        craft_text.text = "~ Unfortunately you don't have any " + name;
+        craft_text.text = "Unfortunately you don't have any \"" + name + "\".";
     }
 
     public void Display_Asset(List<ItemDataModel> idata,WorkshopDataModel wdata)
@@ -492,7 +467,7 @@ public class WorkshopShow : BaseView
         title_panel.SetActive(true);
         asset_display_panel.SetActive(true);
         item_img.sprite = wdata.img.sprite;
-        infotext1_text.text = "The " + idata[0].name + " is 1 of 3 different items that can be equipped by the " + wdata.profession_type + " profession to boost the gathering process";
+        infotext1_text.text = "The \"" + idata[0].name + "\" is 1 of 3 different items that can be equipped by the \"" + wdata.profession_type + "\" profession to boost the gathering process.";
         item_name_text.text = idata[0].name;
         function_text.text = wdata.function;
         material_text.text = wdata.mat_need;
@@ -510,7 +485,7 @@ public class WorkshopShow : BaseView
             child.asset_ids.text = idata[i].asset_id.ToString();
             child.asset_id = idata[i].asset_id;
             child.LoadingPanel = LoadingPanel;
-            child.durability.text = "Durability : " + idata[i].uses_left + "/60";
+            child.durability.text = "Durability: " + idata[i].uses_left + "/60";
             child.img.sprite = wdata.img.sprite;
             child.mat_name = idata[i].name;
             if (idata[i].equipped == "1")
@@ -534,7 +509,6 @@ public class WorkshopShow : BaseView
                 }
             }
         }
-
     }
 
     public void returnToItems()
@@ -550,30 +524,31 @@ public class WorkshopShow : BaseView
     public void OnItemData()
     {
         CHammer.Clear();
-        CSaw.Clear();
-        CSickle.Clear();
-        CPickAxe.Clear();
-        CAxe.Clear();
-        CHoe.Clear();
-        BCart.Clear();
-        BWheelbarrow.Clear();
         THammer.Clear();
-        TSaw.Clear();
-        TSickle.Clear();
-        TPickAxe.Clear();
-        TAxe.Clear();
-        THoe.Clear();
-        OCart.Clear();
-        OWheelBarrow.Clear();
-        OWagon.Clear();
         IHammer.Clear();
-        ISaw.Clear();
-        ISickle.Clear();
+        CPickAxe.Clear();
+        TPickAxe.Clear();
         IPickAxe.Clear();
-        IAxe.Clear();
-        IHoe.Clear();
+        BCart.Clear();
+        OCart.Clear();
         TCart.Clear();
+        CSaw.Clear();
+        TSaw.Clear();
+        ISaw.Clear();
+        CAxe.Clear();
+        TAxe.Clear();
+        IAxe.Clear();
+        BWheelbarrow.Clear();
+        OWheelBarrow.Clear();
         TWheelBarrow.Clear();
+        CSickle.Clear();
+        TSickle.Clear();
+        ISickle.Clear();
+        CHoe.Clear();
+        THoe.Clear();
+        IHoe.Clear();
+        BWagon.Clear();
+        OWagon.Clear();
         TWagon.Clear();
         SetItemData(MessageHandler.userModel.items);
     }
@@ -587,23 +562,77 @@ public class WorkshopShow : BaseView
             string item_name = "";
             switch (MessageHandler.transactionModel.transactionid)
             {
-                case "Copper Hammer and Chisel":
+                case "Copper Hammer & Chisel":
                     item_name = "CHammer";
+                    break;
+                case "Tin Hammer & Chisel":
+                    item_name = "THammer";
+                    break;
+                case "Iron Hammer & Chisel":
+                    item_name = "IHammer";
                     break;
                 case "Copper Pickaxe":
                     item_name = "CPickAxe";
                     break;
+                case "Tin Pickaxe":
+                    item_name = "TPickAxe";
+                    break;
+                case "Iron Pickaxe":
+                    item_name = "IPickAxe";
+                    break;
+                case "Birch Mining Cart":
+                    item_name = "BCart";
+                    break;
+                case "Oak Mining Cart":
+                    item_name = "OCart";
+                    break;
+                case "Teak Mining Cart":
+                    item_name = "TCart";
+                    break;
                 case "Copper Saw":
                     item_name = "CSaw";
+                    break;
+                case "Tin Saw":
+                    item_name = "TSaw";
+                    break;
+                case "Iron Saw":
+                    item_name = "ISaw";
                     break;
                 case "Copper Axe":
                     item_name = "CAxe";
                     break;
+                case "Tin Axe":
+                    item_name = "TAxe";
+                    break;
+                case "Iron Axe":
+                    item_name = "IAxe";
+                    break;
+                case "Birch Wheelbarrow":
+                    item_name = "BWheelbarrow";
+                    break;
+                case "Oak Wheelbarrow":
+                    item_name = "OWheelBarrow";
+                    break;
+                case "Teak Wheelbarrow":
+                    item_name = "TWheelBarrow";
+                    break;
                 case "Copper Sickle":
                     item_name = "CSickle";
                     break;
+                case "Tin Sickle":
+                    item_name = "TSickle";
+                    break;
+                case "Iron Sickle":
+                    item_name = "ISickle";
+                    break;
                 case "Copper Hoe":
                     item_name = "CHoe";
+                    break;
+                case "Tin Hoe":
+                    item_name = "THoe";
+                    break;
+                case "Iron Hoe":
+                    item_name = "IHoe";
                     break;
                 case "Birch Wagon":
                     item_name = "BWagon";
@@ -613,60 +642,6 @@ public class WorkshopShow : BaseView
                     break;
                 case "Teak Wagon":
                     item_name = "TWagon";
-                    break;
-                case "Iron Hoe":
-                    item_name = "IHoe";
-                    break;
-                case "Tin Hoe":
-                    item_name = "THoe";
-                    break;
-                case "Iron Sickle":
-                    item_name = "ISickle";
-                    break;
-                case "Tin Sickle":
-                    item_name = "TSickle";
-                    break;
-                case "Teak Wheelbarrow":
-                    item_name = "TWheelBarrow";
-                    break;
-                case "Oak Wheelbarrow":
-                    item_name = "OWheelBarrow";
-                    break;
-                case "Birch Wheelbarrow":
-                    item_name = "BWheelbarrow";
-                    break;
-                case "Iron Axe":
-                    item_name = "IAxe";
-                    break;
-                case "Tin Axe":
-                    item_name = "TAxe";
-                    break;
-                case "Iron Saw":
-                    item_name = "ISaw";
-                    break;
-                case "Tin Saw":
-                    item_name = "TSaw";
-                    break;
-                case "Teak Mining Cart":
-                    item_name = "TCart";
-                    break;
-                case "Oak Mining Cart":
-                    item_name = "OCart";
-                    break;
-                case "Birch Mining Cart":
-                    item_name = "BCart";
-                    break;
-                case "Iron Pickaxe":
-                    item_name = "IPickAxe";
-                    break;
-                case "Tin Pickaxe":
-                    item_name = "TPickAxe";
-                    break;
-                case "Iron Hammer and Chisel":
-                    item_name = "IHammer";
-                    break;
-                case "Tin Hammer and Chisel":
-                    item_name = "THammer";
                     break;
                 default:
                     break;
@@ -685,7 +660,7 @@ public class WorkshopShow : BaseView
                     if (CHammer.Count > 0)
                         Display_Asset(CHammer, item_data);
                     else
-                        Display_No_Asset(item_data, "Copper Hammer and Chisel");
+                        Display_No_Asset(item_data, "Copper Hammer & Chisel");
                     break;
                 case "CPickAxe":
                     if (CPickAxe.Count > 0)
@@ -855,7 +830,7 @@ public class WorkshopShow : BaseView
         switch (callBack.status)
         {
             case ("De-Equiped Successfully"):
-                SSTools.ShowMessage("Item De-Equiped Successful !", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("Item successfully unequiped.", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 break;
             default:
                 break;
@@ -874,7 +849,7 @@ public class WorkshopShow : BaseView
     public void Show_BurnPanel(string item_name)
     {
         permission_panel.SetActive(true);
-        permission_panel_text.text = "Do you really want to burn your " + item_name + "? If yes, you will have a some chance to get back 1 random material that was used for crafting it";
+        permission_panel_text.text = "Do you really want to burn your \"" + item_name + "\"? If yes, you will have a 10% chance to get back 1 random material that was used for crafting it.";
     }
 
     private void OnInventoryData(InventoryModel[] inventoryData)

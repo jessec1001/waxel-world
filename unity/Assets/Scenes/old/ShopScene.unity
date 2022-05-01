@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: How to Become a Engineer
+  m_text: How to Become an Engineer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37f7bf4ec3d7aed448c4fba04a158e02, type: 2}
   m_sharedMaterial: {fileID: -7691034309495585412, guid: 37f7bf4ec3d7aed448c4fba04a158e02,

@@ -18016,8 +18016,8 @@ MonoBehaviour:
   - profession: Engineer
     types: Refiner and Crafter
     citizens: 10 Citizens
-    uses: 180
-    books: How to become a Engineer
+    uses: 90
+    books: How to become an Engineer
   images:
   - name: Miner
     img: {fileID: 2800000, guid: 37e5ba23e63050a469fc5500422ee670, type: 3}
@@ -18069,13 +18069,13 @@ MonoBehaviour:
     img: {fileID: 2800000, guid: f02b175040756ba4fa55b5ab6e5ae446, type: 3}
   - name: SWORMS
     img: {fileID: 2800000, guid: 8fa9c9cebc1230b4aa96f90420e3dd95, type: 3}
-  - name: Copper Hammer and Chisel
+  - name: Copper Hammer & Chisel
     img: {fileID: 2800000, guid: ab560973dddfb89469fc3f27fc1a4e5b, type: 3}
   - name: Copper Pickaxe
     img: {fileID: 2800000, guid: 4f8c90a6f932d99438082f8fd4f70ee3, type: 3}
   - name: Birch Mining Cart
     img: {fileID: 2800000, guid: 9818c9576a4de4c41b168e992e048469, type: 3}
-  - name: Tin Hammer and Chisel
+  - name: Tin Hammer & Chisel
     img: {fileID: 2800000, guid: 3dcbca6d623541f48ae13432aa6ac427, type: 3}
   - name: Tin Pickaxe
     img: {fileID: 2800000, guid: 0e8536e551ee6c149acdd61360ffa265, type: 3}
@@ -18085,7 +18085,7 @@ MonoBehaviour:
     img: {fileID: 2800000, guid: 6aa7e1264e69ab14c9c91aa43e5faaad, type: 3}
   - name: Teak Mining Cart
     img: {fileID: 2800000, guid: f8d2d560465fe9d4e86c9a0cc8b5c9c9, type: 3}
-  - name: Iron Hammer and Chisel
+  - name: Iron Hammer & Chisel
     img: {fileID: 2800000, guid: 78aae2b5475fe054a8683d8ab92a6ede, type: 3}
   - name: Copper Saw
     img: {fileID: 2800000, guid: b7e71f1d77d8cc143a7115b105be668c, type: 3}
@@ -18181,7 +18181,7 @@ MonoBehaviour:
     refined_product: Linen
     refined_product_img: {fileID: 2800000, guid: dc60788fb7cdadf418c7ad51aea0cd95,
       type: 3}
-  - name: Silk Worms
+  - name: Silkworms
     rarity: Rare
     img: {fileID: 2800000, guid: 8fa9c9cebc1230b4aa96f90420e3dd95, type: 3}
     profession: Tailor

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -408,7 +408,7 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: Added 10 citizens to your account.
+      value: Added 10 "Citizens" to your account.
       objectReference: {fileID: 0}
     - target: {fileID: 3869616473336320641, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -459,7 +459,7 @@ PrefabInstance:
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -469,7 +469,7 @@ PrefabInstance:
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 195
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -484,7 +484,7 @@ PrefabInstance:
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -494,7 +494,7 @@ PrefabInstance:
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 4264989280571174121, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -574,7 +574,7 @@ PrefabInstance:
     - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: Do you really want to add 10 citizens to your account?
+      value: Do you really want to add 10 "Citizens" to your account?
       objectReference: {fileID: 0}
     - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -694,7 +694,7 @@ PrefabInstance:
     - target: {fileID: 9196668233930203563, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: A "Citizens 10x Pack" NFT from your wallet will be burned and 10 citizens
+      value: A "Citizens - 10x" NFT pack from your wallet will be burned and 10 "Citizens"
         added to your account.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1812,7 +1812,7 @@ PrefabInstance:
     - target: {fileID: 3653044758762034010, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
       propertyPath: m_text
-      value: Added "Citizens 10x Pack" NFT to your wallet.
+      value: Added "Citizen - 10x" NFT pack to your wallet.
       objectReference: {fileID: 0}
     - target: {fileID: 3869616473336320641, guid: e980a52f5f3da864f9792459b13c2b82,
         type: 3}
@@ -1863,7 +1863,7 @@ PrefabInstance:
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -1873,7 +1873,7 @@ PrefabInstance:
     - target: {fileID: 2320924532756028484, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 195
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -1888,7 +1888,7 @@ PrefabInstance:
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -1898,7 +1898,7 @@ PrefabInstance:
     - target: {fileID: 2320924533326856478, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 95
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 4264989280571174121, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -1978,7 +1978,8 @@ PrefabInstance:
     - target: {fileID: 9196668233475537236, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: Do you really want to mint 10 citizens into an "Citizens 10x Pack" NFT?
+      value: Do you really want to mint 10 "Citizens" into a "Citizen - 10x" NFT
+        pack?
       objectReference: {fileID: 0}
     - target: {fileID: 9196668233702390090, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
@@ -2093,7 +2094,8 @@ PrefabInstance:
     - target: {fileID: 9196668233930203563, guid: 9a56feea110abf04288e05f553423ee6,
         type: 3}
       propertyPath: m_text
-      value: 10 citizens will be deducted from your account and moved into the NFT.
+      value: 10 "Citizens" will be deducted from your account and moved into the
+        NFT.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a56feea110abf04288e05f553423ee6, type: 3}

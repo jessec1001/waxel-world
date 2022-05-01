@@ -747,7 +747,7 @@ MonoBehaviour:
     crafter: Blacksmith
     durability: 60
     mat_need: 1x Copper Bar + 1x Birch Wood + 1x Wool
-    function: +5% Rarer materials
+    function: +5% Rarer
     rarity: Common
   - name: CSaw
     count: {fileID: 452950910}
@@ -757,7 +757,7 @@ MonoBehaviour:
     crafter: Blacksmith
     durability: 60
     mat_need: 1x Copper Bar + 1x Birch Wood + 1x Wool
-    function: +5% Rarer materials
+    function: +5% Rarer
     rarity: Common
   - name: CSickle
     count: {fileID: 175573457}
@@ -767,7 +767,7 @@ MonoBehaviour:
     crafter: Blacksmith
     durability: 60
     mat_need: 1x Copper Bar + 1x Birch Wood + 1x Wool
-    function: +5% Rarer materials
+    function: +5% Rarer
     rarity: Common
   - name: CPickAxe
     count: {fileID: 1589886757}
@@ -776,7 +776,7 @@ MonoBehaviour:
     profession_type: Miner
     crafter: Blacksmith
     durability: 60
-    mat_need: 2x Copper bar + 2x Birch wood + 1x Wool
+    mat_need: 2x Copper Bar + 2x Birch wood + 1x Wool
     function: +5% Luck
     rarity: Common
   - name: CAxe
@@ -786,7 +786,7 @@ MonoBehaviour:
     profession_type: Lumberjack
     crafter: Blacksmith
     durability: 60
-    mat_need: 2x Copper bar + 2x Birch wood + 1x Wool
+    mat_need: 2x Copper Bar + 2x Birch wood + 1x Wool
     function: +5% Luck
     rarity: Common
   - name: CHoe
@@ -796,7 +796,7 @@ MonoBehaviour:
     profession_type: Farmer
     crafter: Blacksmith
     durability: 60
-    mat_need: 2x Copper bar + 2x Birch wood + 1x Wool
+    mat_need: 2x Copper Bar + 2x Birch wood + 1x Wool
     function: +5% Luck
     rarity: Common
   - name: BCart
@@ -806,8 +806,8 @@ MonoBehaviour:
     profession_type: Miner
     crafter: Engineer
     durability: 60
-    mat_need: 2x Copper bar + 4x Birch Wood + 2x Wool
-    function: +5% Extra Materials
+    mat_need: 2x Copper Bar + 4x Birch Wood + 2x Wool
+    function: +5% Extra
     rarity: Common
   - name: BWheelbarrow
     count: {fileID: 1232521226}
@@ -816,8 +816,8 @@ MonoBehaviour:
     profession_type: Lumberjack
     crafter: Engineer
     durability: 60
-    mat_need: 2x Copper bar + 4x Birch Wood + 2x Wool
-    function: +5% Extra Materials
+    mat_need: 2x Copper Bar + 4x Birch Wood + 2x Wool
+    function: +5% Extra
     rarity: Common
   - name: BWagon
     count: {fileID: 1221618256}
@@ -826,8 +826,8 @@ MonoBehaviour:
     profession_type: Farmer
     crafter: Engineer
     durability: 60
-    mat_need: 2x Copper bar + 4x Birch Wood + 2x Wool
-    function: +5% Extra Materials
+    mat_need: 2x Copper Bar + 4x Birch Wood + 2x Wool
+    function: +5% Extra
     rarity: Common
   - name: THammer
     count: {fileID: 1433294900}
@@ -836,8 +836,8 @@ MonoBehaviour:
     profession_type: Miner
     crafter: Blacksmith
     durability: 60
-    mat_need: 1x Tin bar +  1x Oak wood  + 1x Linen
-    function: +10% Rarer materials
+    mat_need: 1x Tin Bar +  1x Oak wood  + 1x Linen
+    function: +10% Rarer
     rarity: Uncommon
   - name: TSaw
     count: {fileID: 2001575195}
@@ -846,8 +846,8 @@ MonoBehaviour:
     profession_type: Lumberjack
     crafter: Blacksmith
     durability: 60
-    mat_need: 1x Tin bar +  1x Oak wood  + 1x Linen
-    function: +10% Rarer materials
+    mat_need: 1x Tin Bar +  1x Oak wood  + 1x Linen
+    function: +10% Rarer
     rarity: Uncommon
   - name: TSickle
     count: {fileID: 1534179005}
@@ -856,8 +856,8 @@ MonoBehaviour:
     profession_type: Farmer
     crafter: Blacksmith
     durability: 60
-    mat_need: 1x Tin bar +  1x Oak wood  + 1x Linen
-    function: +10% Rarer materials
+    mat_need: 1x Tin Bar +  1x Oak wood  + 1x Linen
+    function: +10% Rarer
     rarity: Uncommon
   - name: TPickAxe
     count: {fileID: 1907998294}
@@ -866,7 +866,7 @@ MonoBehaviour:
     profession_type: Miner
     crafter: Blacksmith
     durability: 60
-    mat_need: 2x Tin bar +  2x Oak wood  + 1x Linen
+    mat_need: 2x Tin Bar +  2x Oak wood  + 1x Linen
     function: +10% Luck
     rarity: Uncommon
   - name: TAxe
@@ -876,7 +876,7 @@ MonoBehaviour:
     profession_type: Lumberjack
     crafter: Blacksmith
     durability: 60
-    mat_need: 2x Tin bar +  2x Oak wood  + 1x Linen
+    mat_need: 2x Tin Bar +  2x Oak wood  + 1x Linen
     function: +10% Luck
     rarity: Uncommon
   - name: THoe
@@ -886,7 +886,7 @@ MonoBehaviour:
     profession_type: Farmer
     crafter: Blacksmith
     durability: 60
-    mat_need: 2x Tin bar +  2x Oak wood  + 1x Linen
+    mat_need: 2x Tin Bar +  2x Oak wood  + 1x Linen
     function: +10% Luck
     rarity: Uncommon
   - name: OCart
@@ -896,8 +896,8 @@ MonoBehaviour:
     profession_type: Miner
     crafter: Engineer
     durability: 60
-    mat_need: 2x Tin bar +  4x Oak wood + 2x Linen
-    function: +10% Extra Materials
+    mat_need: 2x Tin Bar +  4x Oak wood + 2x Linen
+    function: +10% Extra
     rarity: Uncommon
   - name: OWheelBarrow
     count: {fileID: 996757919}
@@ -906,8 +906,8 @@ MonoBehaviour:
     profession_type: Lumberjack
     crafter: Engineer
     durability: 60
-    mat_need: 2x Tin bar +  4x Oak wood + 2x Linen
-    function: +10% Extra Materials
+    mat_need: 2x Tin Bar +  4x Oak wood + 2x Linen
+    function: +10% Extra
     rarity: Uncommon
   - name: OWagon
     count: {fileID: 312408149}
@@ -916,8 +916,8 @@ MonoBehaviour:
     profession_type: Farmer
     crafter: Engineer
     durability: 60
-    mat_need: 2x Tin bar +  4x Oak wood + 2x Linen
-    function: +10% Extra Materials
+    mat_need: 2x Tin Bar +  4x Oak wood + 2x Linen
+    function: +10% Extra
     rarity: Uncommon
   - name: IHammer
     count: {fileID: 1575982515}
@@ -926,8 +926,8 @@ MonoBehaviour:
     profession_type: Miner
     crafter: Blacksmith
     durability: 60
-    mat_need: 1x Iron bar + 1x Teak wood  + 1x Silk
-    function: +20% Rarer materials
+    mat_need: 1x Iron Bar + 1x Teak wood  + 1x Silk
+    function: +20% Rarer
     rarity: Rare
   - name: ISaw
     count: {fileID: 1448433279}
@@ -936,8 +936,8 @@ MonoBehaviour:
     profession_type: Lumberjack
     crafter: Blacksmith
     durability: 60
-    mat_need: 1x Iron bar + 1x Teak wood  + 1x Silk
-    function: +20% Rarer materials
+    mat_need: 1x Iron Bar + 1x Teak wood  + 1x Silk
+    function: +20% Rarer
     rarity: Rare
   - name: ISickle
     count: {fileID: 2055568857}
@@ -946,8 +946,8 @@ MonoBehaviour:
     profession_type: Farmer
     crafter: Blacksmith
     durability: 60
-    mat_need: 1x Iron bar + 1x Teak wood  + 1x Silk
-    function: +20% Rarer materials
+    mat_need: 1x Iron Bar + 1x Teak wood  + 1x Silk
+    function: +20% Rarer
     rarity: Rare
   - name: IPickAxe
     count: {fileID: 638394006}
@@ -956,7 +956,7 @@ MonoBehaviour:
     profession_type: Miner
     crafter: Blacksmith
     durability: 60
-    mat_need: 2x Iron bar + 2x Teak wood  + 1x Silk
+    mat_need: 2x Iron Bar + 2x Teak wood  + 1x Silk
     function: +20% Luck
     rarity: Rare
   - name: IAxe
@@ -966,7 +966,7 @@ MonoBehaviour:
     profession_type: Lumberjack
     crafter: Blacksmith
     durability: 60
-    mat_need: 2x Iron bar + 2x Teak wood  + 1x Silk
+    mat_need: 2x Iron Bar + 2x Teak wood  + 1x Silk
     function: +20% Luck
     rarity: Rare
   - name: IHoe
@@ -976,7 +976,7 @@ MonoBehaviour:
     profession_type: Farmer
     crafter: Blacksmith
     durability: 60
-    mat_need: 2x Iron bar + 2x Teak wood  + 1x Silk
+    mat_need: 2x Iron Bar + 2x Teak wood  + 1x Silk
     function: +20% Luck
     rarity: Rare
   - name: TCart
@@ -986,8 +986,8 @@ MonoBehaviour:
     profession_type: Miner
     crafter: Engineer
     durability: 60
-    mat_need: 2x Iron bar  + 4x Teak wood  + 2x Silk
-    function: +20% Extra Materials
+    mat_need: 2x Iron Bar  + 4x Teak wood  + 2x Silk
+    function: +20% Extra
     rarity: Rare
   - name: TWheelBarrow
     count: {fileID: 1003303874}
@@ -996,8 +996,8 @@ MonoBehaviour:
     profession_type: Lumberjack
     crafter: Engineer
     durability: 60
-    mat_need: 2x Iron bar  + 4x Teak wood  + 2x Silk
-    function: +20% Extra Materials
+    mat_need: 2x Iron Bar  + 4x Teak wood  + 2x Silk
+    function: +20% Extra
     rarity: Rare
   - name: TWagon
     count: {fileID: 498997156}
@@ -1006,8 +1006,8 @@ MonoBehaviour:
     profession_type: Farmer
     crafter: Engineer
     durability: 60
-    mat_need: 2x Iron bar  + 4x Teak wood  + 2x Silk
-    function: +20% Extra Materials
+    mat_need: 2x Iron Bar  + 4x Teak wood  + 2x Silk
+    function: +20% Extra
     rarity: Rare
   workshop_prefab: {fileID: 3702772117089282512, guid: 7414ff06a2084cf4383bfe3ff7c6308c,
     type: 3}
@@ -1073,7 +1073,7 @@ MonoBehaviour:
     img: {fileID: 2800000, guid: 224e2eb72bce7df4bb8a5ac8603f683e, type: 3}
   - name: Teak
     img: {fileID: 2800000, guid: f02b175040756ba4fa55b5ab6e5ae446, type: 3}
-  - name: Silk Worms
+  - name: Silkworms
     img: {fileID: 2800000, guid: 8fa9c9cebc1230b4aa96f90420e3dd95, type: 3}
   - name: Copper Bar
     img: {fileID: 2800000, guid: ee641934afa86ae47be0903e1368151e, type: 3}
@@ -16792,7 +16792,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1x Copper bar + 1x Birch Wood + 1x Wool
+  m_text: 1x Copper Bar + 1x Birch Wood + 1x Wool
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

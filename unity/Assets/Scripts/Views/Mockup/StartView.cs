@@ -31,14 +31,14 @@ public class StartView : BaseView
     {
         MessageHandler.LoginRequest("cloud");
         //GameObjectHandler.OpenScene("MapScene");
-        
+
     }
     public void onCreateWalletButtonClick()
     {
         Debug.Log("onCreateWalletButtonClick");
         //Application.OpenURL("https://all-access.wax.io/");
         Application.OpenURL("https://waxel.net/set-up-wax-wallet/");
-        
+
     }
     // public void OnLoginButtonClick()
     // {

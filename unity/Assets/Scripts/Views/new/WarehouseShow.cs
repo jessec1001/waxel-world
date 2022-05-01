@@ -105,7 +105,7 @@ public class WarehouseShow : BaseView
     }
 
     public void SetMaterials()
-    { 
+    {
         if (MaterailGroup.childCount >= 1)
         {
             foreach (Transform child in MaterailGroup)
@@ -145,12 +145,11 @@ public class WarehouseShow : BaseView
         {
             TopSectionTitle.text= "Use refined materials to craft items";
         }
-        LeftSectionTitle.text = "Mint " + matName + " as NFT Pack of 10";
-        LeftSectionInfo.text = "By using the \"Mint\" button, you will be able to mint 10 " + matName +" into a '" + matName +" - 10x' NFT pack and 10 "
-                                + matName  + " will be deducted from your account. Afterwards you will be able to sell that NFT on the market or trade with other players.";
+        LeftSectionTitle.text = "Mint \"" + matName + "\" as NFT Pack of 10";
+        LeftSectionInfo.text = "By using the \"Mint\" button, you will be able to mint 10 \"" + matName +"\" into a \"" + matName +" - 10x'\" NFT pack and 10 \"" + matName  + "\" will be deducted from your account. Afterwards you will be able to sell that NFT on the market or trade with other players.";
         LeftSectionImage.texture = m.image_multi;
-        RightSectionTitle.text = "Add " + matName;
-        RightSectionInfo.text = "By using the 'Add' button, you will burn a '" + matName + "' - 10x' NFT pack and 10 '" + matName+"' will be added to your account.";
+        RightSectionTitle.text = "Add \"" + matName + "\"";
+        RightSectionInfo.text = "By using the \"Add\" button, you will burn a \"" + matName + " - 10x\" NFT pack and 10 \"" + matName + "\" will be added to your account.";
         RightSctionImage.texture = m.image_multi;
         MintButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MintButtonClick(m.name, matName); });
         AddButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { AddButtonClick(m.name, matName); });
@@ -166,16 +165,16 @@ public class WarehouseShow : BaseView
                 {
                     MintPopup.SetActive(true);
                     MintPopupTitle.text = "Mint " + matName + " as NFT";
-                    MintPopupTopInfo.text ="Do you really want to mint 10 '" + matName + "' into a '" + matName + "- 10x' NFT pack?";
-                    MintPopupBottomInfo.text = "10 '" + matName + "' will be deducted from your account and moved into the NFT.";
+                    MintPopupTopInfo.text ="Do you really want to mint 10 \"" + matName + "\" into a \"" + matName + " - 10x\" NFT pack?";
+                    MintPopupBottomInfo.text = "10 \"" + matName + "\" will be deducted from your account and moved into the NFT.";
                     MintPopupYesButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MintPopupYesButtonClick(keyName); });
                 }
                 else if (Int64.Parse(inv.count) < 10)
                 {
                     NotMintPopup.SetActive(true);
-                    NotMintPopupTitle.text = "Mint" + matName;
-                    NotMintPopupTopInfo.text = "Not enough '" + matName + "'.";
-                    NotMintPopupBottomInfo.text = "Unfortunately you don't have enough '" + matName + "' (less than 10) in your account and will need to obtain more first.";
+                    NotMintPopupTitle.text = "Mint " + matName;
+                    NotMintPopupTopInfo.text = "Not enough \"" + matName + "\".";
+                    NotMintPopupBottomInfo.text = "Unfortunately you don't have enough \"" + matName + "\" (less than 10) in your account and will need to obtain more first.";
                 }
                 break;
             }
@@ -195,16 +194,16 @@ public class WarehouseShow : BaseView
                 {
                     AddPopup.SetActive(true);
                     AddPopupTitle.text = "Add " + matName + " to Account";
-                    AddPopupTopInfo.text ="Do you really want to add 10 '" + matName + "' to your account?";
-                    AddPopupBottomInfo.text = "A '" + matName + " - 10x' NFT pack from your wallet will be burned and 10 '" + matName + "' added to your account.";
+                    AddPopupTopInfo.text ="Do you really want to add 10 \"" + matName + "\" to your account?";
+                    AddPopupBottomInfo.text = "A \"" + matName + " - 10x\" NFT pack from your wallet will be burned and 10 \"" + matName + "\" added to your account.";
                     AddPopupYesButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { AddPopupYesButtonClick(keyName); });
                 }
                 else if (Int64.Parse(inv.count) < 10)
                 {
                     NotAddPopup.SetActive(true);
                     NotAddPopupTitle.text = "Add " + matName + " to Account";
-                    NotAddPopupTopInfo.text = "No '" + matName + " - 10x' NFT pack in wallet.";
-                    NotAddPopupBottomInfo.text = "Unfortunately you don't have any '" + matName + " - 10x' NFT pack in your wallet and will need to obtain one first.";
+                    NotAddPopupTopInfo.text = "No \"" + matName + " - 10x\" NFT pack in wallet.";
+                    NotAddPopupBottomInfo.text = "Unfortunately you don't have any \"" + matName + " - 10x\" NFT pack in your wallet and will need to obtain one first.";
                 }
                 break;
             }
@@ -214,8 +213,6 @@ public class WarehouseShow : BaseView
     {
         MessageHandler.Server_BurnMat(keyName);
     }
-
-
 
     private void OnTransactionData()
     {
@@ -237,24 +234,23 @@ public class WarehouseShow : BaseView
             }
             if (action_type == "Mint")
             {
-                done_panel_text.text = "The " + helper.mat_abv[mat_name] + " - 10x NFT was added to your wallet";
+                done_panel_text.text = "Added \"" + helper.mat_abv[mat_name] + " - 10x\" NFT pack to your wallet.";
                 MessageHandler.userModel.total_matCount = MessageHandler.transactionModel.citizens;
                 materials.text = MessageHandler.userModel.total_matCount;
 
             }
             if (action_type == "Burn")
             {
-                done_panel_text.text = "10 " + helper.mat_abv[mat_name] + " have been added to your account";
+                done_panel_text.text = "Added 10x \"" + helper.mat_abv[mat_name] + "\" to your account.";
                 MessageHandler.userModel.total_matCount = MessageHandler.transactionModel.citizens;
                 materials.text = MessageHandler.userModel.total_matCount;
             }
             if(action_type == "None")
             {
                 DonePanel.SetActive(false);
-                SSTools.ShowMessage("Nothing to Burn", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("Nothing to burn.", SSTools.Position.bottom, SSTools.Time.twoSecond);
             }
 
         }
     }
-
 }
