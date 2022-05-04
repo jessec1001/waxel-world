@@ -749,8 +749,8 @@ public class SchoolShow : BaseView
                     if(data.name == callBack.matName)
                     {
                         b = data.img;
-                        decimal matCount =  Math.Round(callBack.matCount, 2);
-                        result = "You found " + matCount + "x \"" + helper.mat_abv[callBack.matName] + "\"!";
+                        decimal matCount =  Math.Round(System.Convert.ToDecimal(callBack.matCount), 2);
+                        result = "You found " + matCount.ToString() + "x \"" + helper.mat_abv[callBack.matName] + "\"!";
                         break;
                     }
                 }
