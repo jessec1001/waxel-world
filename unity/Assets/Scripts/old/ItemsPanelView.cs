@@ -10,13 +10,15 @@ public class ItemsPanelView : MonoBehaviour
     public string unequip_id;
     public string unequip_item_name;
     public string equip_id;
-    public Button Equip_btn;
-    public Button Unequip_btn;
-    public GameObject loadingPanel;
     public string p_id;
+    // junks
+    public Button Unequip_btn;
+    public Button Equip_btn;
+    public GameObject loadingPanel;
 
     public void PopupEquipButtonClick()
     {
+        Debug.Log("PopupEquipButtonClick");
         Debug.Log(p_id);
         if (!string.IsNullOrEmpty(equip_id))
         {
@@ -26,6 +28,9 @@ public class ItemsPanelView : MonoBehaviour
         else
             SSTools.ShowMessage("No item selected to equip", SSTools.Position.bottom, SSTools.Time.twoSecond);
     }
+
+
+    // junk ones
     public void Equip_call()
     {
         Debug.Log(p_id);
@@ -44,7 +49,7 @@ public class ItemsPanelView : MonoBehaviour
         if (!string.IsNullOrEmpty(unequip_id))
         {
             loadingPanel.SetActive(true);
-            MessageHandler.Server_UnequipItems(unequip_id, unequip_item_name,p_id);
+            MessageHandler.Server_UnequipItems(unequip_id, unequip_item_name, p_id);
         }
         else
             SSTools.ShowMessage("No item selected to unequip", SSTools.Position.bottom, SSTools.Time.twoSecond);

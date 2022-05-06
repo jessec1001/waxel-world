@@ -141,6 +141,23 @@ public class MessageHandler : MonoBehaviour
         callBack = JsonHelper.FromJson<CallBackDataModel>(jsonData);
         OnCallBackData(callBack);
     }
+    public void Client_TrxHash(string trx)
+    {
+        transactionModel = JsonUtility.FromJson<TransactionModel>(trx);
+        OnTransactionData();
+    }
+    public void Client_SetCallBackData(string data)
+    {
+        string jsonData = JsonHelper.fixJson(data);
+        callBack = JsonHelper.FromJson<CallBackDataModel>(jsonData);
+        OnCallBackData(callBack);
+    }
+
+
+
+
+
+    
     public void Client_SetNinjaData(string ninjadata)
     {
         string jsonData = JsonHelper.fixJson(ninjadata);
@@ -158,12 +175,7 @@ public class MessageHandler : MonoBehaviour
     {
         getNinjaData();
     }
-    public void Client_SetCallBackData(string data)
-    {
-        string jsonData = JsonHelper.fixJson(data);
-        callBack = JsonHelper.FromJson<CallBackDataModel>(jsonData);
-        OnCallBackData(callBack);
-    }
+
     public static void Server_MintCitizenPack()
     {
         mintcitizens();
@@ -262,15 +274,24 @@ public class MessageHandler : MonoBehaviour
         assetModel = JsonHelper.FromJson<AssetModel>(jsonData);
         OnAssetData(assetModel);
     }
-
-
-
     public void Client_SetSettlementData(string settlementdata)
     {
         string jsonData = JsonHelper.fixJson(settlementdata);
         SettlementsModel[] settlement_data = JsonHelper.FromJson<SettlementsModel>(jsonData);
         userModel.settlements = settlement_data;
         OnSettlementData(settlement_data);
+    }
+
+
+    public void GetUserMaxNftCount(string max_count)
+    {
+        // Debug.Log(max_count);
+        string jsonData = JsonHelper.fixJson(max_count);
+        
+        userModel.nft_count = JsonHelper.FromJson<MaxNftDataModel>(jsonData);
+        // maxData = JsonHelper.FromJson<MaxNftDataModel>(jsonData);
+        // Debug.Log(jsonData);
+
     }
 
 
@@ -297,7 +318,7 @@ public class MessageHandler : MonoBehaviour
         string jsonData = JsonHelper.fixJson(inventory_data);
         inventoryData = JsonHelper.FromJson<InventoryModel>(jsonData);
         userModel.inventory = inventoryData;
-        Debug.Log("Set Inventory");
+        // Debug.Log("Set Inventory");
     }
 
     public void Client_SetBurnInventoryData(string inventory_data)
@@ -307,10 +328,6 @@ public class MessageHandler : MonoBehaviour
         OnInventoryData(inventoryData);
     }
 
-    public void Client_TrxHash(string trx)
-    {
-        transactionModel = JsonUtility.FromJson<TransactionModel>(trx);
-        OnTransactionData();
-    }
+
 
 }

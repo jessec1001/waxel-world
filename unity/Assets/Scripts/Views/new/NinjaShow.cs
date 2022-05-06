@@ -422,10 +422,10 @@ public class NinjaShow : BaseView
                 FoundCzPopup.SetActive(false);
                 break;
             case ("Registered Successfully"):
-                SSTools.ShowMessage("NFT was successfully registered.", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("NFT Registration Successful !", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 break;
             case ("De-Registered Successfully"):
-                SSTools.ShowMessage("NFT was successfully unregistered.", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("NFT De-Registration Successful !", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 break;
             default:
                 break;

@@ -26,7 +26,7 @@ public class AbbreviationsHelper : MonoBehaviour
         abbreviations.Add("FLAX", "Flax");
         abbreviations.Add("IO", "Iron Ore");
         abbreviations.Add("TEAK", "Teak");
-        abbreviations.Add("SWORMS", "Silkworms");
+        abbreviations.Add("SWORMS", "Silk Worms");
         abbreviations.Add("CB", "Copper Bar");
 
         abbreviations_rev.Add("Birch Wood", "BWOOD");
@@ -45,19 +45,19 @@ public class AbbreviationsHelper : MonoBehaviour
         abbreviations_rev.Add("Flax", "FLAX");
         abbreviations_rev.Add("Iron Ore", "IO");
         abbreviations_rev.Add("Teak", "TEAK");
-        abbreviations_rev.Add("Silkworms", "SWORMS");
+        abbreviations_rev.Add("Silk Worms", "SWORMS");
         abbreviations_rev.Add("Copper Bar", "CB");
 
-        string[] miner_items = {
-            "Copper Hammer & Chisel",
+        string[] miner_items = { 
+            "Copper Hammer and Chisel", 
             "Copper Pickaxe",
             "Birch Mining Cart",
-            "Tin Hammer & Chisel",
+            "Tin Hammer and Chisel",
             "Tin Pickaxe",
             "Oak Mining Cart",
             "Iron Pickaxe",
             "Teak Mining Cart",
-            "Iron Hammer & Chisel",
+            "Iron Hammer and Chisel",
         };
         string[] lumber_items = {
             "Copper Saw",
@@ -88,15 +88,15 @@ public class AbbreviationsHelper : MonoBehaviour
 
     public void add_items()
     {
-        abbreviations_items.Add("Copper Hammer & Chisel", "Miner");
+        abbreviations_items.Add("Copper Hammer and Chisel", "Miner");
         abbreviations_items.Add("Copper Pickaxe", "Miner");
         abbreviations_items.Add("Birch Mining Cart", "Miner");
-        abbreviations_items.Add("Tin Hammer & Chisel", "Miner");
+        abbreviations_items.Add("Tin Hammer and Chisel", "Miner");
         abbreviations_items.Add("Tin Pickaxe", "Miner");
         abbreviations_items.Add("Oak Mining Cart", "Miner");
         abbreviations_items.Add("Iron Pickaxe", "Miner");
         abbreviations_items.Add("Teak Mining Cart", "Miner");
-        abbreviations_items.Add("Iron Hammer & Chisel", "Miner");
+        abbreviations_items.Add("Iron Hammer and Chisel", "Miner");
         abbreviations_items.Add("Copper Saw", "Lumberjack");
         abbreviations_items.Add("Tin Saw", "Lumberjack");
         abbreviations_items.Add("Iron Saw", "Lumberjack");
@@ -121,7 +121,7 @@ public class AbbreviationsHelper : MonoBehaviour
     {
         get { return abbreviations; }
     }
-
+    
     public Dictionary<string,string> mat_abv_rev
     {
         get { return abbreviations_rev; }

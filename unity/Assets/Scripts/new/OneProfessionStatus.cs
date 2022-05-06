@@ -36,6 +36,10 @@ public class OneProfessionStatus : MonoBehaviour
     public string type;
     public TMP_Text UseLeftCount;
 
+
+
+
+
     public GameObject CraftBtn;
 
     public Button Register_Btn;
@@ -43,6 +47,7 @@ public class OneProfessionStatus : MonoBehaviour
     public Button BurnBtn;
     public Transform BtnParent;
     public GameObject LoadingPanel;
+    
 
     public bool gatherer = false;
     public string matName;
@@ -53,7 +58,7 @@ public class OneProfessionStatus : MonoBehaviour
         // Debug.Log("Register");
         if (string.IsNullOrEmpty(assetId))
         {
-            SSTools.ShowMessage("Please click on NFT to register.", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SSTools.ShowMessage("Please click on NFT to Register", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
         else
         {
@@ -66,7 +71,7 @@ public class OneProfessionStatus : MonoBehaviour
     {
         if (string.IsNullOrEmpty(assetId) || string.IsNullOrEmpty(type))
         {
-            SSTools.ShowMessage("Please click on registered NFT to unregister.", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SSTools.ShowMessage("Please click on Registered NFT to De-Register", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
         else
         {
@@ -81,7 +86,7 @@ public class OneProfessionStatus : MonoBehaviour
     }
 
     public void CheckButtonClick()
-    {
+    {   
         switch (type)
         {
             case "Miner":
@@ -129,12 +134,15 @@ public class OneProfessionStatus : MonoBehaviour
         }
         else
         {
-            SSTools.ShowMessage("Asset ID is null.", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SSTools.ShowMessage("Asset ID is null", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
     }
 
     private IEnumerator StartCountdown(string time,int delay)
     {
+        // ItemBtn.gameObject.GetComponent<Button>().interactable = false;
+        // Seller.gameObject.GetComponent<Button>().interactable = false;  
+        // CraftBtn.gameObject.GetComponent<Button>().interactable = false;
         DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         int epoch_time = (int)(DateTime.Parse(time) - epochStart).TotalSeconds;
         int final_epoch_time = epoch_time + delay;
